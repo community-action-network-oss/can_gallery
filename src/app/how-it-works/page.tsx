@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Chip, DocRef, PageHead, Planned, Section } from "@/components/ui";
-import { PATH, SIDE_STATES } from "@/content/stages";
+import { RoleList, StagePanel } from "@/components/Path";
+import { PATH, SIDE_STATES, type Roles } from "@/content/stages";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -20,24 +21,27 @@ export default function Page() {
 
       <Section id="lifecycle" title="The lifecycle, in the words visitors will see" wide>
         <p className="prose">
-          Every problem follows the same five steps, labelled Planned. The
-          first three happen before anything is public. In the Stages step,
+          Every problem follows the same six steps, labelled Planned. The
+          first two happen before anything is public. In the Stages step,
           stages can run one after another, side by side, or both, and a
-          stage finishes only when its evidence meets its finish line. Along
+          stage finishes only when its evidence meets its finish line. The
+          last step keeps the whole journey as a path others can start from. Along
           the way a problem can also be paused, stuck, redirected or closed.
           The first build uses one fictional place and fictional problems only.
         </p>
         <div className="table-wrap">
           <table>
-            <caption className="small muted">The five steps, then the other states, and what they mean</caption>
+            <caption className="small muted">The six steps, then the other states, and what they mean</caption>
             <thead><tr><th scope="col">Label</th><th scope="col">What it says</th></tr></thead>
             <tbody>
               {ALL.map((s) => (
-                <tr key={s.label}><th scope="row"><Chip tone={s.tone}>{s.label}</Chip></th><td>{s.says}</td></tr>
+                <tr key={s.label}><th scope="row"><Chip tone={s.tone}>{s.label}</Chip></th><td>{s.says}{"roles" in s && <RoleList roles={s.roles as Roles} />}</td></tr>
               ))}
             </tbody>
           </table>
         </div>
+        <h3 className="sub-h">Inside the Stages step</h3>
+        <StagePanel id="hiw-stages-h" />
         <p className="prose small muted">
           Stuck and paused are ordinary parts of real civic work. They are
           styled calmly, never in red, and never read as blame. Source: <DocRef path="docs/spec/01a-lifecycle.md" />.

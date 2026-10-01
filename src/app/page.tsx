@@ -1,7 +1,6 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { ButtonLink, Chip, Fictional, Planned, RepoLink, Section } from "@/components/ui";
-import { PATH, STAGE_GRAPH, STAGE_GRAPH_TEXT } from "@/content/stages";
+import { PathRail } from "@/components/Path";
 import oq from "@/content/open-questions.json";
 
 const TEASER = ["OQ-hosting-region", "OQ-decision-method", "OQ-launch-jurisdiction-language"];
@@ -40,27 +39,7 @@ export default function Home() {
             <p className="journey-title" id="journey-t">
               The path every public problem will follow <Planned />
             </p>
-            <ol className="rail" aria-labelledby="journey-t">
-              {PATH.map((s, i) => (
-                <li key={s.label} style={{ "--i": i } as CSSProperties}>
-                  <Chip tone={s.tone}>{s.label}</Chip>
-                  {s.vis && <span className="vis">{s.vis}</span>}
-                  <span className="says">{s.says}</span>
-                  {s.label === "Stages" && (
-                    <>
-                      <div className="stage-graph" aria-hidden="true">
-                        {STAGE_GRAPH.map((col, c) => (
-                          <div className="sg-col" key={c}>
-                            {col.map((n) => <span className="sg-node" key={n}>{n}</span>)}
-                          </div>
-                        ))}
-                      </div>
-                      <p className="sr-only">{STAGE_GRAPH_TEXT}</p>
-                    </>
-                  )}
-                </li>
-              ))}
-            </ol>
+            <PathRail labelledBy="journey-t" />
             <p className="journey-foot">
               This is the planned design, not a live product. Along the way a
               problem can also be paused, stuck, redirected or closed, always
@@ -92,6 +71,7 @@ export default function Home() {
           <li><div><h3>Publish it</h3><p>AI checks it against the rules the community wrote, then publishes it.</p></div></li>
           <li><div><h3>Work through the stages</h3><p>In each stage people offer options, a choice is made, the work is done and evidence is posted. Solution-focused only.</p></div></li>
           <li><div><h3>Prove it is solved</h3><p>A problem is solved only when every stage is done and the evidence meets the final finish line.</p></div></li>
+          <li><div><h3>Archive the journey</h3><p>The whole journey, including what failed, becomes a path others can start from, adapted to their own laws and means.</p></div></li>
         </ol>
         <p className="prose">
           Publishing is planned to use an AI check against community written
@@ -111,7 +91,7 @@ export default function Home() {
           <ul className="rows">
             <li><strong>Law-aware moderation <Planned /></strong><span className="d">Rules that follow the affected place, written with qualified local reviewers.</span></li>
             <li><strong>Participation by connection <Planned /></strong><span className="d">People with a material connection to the problem lead the thread; experts and visitors contribute without steering it.</span></li>
-            <li><strong>Solved-case playbooks <Planned /></strong><span className="d">A finished problem becomes a reusable guide for the next community.</span></li>
+            <li><strong>An archive of solved paths <Planned /></strong><span className="d">A finished problem, with what failed, becomes a path the next community can start from, adapted to its own laws.</span></li>
             <li><strong>Community-improved AI <Planned /></strong><span className="d">People help label and correct moderation gaps through masked, randomized review.</span></li>
           </ul>
         </div>
@@ -141,7 +121,8 @@ export default function Home() {
             <li><Chip tone="interim">Volunteer review</Chip><span>Volunteers suggest splitting the plan into a repair stage and an inspection stage, and sharpening the finish line. The poster accepts two suggestions and declines one, with a reason.</span></li>
             <li><Chip tone="active">Published</Chip><span>The AI check passes it against the community rules and it goes public.</span></li>
             <li><Chip tone="active">Stages</Chip><span>The repair stage runs first: options, a choice, the work, then a dated night photo as evidence. The inspection schedule was prepared in the meantime and starts once the repair is done.</span></li>
-            <li><Chip tone="solved">Solved</Chip><span>Both stages are done and the evidence meets the final finish line. The whole journey stays public for the next town.</span></li>
+            <li><Chip tone="solved">Solved</Chip><span>Both stages are done and the evidence meets the final finish line. </span></li>
+            <li><Chip tone="closed">Archive</Chip><span>The whole journey, including the repair that failed once, becomes a path the next town can start from, adapted to its own rules.</span></li>
           </ul>
         </div>
       </Section>

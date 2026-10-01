@@ -66,23 +66,45 @@ main:focus { outline: none; }
 .status-note { margin-top: var(--can-space-6); max-width: 42.5rem; padding: var(--can-space-4) var(--can-space-5); background: var(--can-color-surface); border: 1px solid var(--can-color-border); border-radius: var(--can-radius-md); font-size: 0.95rem; }
 .status-note strong { display: block; margin-bottom: var(--can-space-1); font-size: 1rem; }
 
-/* Journey rail: the signature element. Real public labels, token colours. */
+/* Journey rail: the signature element. Vertical timeline so each step can show who helps. */
 .journey { margin-top: clamp(2.5rem, 6vw, 4rem); }
 .journey-title { font-size: 0.875rem; font-weight: 600; color: var(--can-color-text-muted); margin-bottom: var(--can-space-4); }
-.rail { list-style: none; padding: 0; display: grid; gap: 0; counter-reset: step; position: relative; }
-.rail li { position: relative; margin: 0; padding: 0 0 var(--can-space-5) var(--can-space-7); counter-increment: step; }
-.rail li::before { content: ""; position: absolute; left: 0.9375rem; top: 1.75rem; bottom: -0.25rem; width: 2px; background: var(--can-color-border); }
-.rail li:last-child::before { display: none; }
-.rail li::after { content: counter(step); position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: var(--can-radius-pill); background: var(--can-color-surface); border: 2px solid var(--can-color-primary); color: var(--can-color-primary); font-size: 0.8125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-.rail .says { display: block; margin-top: var(--can-space-2); color: var(--can-color-text-muted); font-size: 0.9rem; line-height: 1.45; max-width: 26rem; }
+.rail { list-style: none; padding: 0; display: grid; gap: 0; counter-reset: step; position: relative; max-width: 60rem; }
+.rail > li { position: relative; margin: 0; padding: 0 0 var(--can-space-6) var(--can-space-7); counter-increment: step; min-width: 0; }
+.rail > li::before { content: ""; position: absolute; left: 0.9375rem; top: 2.25rem; bottom: 0.25rem; width: 2px; background: var(--can-color-border); }
+.rail > li:last-child::before { display: none; }
+.rail > li::after { content: counter(step); position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: var(--can-radius-pill); background: var(--can-color-surface); border: 2px solid var(--can-color-primary); color: var(--can-color-primary); font-size: 0.8125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rail-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--can-space-2); min-height: 2rem; }
+.rail .says { display: block; margin-top: var(--can-space-2); color: var(--can-color-text-muted); font-size: 0.9rem; line-height: 1.45; max-width: 40rem; }
+.rail .vis { font-size: 0.8125rem; color: var(--can-color-text-muted); }
+
+/* Role lines: the role name is text, shape and weight differ per role, colour only supports */
+.roles { list-style: none; padding: 0; margin: var(--can-space-3) 0 0; display: grid; gap: var(--can-space-2); }
+.roles li { margin: 0; display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--can-space-2); align-items: baseline; font-size: 0.875rem; line-height: 1.4; }
+.role-chip { justify-self: start; padding: 0.05rem 0.6rem; font-size: 0.75rem; font-weight: 700; border: 1.5px solid var(--can-color-primary); color: var(--can-color-primary); background: var(--can-color-surface); border-radius: var(--can-radius-pill); }
+.role-community .role-chip { border-style: dashed; }
+.role-ai .role-chip { border-radius: var(--can-radius-sm); background: var(--can-status-interim-bg); color: var(--can-status-interim-fg); border-color: var(--can-status-interim-fg); }
+.role-line { color: var(--can-color-text); }
+@media (max-width: 29.99rem) { .roles li { grid-template-columns: 1fr; gap: var(--can-space-1); } }
+
+/* Expanded Stages step */
+.stage-panel { margin-top: var(--can-space-3); padding: var(--can-space-4); background: var(--can-color-surface); border: 1px solid var(--can-color-border); border-left: 4px solid var(--can-color-primary); border-radius: var(--can-radius-md); }
+.panel-title { font-weight: 650; font-size: 0.95rem; }
+.substeps { list-style: none; padding: 0; margin: var(--can-space-3) 0 0; display: grid; gap: var(--can-space-4); }
+.substeps > li { margin: 0; padding-top: var(--can-space-3); border-top: 1px solid var(--can-color-border); min-width: 0; }
+.sub-head { display: flex; align-items: center; gap: var(--can-space-2); }
+.sub-key { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: var(--can-radius-sm); background: var(--can-color-surface-muted); font-size: 0.75rem; font-weight: 700; }
+.sub-says { margin-top: var(--can-space-1); font-size: 0.875rem; color: var(--can-color-text-muted); }
 @media (min-width: 62rem) {
-  .rail { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--can-space-4); }
-  .rail li { padding: var(--can-space-7) 0 0 0; }
-  .rail li::before { left: 2.25rem; right: calc(-1 * var(--can-space-4)); top: 0.9375rem; bottom: auto; width: auto; height: 2px; }
-  .rail li::after { top: 0; }
+  .substeps { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--can-space-3); }
+  .substeps > li { border-top: 0; padding-top: 0; }
+  .substeps .roles li { grid-template-columns: 1fr; gap: var(--can-space-1); }
 }
-.rail .vis { margin-left: var(--can-space-2); font-size: 0.8125rem; color: var(--can-color-text-muted); }
-.stage-graph { display: flex; align-items: center; gap: var(--can-space-3); margin-top: var(--can-space-3); }
+.panel-foot { margin-top: var(--can-space-4); padding-top: var(--can-space-3); border-top: 1px solid var(--can-color-border); display: grid; gap: var(--can-space-3); }
+.panel-notes { margin: 0; padding-left: 1.1rem; font-size: 0.875rem; color: var(--can-color-text-muted); }
+.sub-h { margin: var(--can-space-6) 0 var(--can-space-3); }
+td .roles { margin-top: var(--can-space-2); }
+.stage-graph { display: flex; align-items: center; gap: var(--can-space-3); }
 .sg-col { display: grid; gap: var(--can-space-2); position: relative; }
 .sg-col + .sg-col::before { content: "\2192"; position: absolute; left: calc(-1 * var(--can-space-3) - 0.25rem); top: 50%; transform: translate(-50%, -50%); color: var(--can-color-text-muted); font-size: 0.8rem; }
 .sg-node { border: 1px solid var(--can-color-border); background: var(--can-color-surface); border-radius: var(--can-radius-md); padding: 0.15rem 0.5rem; font-size: 0.75rem; white-space: nowrap; }
@@ -90,7 +112,7 @@ main:focus { outline: none; }
 .journey-foot { margin-top: var(--can-space-3); font-size: 0.9rem; color: var(--can-color-text-muted); max-width: 46rem; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .rail li { animation: rise 520ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
+  .rail > li { animation: rise 520ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 }
 

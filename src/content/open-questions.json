@@ -37,6 +37,18 @@
     "file": "docs/open-questions/OQ-amsterdam-overlay-review.md"
   },
   {
+    "id": "OQ-archive-retention",
+    "question": "The Archive is a permanent public record. What happens to archived content when a poster withdraws or deletes their account?",
+    "why": "People must be able to leave without erasing the path others rely on, and without their personal text staying public.",
+    "default": "The archive is permanent. Withdrawal and account deletion tombstone the author's own text (OWN-1, Constitution II.8) and keep the path structure: stages, options, choices, evidence references, challenges and outcome.",
+    "roles": [
+      "Data-protection officers",
+      "archivists",
+      "privacy lawyers"
+    ],
+    "file": "docs/open-questions/OQ-archive-retention.md"
+  },
+  {
     "id": "OQ-bias-monitoring",
     "question": "How does the project detect and respond to systematically different outcomes across languages, jurisdictions, groups and political contexts?",
     "why": "A policy applied by AI at scale can be consistently unfair. Without measurement nobody would notice.",
@@ -47,6 +59,18 @@
       "rights practitioners"
     ],
     "file": "docs/open-questions/OQ-bias-monitoring.md"
+  },
+  {
+    "id": "OQ-boundary-data",
+    "question": "Which boundary dataset supplies administrative areas for affected areas, and under what licence and attribution?",
+    "why": "Areas should be reproducible, not drawn by one person, and the data must be legal to reuse.",
+    "default": "OpenStreetMap administrative boundaries (ODbL) with attribution, recorded as a source_ref. Posters may also draw an area, which volunteers can review.",
+    "roles": [
+      "Open-data practitioners",
+      "GIS specialists",
+      "licensing experts"
+    ],
+    "file": "docs/open-questions/OQ-boundary-data.md"
   },
   {
     "id": "OQ-content-schema-design",
@@ -64,6 +88,18 @@
     "file": "docs/open-questions/OQ-content-schema-design.md"
   },
   {
+    "id": "OQ-contribution-license",
+    "question": "Which license applies to what people contribute (problems, options, evidence summaries, archive records), so others may reuse it?",
+    "why": "The Archive only helps if paths can be reused. Attribution keeps reuse traceable: a community that adopts a path can follow it back to where it was proven, and the source is credited.",
+    "default": "CC BY 4.0 for contributed content, which requires attribution. The alternative is CC0 (no conditions). Code stays MIT (D-49).",
+    "roles": [
+      "Open-licensing and open-data lawyers",
+      "civic-tech maintainers",
+      "archivists"
+    ],
+    "file": "docs/open-questions/OQ-contribution-license.md"
+  },
+  {
     "id": "OQ-cooldown-lengths",
     "question": "What delays between contributions, and after a rejected contribution, encourage thoughtful posting without silencing urgent updates?",
     "why": "A flat wait punishes everyone. A well-aimed delay calms a heated exchange.",
@@ -76,10 +112,22 @@
     "file": "docs/open-questions/OQ-cooldown-lengths.md"
   },
   {
+    "id": "OQ-cross-language-reuse",
+    "question": "How should a problem in one language find and show archived paths written in another?",
+    "why": "A path proven in one country is most valuable to a place that speaks a different language.",
+    "default": "Shared multilingual embeddings are used for retrieval, and translation is used for display, labelled as machine translated. The structured context_profile is language independent.",
+    "roles": [
+      "Multilingual NLP researchers",
+      "translators",
+      "localization specialists"
+    ],
+    "file": "docs/open-questions/OQ-cross-language-reuse.md"
+  },
+  {
     "id": "OQ-decision-method",
     "question": "What decision method turns proposals into a chosen solution, and how do stewardship groups form, reach quorum and handle dissent?",
     "why": "Majority voting is not assumed to be right. The method decides local legitimacy, expert weight and minority rights.",
-    "default": "A recorded decision with rationale, decider, authority and dissent notes. No vote. The initiator is provisional steward and the moderation run decides publish, solved, closed and redirected under the policy pack.",
+    "default": "A recorded decision with rationale, decider, authority and dissent notes. No vote. The initiator is provisional steward and the moderation run decides publish, stage resolution, solved, closed and redirected under the policy pack. The per-stage choice is covered by OQ-stage-decision-method.",
     "roles": [
       "Governance and deliberation researchers",
       "facilitators",
@@ -224,6 +272,19 @@
     "file": "docs/open-questions/OQ-guest-read-search-indexing.md"
   },
   {
+    "id": "OQ-h3-resolution",
+    "question": "What H3 resolution, minimum number of cells per affected area and population floor should apply?",
+    "why": "Small areas make \"inside\" almost an address. Large cells blur the area boundary.",
+    "default": "Resolution 8 (about 0.74 km2 per cell), at least 25 cells per area. Smaller affected places are expressed as the surrounding neighbourhood, and the problem text names the place. A population floor for urban areas is undecided.",
+    "roles": [
+      "Privacy researchers",
+      "statisticians",
+      "geographers",
+      "data-protection officers"
+    ],
+    "file": "docs/open-questions/OQ-h3-resolution.md"
+  },
+  {
     "id": "OQ-handle-scope",
     "question": "Should a person keep one public handle everywhere, or get a separate pseudonym per problem?",
     "why": "One handle builds a recognizable history but can link someone across problems. Per-problem handles protect privacy but hinder trust and abuse handling.",
@@ -269,6 +330,30 @@
       "accessibility reviewers"
     ],
     "file": "docs/open-questions/OQ-human-presence.md"
+  },
+  {
+    "id": "OQ-impact-decision-weight",
+    "question": "Should an impacted label ever give a contribution more weight in a stage decision, and if so how?",
+    "why": "Weight could protect affected people from outsiders, or let a brigade game the label.",
+    "default": "Out of scope for slice 1. The label only filters and labels. It never changes moderation, and the stage decision method gives it no weight (OQ-stage-decision-method).",
+    "roles": [
+      "Governance and deliberation researchers",
+      "community organizers",
+      "affected-community representatives"
+    ],
+    "file": "docs/open-questions/OQ-impact-decision-weight.md"
+  },
+  {
+    "id": "OQ-impacted-label-web",
+    "question": "While web proofs are only a self-assertion, should the label read \"Impacted\" or something more careful?",
+    "why": "People rely on the \"Impacted only\" filter. A label that sounds verified when it is not would mislead them.",
+    "default": "The label reads \"Reported impacted\" on web until the proof type zk_cell_v1 passes its spike. Native builds with a device integrity token may use the plain wording once built. The founder may override.",
+    "roles": [
+      "UX writers",
+      "trust and safety practitioners",
+      "civic-tech researchers"
+    ],
+    "file": "docs/open-questions/OQ-impacted-label-web.md"
   },
   {
     "id": "OQ-label-task-panel",
@@ -529,7 +614,7 @@
   },
   {
     "id": "OQ-reresolution-feasibility",
-    "question": "When a policy or legal-corpus change would alter the conclusion of a solved, closed, redirected or stuck problem, which feasibility criteria decide whether it actually reopens (T23)?",
+    "question": "When a policy or legal-corpus change would alter the conclusion of a solved, closed, redirected or stuck problem, which feasibility criteria decide whether it actually reopens (T20 or T21)?",
     "why": "Re-resolution improves the rules for every past case (D-59), but reopening problems that people finished can confuse, burden or undo lawful work. Too strict leaves wrong conclusions in place; too loose reopens everything on every pack change.",
     "default": "Reopen only when the conclusion changes and all hold: the problem still exists, the jurisdiction is still enabled, the original initiator or a steward can be notified, and reopening does not undo a lawful completed implementation without a new proposal. Otherwise write a re-resolution record and change no state. Never silent, history kept, appealable (RERESOLVE-1). Review queue limits and batching are pack values.",
     "roles": [
@@ -538,6 +623,18 @@
       "trust and safety practitioners"
     ],
     "file": "docs/open-questions/OQ-reresolution-feasibility.md"
+  },
+  {
+    "id": "OQ-review-quorum",
+    "question": "How many volunteers must finish a review, and how long must a private problem wait in volunteer review, before the poster can send it to the publication decision (DP-PUBLISH)?",
+    "why": "Too strict a quorum leaves problems waiting with nobody to review them. Too loose a quorum makes the review a formality and lets weak facts or sources reach the AI unchecked.",
+    "default": "The quorum is 3 distinct volunteers who finished a review (at least one recommendation, or an explicit \"no changes\") and no recommendation left open more than 7 days. After 14 days with at least 1 finished review the poster may send it anyway. DP-PUBLISH weighs every recommendation still open. At least one completed review is always required (D-74): with none, the problem stays in_review and shows a visible \"needs reviewers\" call. The numbers are pack values, not code.",
+    "roles": [
+      "Community moderators and reviewers from open-source or civic projects",
+      "people who run peer-review queues",
+      "UX researchers"
+    ],
+    "file": "docs/open-questions/OQ-review-quorum.md"
   },
   {
     "id": "OQ-review-wait-statement",
@@ -550,6 +647,19 @@
       "operations analysts"
     ],
     "file": "docs/open-questions/OQ-review-wait-statement.md"
+  },
+  {
+    "id": "OQ-reviewer-eligibility",
+    "question": "Who may opt in as a volunteer reviewer, and what conflict-of-interest rules apply?",
+    "why": "Reviewers see private problems before publication. Too open a door invites sabotage or brigading. Too closed a door leaves problems without review.",
+    "default": "Any signed-in member who opts in (a revocable account flag). Personal data is masked. Each reviewer self-declares any conflict of interest on a problem before reviewing it, and a poster never reviews their own problem. Spam and abuse are limited by per-day caps and DP-TONE and DP-PRIVACY on recommendations.",
+    "roles": [
+      "Trust and safety practitioners",
+      "community moderators",
+      "privacy specialists",
+      "governance researchers"
+    ],
+    "file": "docs/open-questions/OQ-reviewer-eligibility.md"
   },
   {
     "id": "OQ-rights-core-amendment",
@@ -587,6 +697,19 @@
     "file": "docs/open-questions/OQ-solved-evidence-threshold.md"
   },
   {
+    "id": "OQ-stage-decision-method",
+    "question": "Inside a stage, what decision method turns the contributed options into a chosen option or set of steps, and who may set a different method for one stage?",
+    "why": "The choice decides what work is done. Letting the poster always choose risks capture. Voting risks popularity over evidence and rights.",
+    "default": "The method is set per stage in its metadata. The default is poster_after_input: the poster chooses after community input, and records the rationale, authority and any dissent. A stage may instead set community_vote, steward or other_named. The choice gate (DP-DECISION-RECORD, DP-LEGALITY) checks the record, never which option is best. The per-problem method is still OQ-decision-method.",
+    "roles": [
+      "Governance and deliberation researchers",
+      "facilitators",
+      "mediators",
+      "community organizers"
+    ],
+    "file": "docs/open-questions/OQ-stage-decision-method.md"
+  },
+  {
     "id": "OQ-steward-entity-grants",
     "question": "Can a foundation, association or cooperative that stewards CAN's assets and governance apply for grants (for example Dutch digital-infrastructure or effective-giving programs listed as input in the earlier planning notes) without conflicting with MONEY-0, NONMONETARY-INDEPENDENT and supporter independence?",
     "why": "The constitution forbids payments, donations and paid placement inside the product. A funder could still capture the project through a grant. The project also needs some way to pay for hosting and model spend beyond the founder.",
@@ -612,6 +735,20 @@
     "file": "docs/open-questions/OQ-supranational-default.md"
   },
   {
+    "id": "OQ-trusted-sources",
+    "question": "Which sources count as trusted when a poster cites URIs to show a problem is real, and what must a source show to establish authenticity?",
+    "why": "Trusted sources are the first line against invented or distorted problems. Too narrow a list shuts out local and community knowledge. Too wide a list lets anything through.",
+    "default": "Default source categories that count as trusted: official records, statistics bodies, courts and legislatures, reputable media with editorial standards, research (peer-reviewed), and civil society organizations with a public track record. Anything in the category other needs corroboration by a second independent source. Every source states what it establishes and why it is authentic (source_ref: uri, category, establishes, authenticity_note). DP-SOURCE-TRUST applies the list under SOURCE-1.",
+    "roles": [
+      "Librarians and fact-checkers",
+      "journalists",
+      "researchers",
+      "archivists",
+      "open-data practitioners"
+    ],
+    "file": "docs/open-questions/OQ-trusted-sources.md"
+  },
+  {
     "id": "OQ-unsupported-language",
     "question": "How should the platform treat text in a language it cannot yet moderate, which languages come next, and who reviews translations and right-to-left layouts?",
     "why": "Moderation quality must be evaluated per language. Silent rejection excludes people; silent acceptance skips safety review.",
@@ -628,7 +765,7 @@
     "id": "OQ-visibility-classes",
     "question": "Which classes of record exist, who can see each, and what becomes public by default?",
     "why": "What becomes public is the most consequential privacy decision. It is hard to take back.",
-    "default": "Two classes plus notes: private (draft, submitted, needs_revision, rejected: initiator, the emergency/legal lane and auditors on masked samples) and public (published problems). Auditor-only notes are never public.",
+    "default": "Two classes plus notes: private (draft, in_review, needs_revision, held, rejected: the poster, opted-in volunteers on in_review with personal data masked, the emergency/legal lane and auditors on masked samples) and public (published problems). Auditor-only notes are never public.",
     "roles": [
       "Privacy engineers",
       "data-protection officers",
@@ -636,5 +773,17 @@
       "archivists"
     ],
     "file": "docs/open-questions/OQ-visibility-classes.md"
+  },
+  {
+    "id": "OQ-zk-setup",
+    "question": "Should the target proof use a universal-setup, Plonk-family system or a per-circuit Groth16 ceremony?",
+    "why": "A ceremony needs trusted participants and rerunning for each circuit change. That is a heavy burden for a contributor-run project.",
+    "default": "Prefer a universal-setup Plonk-family system (for example Noir with UltraHonk) over a per-circuit Groth16 ceremony. The spike tests both. If neither meets the thresholds, slice 1 stays on option C.",
+    "roles": [
+      "Cryptographers",
+      "zero-knowledge engineers",
+      "security reviewers"
+    ],
+    "file": "docs/open-questions/OQ-zk-setup.md"
   }
 ]
