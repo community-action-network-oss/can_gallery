@@ -51,8 +51,8 @@
   {
     "id": "OQ-domain",
     "question": "What brand name, domain name and visual identity should the project use publicly?",
-    "why": "The domain appears in emails, links and the promo site, and is hard to move later. The name needs a trademark and clash check.",
-    "default": "No domain and no brand. The promo site uses a placeholder repository link. Local development uses localhost ports.",
+    "why": "The domain appears in emails, links and the gallery, and is hard to move later. The name needs a trademark and clash check.",
+    "default": "No domain and no brand. The gallery uses a placeholder repository link. Local development uses localhost ports.",
     "roles": [
       "Naming and brand designers",
       "trademark searchers",
@@ -210,7 +210,7 @@
     "id": "OQ-launch-jurisdiction-language",
     "question": "After the fictional slice, which real jurisdiction and which language should host the first controlled pilot?",
     "why": "It decides the policy rule set, emergency routing, legal reviewers, moderation language evaluation and who the first users are. It must be a place where qualified reviewers exist.",
-    "default": "One fictional jurisdiction and English only. No real jurisdiction is named anywhere, including the promo site.",
+    "default": "One fictional jurisdiction and English only. No real jurisdiction is named anywhere, including the gallery.",
     "roles": [
       "Civic practitioners",
       "local-government liaisons",
@@ -246,9 +246,9 @@
   },
   {
     "id": "OQ-license",
-    "question": "Which open-source license applies to can_server, can_app, can_promo_site, the documentation and the protocol schemas?",
+    "question": "Which open-source license applies to can_server, can_app, can_gallery, the documentation and the protocol schemas?",
     "why": "It is very hard to change once outside contributions land. It decides whether hosted forks must stay open, how easily companies and public bodies can adopt the code, and who can contribute. It blocks publishing the repositories and broad promotion, not building.",
-    "default": "No LICENSE file exists in any repository (D-27). Nothing is published. Recommendation to be confirmed: AGPL-3.0 for can_server (network copyleft keeps hosted forks open), Apache-2.0 for can_app, can_promo_site, documentation and protocol schemas.",
+    "default": "No LICENSE file exists in any repository (D-27). Nothing is published. Recommendation to be confirmed: AGPL-3.0 for can_server (network copyleft keeps hosted forks open), Apache-2.0 for can_app, can_gallery, documentation and protocol schemas.",
     "roles": [
       "Open-source licensing lawyers",
       "nonprofit counsel",
@@ -318,7 +318,7 @@
   },
   {
     "id": "OQ-promo-interest-channel",
-    "question": "What channel, if any, should the promo site offer for people who want updates or want to help?",
+    "question": "What channel, if any, should the gallery offer for people who want updates or want to help?",
     "why": "A form or list collects personal data and needs a controller, storage and a privacy notice. A repository link needs none.",
     "default": "No form, no list, no analytics. The primary call to action is the repository and its open questions. The repository link is a placeholder until the remote exists.",
     "roles": [

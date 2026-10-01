@@ -1,6 +1,6 @@
-# can_promo_site
+# can_gallery
 
-The public concept and founding-contributor site for the Community Action Network (CAN). Next.js static export, plain CSS, no forms, no cookies, no analytics, no third-party requests. Developer-first; nothing here handles real problems.
+The public gallery of the Community Action Network (CAN). Like the public gallery in a parliament or court, it is an observation area: anyone can see what is going on inside CAN (plans, decisions, open questions, progress) and learn what CAN is. It is read-only; visitors cannot act here. It is also the Phase 0A public concept page and founding-contributor explainer. Next.js static export, plain CSS, no forms, no cookies, no analytics, no third-party requests. Developer-first; nothing here handles real problems.
 
 ## Run
 

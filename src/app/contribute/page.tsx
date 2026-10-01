@@ -44,7 +44,7 @@ export default function Page() {
             <tbody>
               <tr><td><code>can_server</code></td><td>The API, moderation checks, lifecycle and records.</td><td>NestJS, Postgres, Drizzle</td></tr>
               <tr><td><code>can_app</code></td><td>The app for web, iOS and Android. Verified on web first.</td><td>Expo, Expo Router</td></tr>
-              <tr><td><code>can_promo_site</code></td><td>This site. Static, no forms, no tracking.</td><td>Next.js static export, plain CSS</td></tr>
+              <tr><td><code>can_gallery</code></td><td>This site, the public gallery: a read-only window into CAN. Static, no forms, no tracking.</td><td>Next.js static export, plain CSS</td></tr>
             </tbody>
           </table>
         </div>

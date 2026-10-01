@@ -72,7 +72,7 @@ export default function Page() {
           <li>You get a generated public name. Your email is encrypted and never shown.</li>
           <li>Problems must not identify anyone. A personal experience is welcome only as evidence of a wider condition.</li>
           <li>Rejected and withdrawn drafts are deleted on a date shown to you.</li>
-          <li>This promo site collects nothing: no forms, no cookies, no analytics.</li>
+          <li>This gallery collects nothing: no forms, no cookies, no analytics.</li>
         </ul>
         <p className="small muted">
           Exact numbers (deletion windows, waiting times, ages) are defaults,
