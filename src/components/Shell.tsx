@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV, SITE_NAME, SITE_SHORT } from "@/config/site";
+import { NAV, SITE_NAME, SITE_SHORT, docUrl } from "@/config/site";
 import { RepoLink } from "./ui";
 
 export function Header() {
@@ -57,6 +57,10 @@ export function Footer() {
           <p>
             <RepoLink />. The code, specification and open questions are
             public work in progress on GitHub.
+          </p>
+          <p>
+            MIT licensed: anyone may use, copy and adapt it.{" "}
+            <a href={docUrl("LICENSE")}>Read the license</a>.
           </p>
           <p>
             This site has no forms, no cookies, no analytics and no

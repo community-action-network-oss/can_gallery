@@ -101,7 +101,9 @@ function parseOq(file) {
 }
 
 const oq = existsSync(oqDir)
-  ? readdirSync(oqDir).filter((f) => /^OQ-.*\.md$/.test(f)).sort().map(parseOq)
+  ? readdirSync(oqDir).filter((f) => /^OQ-.*\.md$/.test(f)).sort()
+      .filter((f) => !/^- \*\*Status:\*\* (resolved|decided)/im.test(readFileSync(join(oqDir, f), "utf8")))
+      .map(parseOq)
   : [];
 
 const outputs = [

@@ -245,19 +245,6 @@
     "file": "docs/open-questions/OQ-legal-policy-reviewers.md"
   },
   {
-    "id": "OQ-license",
-    "question": "Which open-source license applies to can_server, can_app, can_gallery, the documentation and the protocol schemas?",
-    "why": "It is very hard to change once outside contributions land. It decides whether hosted forks must stay open, how easily companies and public bodies can adopt the code, and who can contribute. It blocks publishing the repositories and broad promotion, not building.",
-    "default": "No LICENSE file exists in any repository (D-27). Nothing is published. Recommendation to be confirmed: AGPL-3.0 for can_server (network copyleft keeps hosted forks open), Apache-2.0 for can_app, can_gallery, documentation and protocol schemas.",
-    "roles": [
-      "Open-source licensing lawyers",
-      "nonprofit counsel",
-      "maintainers of AGPL or Apache projects",
-      "public-sector procurement staff"
-    ],
-    "file": "docs/open-questions/OQ-license.md"
-  },
-  {
     "id": "OQ-location-verification",
     "question": "How should the platform express and (if at all) verify that someone is materially connected to the affected area, without GPS, tracking or exclusion?",
     "why": "It decides who counts as a core participant and whose voice shapes a decision. Wrong answers either leak location or let outsiders steer local problems.",

@@ -39,3 +39,7 @@ Runs: `sync:check` (fails if synced content would change), `lint`, `typecheck`, 
 - No colour outside the tokens. System fonts only.
 
 Contribution process: see [../CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## License
+
+MIT, see [LICENSE](LICENSE).

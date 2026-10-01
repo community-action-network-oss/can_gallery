@@ -4,7 +4,7 @@ import { ButtonLink, Chip, Fictional, Planned, RepoLink, Section } from "@/compo
 import { JOURNEY } from "@/content/stages";
 import oq from "@/content/open-questions.json";
 
-const TEASER = ["OQ-license", "OQ-decision-method", "OQ-launch-jurisdiction-language"];
+const TEASER = ["OQ-hosting-region", "OQ-decision-method", "OQ-launch-jurisdiction-language"];
 
 export default function Home() {
   const teaser = TEASER.map((id) => oq.find((q) => q.id === id)).filter((q) => q !== undefined);
