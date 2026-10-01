@@ -24,6 +24,46 @@
     "file": "docs/open-questions/OQ-age-default.md"
   },
   {
+    "id": "OQ-amsterdam-overlay-review",
+    "question": "Who legally and civically reviews the Amsterdam (Netherlands) jurisdiction overlay used by seeds 1 and 2 (public safety, explosions and violence; city-centre cleanliness), and which Dutch partners (municipal liaisons, legal and policy reviewers, civic groups) can advise?",
+    "why": "Amsterdam is the first real jurisdiction overlay (D-56). Seeds touch policing, municipal duties and personal safety. A wrong overlay produces wrong lawfulness checks in the simulation and later in public use. The overlay is real law applied to synthetic evidence.",
+    "default": "The overlay is drafted from public sources by the project, marked as unreviewed, approved only by founder stewardship (FOUNDER-TRANS-1), and used only on synthetic evidence. No real incident, person or dataset enters. Public participation stays closed until the overlay has a qualified reviewer or is explicitly labeled unreviewed (OQ-legal-policy-reviewers).",
+    "roles": [
+      "Dutch lawyers and municipal-law specialists",
+      "Amsterdam civic organizations",
+      "public-safety and urban-cleanliness researchers",
+      "Dutch translators"
+    ],
+    "file": "docs/open-questions/OQ-amsterdam-overlay-review.md"
+  },
+  {
+    "id": "OQ-bias-monitoring",
+    "question": "How does the project detect and respond to systematically different outcomes across languages, jurisdictions, groups and political contexts?",
+    "why": "A policy applied by AI at scale can be consistently unfair. Without measurement nobody would notice.",
+    "default": "Disparate-impact evals on the labeled sets per policy version, disagreement tracking, and cross-jurisdiction reviewers on panels. Appeal and flip rates are reported per jurisdiction and language in the audit sample.",
+    "roles": [
+      "Fairness researchers",
+      "linguists",
+      "rights practitioners"
+    ],
+    "file": "docs/open-questions/OQ-bias-monitoring.md"
+  },
+  {
+    "id": "OQ-content-schema-design",
+    "question": "Who drafts the version 1 schemas for each content type (problem, contribution, proposal, decision record, task and verification, appeal, policy proposal), which fields are required, and how do the schemas force a poster to cover facts, causes, affected people, scope, lawful options, uncertainty and assumptions without making posting a chore? How does a major schema bump treat in-flight drafts?",
+    "why": "Schemas are the only way anyone can post (D-58, STRUCT-ONLY-1). Too few fields lets a poster skip the hard parts; too many drives honest people away or produces filler. Schema v1 shapes every later policy and every simulated and real post.",
+    "default": "Founder-stewarded v1 (INTERIM-1), drawn from the problem schema in docs/design/ai/structured-content.md and the other six types derived the same way. Schemas live in the policy pack and change only through a policy proposal. In-flight drafts keep their schema version until submit; a minor bump auto-migrates; a major bump gives a 30-day grace window and a migration screen (set in the pack). The persona simulation tests every schema before public participation.",
+    "roles": [
+      "UX researchers",
+      "plain-language writers",
+      "civic practitioners",
+      "conflict-resolution and mediation practitioners",
+      "accessibility specialists",
+      "people who run public consultations"
+    ],
+    "file": "docs/open-questions/OQ-content-schema-design.md"
+  },
+  {
     "id": "OQ-cooldown-lengths",
     "question": "What delays between contributions, and after a rejected contribution, encourage thoughtful posting without silencing urgent updates?",
     "why": "A flat wait punishes everyone. A well-aimed delay calms a heated exchange.",
@@ -39,7 +79,7 @@
     "id": "OQ-decision-method",
     "question": "What decision method turns proposals into a chosen solution, and how do stewardship groups form, reach quorum and handle dissent?",
     "why": "Majority voting is not assumed to be right. The method decides local legitimacy, expert weight and minority rights.",
-    "default": "A recorded decision with rationale, decider, authority and dissent notes. No vote. The initiator is provisional steward and a moderator confirms publish, solved, closed and redirected.",
+    "default": "A recorded decision with rationale, decider, authority and dissent notes. No vote. The initiator is provisional steward and the moderation run decides publish, solved, closed and redirected under the policy pack.",
     "roles": [
       "Governance and deliberation researchers",
       "facilitators",
@@ -62,6 +102,17 @@
     "file": "docs/open-questions/OQ-domain.md"
   },
   {
+    "id": "OQ-dp-confidence-thresholds",
+    "question": "For each decision point (DP-ELIGIBILITY, DP-PRIVACY, DP-FRAMING, DP-DUPLICATE, DP-CONTRIB-RELEVANCE, DP-TONE, DP-NAMING, DP-LEGALITY, DP-DECISION-RECORD, DP-VERIFICATION, DP-CRISIS, DP-EVIDENCE-TIER, DP-ASSUMPTIONS, DP-COMPLETENESS), below what confidence does a run hold or escalate instead of deciding? This replaces OQ-moderation-confidence-threshold.",
+    "why": "Too low a threshold lets errors through. Too high holds too much and slows honest people. Privacy and crisis points need stricter thresholds than tone.",
+    "default": "Thresholds live in the policy pack and are set by eval on synthetic labeled sets. Below threshold the outcome is hold (PUB-FAILCLOSED-1). Placeholder in tests: privacy and crisis stricter than the rest. Catalog: docs/design/ai/decision-points.md.",
+    "roles": [
+      "Machine-learning evaluators",
+      "trust-and-safety practitioners"
+    ],
+    "file": "docs/open-questions/OQ-dp-confidence-thresholds.md"
+  },
+  {
     "id": "OQ-draft-ttl",
     "question": "Are 30 days deletion for rejected or withdrawn drafts, 90 days for the repost fingerprint, 14 days to appeal, and 30 days before an idle needs_revision draft is withdrawn the right numbers?",
     "why": "Deleting too fast hurts people who want to appeal or revise; keeping too long holds personal text.",
@@ -77,10 +128,10 @@
     "id": "OQ-duplicate-handling",
     "question": "How are duplicates detected and merged, who decides, and how can the initiator contest it?",
     "why": "Merging wrongly buries a problem; failing to merge splits effort.",
-    "default": "A moderator decides. duplicate_of is the only link type. A duplicate closure is a moderation decision and can be appealed.",
+    "default": "The moderation run decides (DP-DUPLICATE). duplicate_of is the only link type. A duplicate closure is a moderation decision and can be appealed.",
     "roles": [
       "Information architects",
-      "moderators",
+      "policy labelers",
       "search specialists"
     ],
     "file": "docs/open-questions/OQ-duplicate-handling.md"
@@ -89,7 +140,7 @@
     "id": "OQ-edit-after-publication",
     "question": "What can an author change after publication, what needs a visible correction, and what history is kept?",
     "why": "Honest correction matters, and so does the right to remove personal information quickly.",
-    "default": "Published text is not edited. An author can add a visible correction note or tombstone their own text. Moderators can hide text with a decision. Originals stay in history unless personal data must be removed.",
+    "default": "Published text is not edited. An author can add a visible correction note or tombstone their own text. The moderation run can hide text with a decision, and a flip is shown with a notice (REMOD-NOTICE-1). Originals stay in history unless personal data must be removed.",
     "roles": [
       "Archivists",
       "editors",
@@ -100,12 +151,12 @@
   {
     "id": "OQ-eligible-categories",
     "question": "What is the real list of eligible problem categories and explicit exclusions for the pilot?",
-    "why": "It decides what moderators accept, what users see in the form, and which problems are redirected. A list that is too broad invites conflict; too narrow fails people.",
-    "default": "A placeholder list for fictional data: public services, infrastructure, environment, safety, accessibility. Exclusions follow the scope rule (no individual advice, no emergencies, no named private people).",
+    "why": "It decides what the moderation run accepts, what users see in the form, and which problems are redirected. A list that is too broad invites conflict; too narrow fails people.",
+    "default": "A placeholder list for the seed problems (synthetic evidence): public services, infrastructure, environment, safety, accessibility. Exclusions follow the scope rule (no individual advice, no emergencies, no named private people).",
     "roles": [
       "Policy analysts",
       "civic practitioners",
-      "moderators",
+      "policy labelers",
       "journalists"
     ],
     "file": "docs/open-questions/OQ-eligible-categories.md"
@@ -114,7 +165,7 @@
     "id": "OQ-emergency-routing",
     "question": "For each launch jurisdiction, which static emergency and crisis routes should every form show, who verifies them and how often?",
     "why": "The platform is not an emergency service. A wrong or stale number can cause harm. This is a hard blocker for publishing anything real.",
-    "default": "Every form shows a generic \"If someone is in danger, contact your local emergency number\" notice. No real numbers. The fictional jurisdiction has placeholder text.",
+    "default": "Every form shows a generic \"If someone is in danger, contact your local emergency number\" notice. No real numbers. The Amsterdam (NL) overlay uses placeholder text until real, reviewed resources exist (OQ-amsterdam-overlay-review).",
     "roles": [
       "Crisis-service professionals",
       "public-safety workers",
@@ -146,6 +197,19 @@
       "community organizers"
     ],
     "file": "docs/open-questions/OQ-founder-stewardship-sunset.md"
+  },
+  {
+    "id": "OQ-graduation-criteria",
+    "question": "Are the criteria and default thresholds in docs/design/ai/simulation.md section 8 (G1 to G13) the right bar, who ratifies them, and who confirms a run set truly meets them?",
+    "why": "They decide when real people may post (SIM-GATE-1). A bar that is too low exposes real people to a weak pipeline; too high delays the project forever. Deterministic FakeModel runs cannot satisfy the quality criteria, so the bar also decides when live runs are paid for.",
+    "default": "The defaults in simulation.md section 8, stored as pack values, ratified by founder stewardship with a public record (FOUNDER-TRANS-1). Live runs stay founder-gated. Any critical miss (a leak, an injection success, a fail-open) resets the counters.",
+    "roles": [
+      "Evaluation and red-team specialists",
+      "statisticians",
+      "safety and privacy engineers",
+      "independent auditors"
+    ],
+    "file": "docs/open-questions/OQ-graduation-criteria.md"
   },
   {
     "id": "OQ-guest-read-search-indexing",
@@ -184,9 +248,9 @@
   },
   {
     "id": "OQ-hosting-region",
-    "question": "Which hosting region and provider, and which real email provider, should the first deployment use?",
+    "question": "Which hosting provider and region, and which real email provider, should the first deployment use? D-57: hosting is undecided, and every service must be portable whichever answer is chosen.",
     "why": "Region sets data-protection obligations and latency. The email provider sees every sign-in address. Both involve cost and legal terms.",
-    "default": "No deployment. Local development only, with Postgres and Mailpit in docker compose. A real email provider is founder-gated.",
+    "default": "No deployment and no provider chosen. GCP was an early lean in planning notes, not a decision (D-57). Every service ships a production Docker image, an environment-variable contract, health checks and a backup and restore path, so any container host works. Local development uses Postgres and Mailpit in docker compose. Provisioning and a real email provider are founder-gated.",
     "roles": [
       "Site reliability engineers",
       "data-protection specialists",
@@ -207,10 +271,34 @@
     "file": "docs/open-questions/OQ-human-presence.md"
   },
   {
+    "id": "OQ-label-task-panel",
+    "question": "How many people label each appeal or eval example, how are they chosen and masked, and what agreement ends the task?",
+    "why": "Label tasks turn disputed appeals into policy examples. Panel design decides how robust and how capture-resistant that is.",
+    "default": "Randomized, context-masked assignment with at least three independent labels collected before the aggregate is shown, matched by jurisdiction where needed. Disagreement is recorded and escalates to a ratification panel. Tests simulate labelers.",
+    "roles": [
+      "Crowdsourcing and annotation researchers",
+      "community organizers"
+    ],
+    "file": "docs/open-questions/OQ-label-task-panel.md"
+  },
+  {
+    "id": "OQ-lane-oversight",
+    "question": "The only human path left is the small emergency, crisis and legal lane (LEGAL-LANE-1, NO-INSTANCE-OVERRIDE-1). Who staffs it, who audits its actions, how are conflicts of interest handled, and what is published about its use?",
+    "why": "A lane that can act on single items is the single point where capture, error or abuse can bypass the community's policy. It also touches law enforcement requests and people in danger.",
+    "default": "Founder acts as the lane under transitional stewardship. Every action carries a logged reason, rule ids and time; aggregate use is published; a sample of lane actions goes to auditors. No dependence on the lane for ordinary moderation. See also OQ-emergency-routing and OQ-legal-data-requests.",
+    "roles": [
+      "Crisis and trauma-informed practitioners",
+      "lawyers",
+      "oversight and audit specialists",
+      "data-protection officers"
+    ],
+    "file": "docs/open-questions/OQ-lane-oversight.md"
+  },
+  {
     "id": "OQ-launch-jurisdiction-language",
-    "question": "After the fictional slice, which real jurisdiction and which language should host the first controlled pilot?",
+    "question": "Amsterdam (Netherlands) is the first real jurisdiction overlay for the seed problems (D-56). Is it also the place of the first controlled pilot, and is the first language English, Dutch, or both?",
     "why": "It decides the policy rule set, emergency routing, legal reviewers, moderation language evaluation and who the first users are. It must be a place where qualified reviewers exist.",
-    "default": "One fictional jurisdiction and English only. No real jurisdiction is named anywhere, including the gallery.",
+    "default": "Amsterdam (NL) overlay for seeds 1 and 2, with synthetic evidence only, English first. Seed pages are labelled \"Seed problem, synthetic evidence\". Dutch-language support and moderation evaluation in Dutch are not built yet; non-English text is held as unsupported (OQ-unsupported-language). Real participants wait for graduation (SIM-GATE-1).",
     "roles": [
       "Civic practitioners",
       "local-government liaisons",
@@ -220,10 +308,23 @@
     "file": "docs/open-questions/OQ-launch-jurisdiction-language.md"
   },
   {
+    "id": "OQ-legal-corpus-sourcing",
+    "question": "For each layer of the legal stack (L1 UN human rights, L2 supranational, L3 national constitution, L4 national law, L5 regional, L6 city), who curates the corpus in can_policy, who verifies provenance, and how often is it refreshed?",
+    "why": "The legal layers are the checkable starting point for every legality decision (D-61). A stale or wrong corpus makes the AI approve something illegal or block something lawful, and every update triggers re-moderation and re-resolution (RERESOLVE-1).",
+    "default": "The project drafts L1 to L6 for the Amsterdam overlay from official sources only, with provenance fields (LEGAL-SOURCE-1), founder-approved under transitional stewardship, marked unreviewed until a qualified reviewer signs off (OQ-amsterdam-overlay-review). Refresh monthly for L4 to L6 and on notice for L1 to L3, each update shadow-tested before activation.",
+    "roles": [
+      "Lawyers and legal librarians",
+      "official-gazette and open-law data maintainers",
+      "Dutch and EU law specialists",
+      "translators"
+    ],
+    "file": "docs/open-questions/OQ-legal-corpus-sourcing.md"
+  },
+  {
     "id": "OQ-legal-data-requests",
     "question": "What is the process, and who decides, when a court, police force or government asks for user data or for content to be removed?",
     "why": "Email addresses and moderation records could be demanded. A policy written after the first request is too late.",
-    "default": "No process yet. Slice 1 holds only fictional data. No real user data may be collected until a policy exists.",
+    "default": "No process yet. Slice 1 holds only synthetic seed data and no real participants until graduation (SIM-GATE-1). No real user data may be collected until a policy exists.",
     "roles": [
       "Lawyers",
       "digital-rights organizations",
@@ -232,10 +333,23 @@
     "file": "docs/open-questions/OQ-legal-data-requests.md"
   },
   {
+    "id": "OQ-legal-layer-conflicts",
+    "question": "When a national constitution or statute conflicts with UN human rights instruments, or a topic ban conflicts with expression rights at L1 or L2, which prevails for a given decision, and who decides a contested conflict?",
+    "why": "The layers are cumulative so CAN never requests anything illegal, but a regime may forbid what rights instruments protect. Handling this wrongly either makes CAN assist unlawful action or silences protected speech.",
+    "default": "Content and solutions must satisfy every layer, and the platform never assists illegal action; refusals are logged with layer, source and version, with a plain explanation and an appeal. A conflict in how two layers should be read is held with a conflict note and queued as a policy question (PREC-1, TOPIC-FORBIDDEN-1, LEGAL-CORPUS-1). The rights-core protections in Constitution I.2 stay in force.",
+    "roles": [
+      "International human-rights lawyers",
+      "constitutional scholars",
+      "digital-rights organizations",
+      "local counsel"
+    ],
+    "file": "docs/open-questions/OQ-legal-layer-conflicts.md"
+  },
+  {
     "id": "OQ-legal-policy-reviewers",
     "question": "Which qualified legal and safety people will review policy packs and escalation procedures for a real jurisdiction?",
     "why": "A policy pack states what is lawful to discuss and do. Without qualified review the platform must not claim legal grounding.",
-    "default": "No real pack exists. The fictional jurisdiction uses a rule set written by the project and marked as fictional.",
+    "default": "No real pack exists. The Amsterdam (NL) overlay is a rule set drafted by the project from public sources and marked unreviewed (OQ-amsterdam-overlay-review).",
     "roles": [
       "Lawyers",
       "legal-aid workers",
@@ -243,6 +357,19 @@
       "data protection or election law"
     ],
     "file": "docs/open-questions/OQ-legal-policy-reviewers.md"
+  },
+  {
+    "id": "OQ-limits",
+    "question": "Are the default per-account limits right: 3 problems per 7 days, 20 contributions per day with at most 8 per problem, 2 proposals per account per problem, 5 open drafts, and 3 appeals per 7 days?",
+    "why": "Limits slow floods and brigading and keep the pipeline affordable, but tight limits silence honest, active people. They also interact with the reflection delays in OQ-cooldown-lengths.",
+    "default": "The numbers above as pack values, applied equally to persona accounts in the simulation so the limits are tested before real people meet them. Progress updates and verification evidence are not counted against the contribution limit.",
+    "roles": [
+      "Community managers",
+      "abuse and anti-spam engineers",
+      "behavioural researchers",
+      "accessibility specialists"
+    ],
+    "file": "docs/open-questions/OQ-limits.md"
   },
   {
     "id": "OQ-location-verification",
@@ -258,10 +385,34 @@
     "file": "docs/open-questions/OQ-location-verification.md"
   },
   {
+    "id": "OQ-mera-disclosure",
+    "question": "If a related company hosts early servers or links to CAN problems from its own products, what must CAN disclose publicly (who hosts, who can access data, what the links show), and what must stay separate (brand, ownership, data, policy)?",
+    "why": "Independence is a core promise. Earlier planning notes say CAN should not operate under another brand or be owned by it, and that the company may host early servers and offer neutral links. Hidden dependence would damage trust.",
+    "default": "Hosting is undecided and every service is portable (D-57). No link, brand use or shared data with any other product in slice 1. If a host is chosen, the choice and who can access the data are published before any real participant joins. Neutral \"take action\" links, if ever used, need a policy proposal.",
+    "roles": [
+      "Governance and independence researchers",
+      "data-protection officers",
+      "journalism ethics practitioners"
+    ],
+    "file": "docs/open-questions/OQ-mera-disclosure.md"
+  },
+  {
+    "id": "OQ-model-provider-spend-cap",
+    "question": "Which provider, models and monthly spend cap switch live model calls on, and under what data-processing terms?",
+    "why": "Live calls cost money and send content to a third party. The cap and the terms decide who can run the platform and what leaves the trust boundary.",
+    "default": "Live calls are off. Tests and night runs use FakeModel with recorded responses. The first provider adapter is Claude via the Anthropic API, founder-gated by an API key and a spend cap (D-53). Hitting the cap holds items (FAIL-CLOSED-AI-1).",
+    "roles": [
+      "Founder (approval)",
+      "privacy and security reviewers",
+      "cost and inference engineers"
+    ],
+    "file": "docs/open-questions/OQ-model-provider-spend-cap.md"
+  },
+  {
     "id": "OQ-moderation-confidence-threshold",
-    "question": "Once AI assistance exists, what thresholds force human review, per task and risk tier?",
-    "why": "Too low a threshold lets errors through; too high swamps volunteers.",
-    "default": "Not applicable yet. Slice 1 has no live AI and a human reviews everything published (D-13).",
+    "question": "Superseded by OQ-dp-confidence-thresholds: AI decides single items (D-51), so a low-confidence result holds the item rather than sending it to a human reviewer. Only the emergency and legal lane goes to a human.",
+    "why": "Too low a threshold lets errors through; too high holds too much.",
+    "default": "See OQ-dp-confidence-thresholds. Below threshold the run holds (PUB-FAILCLOSED-1).",
     "roles": [
       "Machine-learning evaluators",
       "trust-and-safety practitioners"
@@ -270,9 +421,9 @@
   },
   {
     "id": "OQ-moderator-pool-size",
-    "question": "What is the smallest moderator pool that allows independent appeal review and removes the \"Interim decision\" label?",
-    "why": "With one moderator the same person decides and reviews the appeal.",
-    "default": "Decisions are labelled \"Interim decision, will be re-reviewed\" while the pool is below 2. With 2 or more, the appeal reviewer differs from the decider.",
+    "question": "Per-item moderators no longer exist (D-51). How many people does the project need for the emergency/legal lane, for auditing sampled decisions, and for label tasks, before the transitional marking can go?",
+    "why": "The lane is small but must be reachable. Auditors and labelers make label tasks independent. With too few, one person's view decides the label.",
+    "default": "AI decides single items. Decisions show \"Policy vX, transitional stewardship\" until a ratifying panel approves the pack (INTERIM-1). The founder covers the emergency/legal lane, and every lane action is logged (NO-INSTANCE-OVERRIDE-1). Label tasks are simulated in tests.",
     "roles": [
       "Community organizers",
       "trust-and-safety practitioners",
@@ -282,9 +433,9 @@
   },
   {
     "id": "OQ-moderator-signin",
-    "question": "What additional factor, if any, should moderators use beyond the email code?",
-    "why": "Moderators can publish, close and see internal notes. A taken-over moderator account is serious.",
-    "default": "The same email code as everyone, with every privileged action audited. Acceptable only on fictional data.",
+    "question": "What additional factor, if any, should emergency/legal lane members, auditors and can_policy maintainers use beyond the email code?",
+    "why": "The lane can act on emergency and legal cases, auditors see sampled decisions, and maintainers can merge policy. A taken-over account is serious.",
+    "default": "The same email code as everyone, with every privileged action audited. Acceptable only before graduation, on synthetic seed data.",
     "roles": [
       "Security engineers",
       "identity specialists"
@@ -304,6 +455,43 @@
     "file": "docs/open-questions/OQ-native-device-testing.md"
   },
   {
+    "id": "OQ-persona-realism-bias",
+    "question": "Do AI persona agents behave enough like real submitters, adversaries and appellants to make graduation evidence meaningful, and how do we detect and correct their biases (language, culture, tone, tech fluency, local knowledge of Amsterdam) and the bias of the model that plays them?",
+    "why": "The simulation is the slice-1 proof (D-55). Personas that are too polite, too uniform or tuned to the judge model will pass a pipeline real people would break, and the pipeline may be unfair to people the personas do not resemble.",
+    "default": "Persona catalog and seeds as in docs/design/ai/simulation.md; a persona model separate from the decision-point model where possible; synthetic evidence only; every simulated item labeled (SIM-LABEL-1). Real-person feedback after graduation feeds new personas through the amendment loop. No claim that simulation replaces real users.",
+    "roles": [
+      "Behavioural and social scientists",
+      "people with lived experience of Amsterdam public services and safety issues",
+      "red teamers",
+      "fairness researchers",
+      "linguists"
+    ],
+    "file": "docs/open-questions/OQ-persona-realism-bias.md"
+  },
+  {
+    "id": "OQ-policy-pr-rights",
+    "question": "Who may open pull requests against the can_policy repository, who reviews them, and who maintains the repository?",
+    "why": "Open proposal rights keep the law community-made. Maintenance rights decide who can merge or stall changes.",
+    "default": "Anyone may propose. Appeals open PRs automatically. The founder is the sole maintainer under transitional stewardship (VIII.2) until maintainers beyond the founder are named. Merge requires the ratification step (OQ-ratification-method).",
+    "roles": [
+      "Open-source governance practitioners",
+      "community organizers"
+    ],
+    "file": "docs/open-questions/OQ-policy-pr-rights.md"
+  },
+  {
+    "id": "OQ-policy-retroactivity",
+    "question": "When a ratified policy change would flip the outcome for content already published or decided, is that content re-moderated, grandfathered, or left to appeal?",
+    "why": "Retroactivity decides whether the rules are the same for everyone at one time, and whether people can be surprised by a removal.",
+    "default": "Re-moderate affected content under the new version. A flipped item gets a visible \"re-reviewed under policy vX\" notice with an explanation and an appeal path. Nothing is removed silently (REMOD-NOTICE-1).",
+    "roles": [
+      "Trust-and-safety practitioners",
+      "legal reviewers",
+      "people who have been moderated"
+    ],
+    "file": "docs/open-questions/OQ-policy-retroactivity.md"
+  },
+  {
     "id": "OQ-promo-interest-channel",
     "question": "What channel, if any, should the gallery offer for people who want updates or want to help?",
     "why": "A form or list collects personal data and needs a controller, storage and a privacy notice. A repository link needs none.",
@@ -316,10 +504,58 @@
     "file": "docs/open-questions/OQ-promo-interest-channel.md"
   },
   {
+    "id": "OQ-ratification-method",
+    "question": "How does the community ratify a change to the policy pack (a PR to can_policy): who sits on the panel, how many must approve, and what makes a ratification legitimate?",
+    "why": "Ratification is the step where the community, not the AI and not one person, makes the law. Too loose lets a small group capture the rules. Too strict freezes them while appeals pile up.",
+    "default": "A randomized, context-masked, cross-jurisdiction review panel plus can_policy maintainers. Transitional founder stewardship ratifies policy pack v1 and each version until a panel exists (Constitution VIII.2, V.5). In tests the panel is simulated by fixtures.",
+    "roles": [
+      "Governance designers",
+      "sortition and deliberation researchers",
+      "open-source maintainers"
+    ],
+    "file": "docs/open-questions/OQ-ratification-method.md"
+  },
+  {
+    "id": "OQ-replay-diff-sample-size",
+    "question": "When a policy change is replayed over past decisions to see what would flip, how many decisions are sampled, and how is the sample chosen?",
+    "why": "A small sample can miss a harmful flip. A full replay costs money and time.",
+    "default": "Replay over all fixtures in tests. In production the default is a stratified random sample by decision point, jurisdiction and outcome, with every past appealed decision included. The diff report lists flips per rule.",
+    "roles": [
+      "Statisticians",
+      "evaluators",
+      "trust-and-safety practitioners"
+    ],
+    "file": "docs/open-questions/OQ-replay-diff-sample-size.md"
+  },
+  {
+    "id": "OQ-reremoderation-grace",
+    "question": "When re-moderation under a new policy version flips a published item, how long does the item stay visible with its \"re-reviewed under policy vX\" notice before the flip takes effect, and how do appeals interact with that period?",
+    "why": "Immediate removal feels like silent censorship; a long wait leaves content that the community has decided should not be public (REMOD-NOTICE-1). Safety and privacy flips may need no grace at all.",
+    "default": "The notice is shown immediately and nothing is removed silently. For flips on privacy, crisis or safety grounds the item is hidden at once with the notice. For other flips the item stays visible with the notice for 7 days or until the appeal is decided, whichever is first. Numbers are pack values.",
+    "roles": [
+      "Trust and safety practitioners",
+      "platform-governance researchers",
+      "human-rights lawyers"
+    ],
+    "file": "docs/open-questions/OQ-reremoderation-grace.md"
+  },
+  {
+    "id": "OQ-reresolution-feasibility",
+    "question": "When a policy or legal-corpus change would alter the conclusion of a solved, closed, redirected or stuck problem, which feasibility criteria decide whether it actually reopens (T23)?",
+    "why": "Re-resolution improves the rules for every past case (D-59), but reopening problems that people finished can confuse, burden or undo lawful work. Too strict leaves wrong conclusions in place; too loose reopens everything on every pack change.",
+    "default": "Reopen only when the conclusion changes and all hold: the problem still exists, the jurisdiction is still enabled, the original initiator or a steward can be notified, and reopening does not undo a lawful completed implementation without a new proposal. Otherwise write a re-resolution record and change no state. Never silent, history kept, appealable (RERESOLVE-1). Review queue limits and batching are pack values.",
+    "roles": [
+      "Governance researchers",
+      "case-management and legal-process practitioners",
+      "trust and safety practitioners"
+    ],
+    "file": "docs/open-questions/OQ-reresolution-feasibility.md"
+  },
+  {
     "id": "OQ-review-wait-statement",
     "question": "Once real data exists, how should the pending-review screen state how long review takes?",
     "why": "A made-up promise erodes trust. A silent wait causes anxiety.",
-    "default": "The screen says volunteers review in the order received and that there is no guaranteed time. A number appears only when there is data to support it.",
+    "default": "The screen says reviews run in the order received, that a held item waits rather than lowers the standard, and that there is no guaranteed time. A number appears only when there is data to support it.",
     "roles": [
       "UX writers",
       "community managers",
@@ -352,9 +588,9 @@
   },
   {
     "id": "OQ-solved-evidence-threshold",
-    "question": "What kinds and amounts of verification evidence let a moderator confirm solved?",
+    "question": "What kinds and amounts of verification evidence let the moderation run decide solved (DP-VERIFICATION)?",
     "why": "Declaring victory too early damages trust. Too strict a bar means nothing is ever solved.",
-    "default": "The steward proposes with at least one verification_evidence URL and an outcome statement against the success metric. A moderator confirms. The decision is interim.",
+    "default": "The steward proposes with at least one verification_evidence URL and an outcome statement against the success metric. The moderation run decides and cites the policy version. The threshold is a policy-pack setting.",
     "roles": [
       "Evaluation and audit specialists",
       "public-administration researchers",
@@ -363,15 +599,40 @@
     "file": "docs/open-questions/OQ-solved-evidence-threshold.md"
   },
   {
+    "id": "OQ-steward-entity-grants",
+    "question": "Can a foundation, association or cooperative that stewards CAN's assets and governance apply for grants (for example Dutch digital-infrastructure or effective-giving programs listed as input in the earlier planning notes) without conflicting with MONEY-0, NONMONETARY-INDEPENDENT and supporter independence?",
+    "why": "The constitution forbids payments, donations and paid placement inside the product. A funder could still capture the project through a grant. The project also needs some way to pay for hosting and model spend beyond the founder.",
+    "default": "No fundraising, no grant applications, no entity. MONEY-0 stays: no payment SDK or money columns in any build. Any funding discussion happens outside the product, in public, and is decided by founder then governance (docs/spec/20-participation-nonmonetary.md).",
+    "roles": [
+      "Nonprofit lawyers",
+      "open-source foundation staff",
+      "funders",
+      "governance researchers"
+    ],
+    "file": "docs/open-questions/OQ-steward-entity-grants.md"
+  },
+  {
+    "id": "OQ-supranational-default",
+    "question": "Please confirm that L2 is applied wherever a supranational body binds the jurisdiction (for the Netherlands: the EU Charter of Fundamental Rights, EU law and the ECHR), sits between UN human rights and the national constitution, and is skipped where nothing binds.",
+    "why": "The founder named the layers but the supranational placement and the Dutch instruments are a default, not a stated decision (D-61). Getting it wrong changes what is lawful for every Amsterdam problem.",
+    "default": "L2 applies where binding, with the EU Charter, EU law and the ECHR for the Netherlands, and is skipped for jurisdictions with no binding body. Each L2 corpus carries provenance (LEGAL-SOURCE-1).",
+    "roles": [
+      "EU and Council of Europe law specialists",
+      "Dutch constitutional lawyers",
+      "comparative-law researchers"
+    ],
+    "file": "docs/open-questions/OQ-supranational-default.md"
+  },
+  {
     "id": "OQ-unsupported-language",
     "question": "How should the platform treat text in a language it cannot yet moderate, which languages come next, and who reviews translations and right-to-left layouts?",
     "why": "Moderation quality must be evaluated per language. Silent rejection excludes people; silent acceptance skips safety review.",
-    "default": "English only. Text that looks non-English is accepted for human review with a \"language not yet supported\" label, and a moderator may request a translation.",
+    "default": "English only. Text that looks non-English is held with a \"language not yet supported\" label (fail closed), and the run may ask for a translation.",
     "roles": [
       "Translators",
       "linguists",
       "right-to-left readers",
-      "moderators who read other languages"
+      "labelers who read other languages"
     ],
     "file": "docs/open-questions/OQ-unsupported-language.md"
   },
@@ -379,7 +640,7 @@
     "id": "OQ-visibility-classes",
     "question": "Which classes of record exist, who can see each, and what becomes public by default?",
     "why": "What becomes public is the most consequential privacy decision. It is hard to take back.",
-    "default": "Two classes plus notes: private (draft, submitted, needs_revision, rejected: initiator and moderators) and public (published problems). Moderator-only notes are never public.",
+    "default": "Two classes plus notes: private (draft, submitted, needs_revision, rejected: initiator, the emergency/legal lane and auditors on masked samples) and public (published problems). Auditor-only notes are never public.",
     "roles": [
       "Privacy engineers",
       "data-protection officers",
