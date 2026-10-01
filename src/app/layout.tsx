@@ -1,0 +1,31 @@
+import type { Metadata, Viewport } from "next";
+import "./tokens.css";
+import "./globals.css";
+import { Footer, Header } from "@/components/Shell";
+
+export const metadata: Metadata = {
+  title: { default: "CAN: solve public problems, with evidence", template: "%s | CAN" },
+  description:
+    "An open source project to move a public problem from evidence to a lawful solution to a verified, tracked outcome. Concept and early scaffolding: developers wanted.",
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAFAF7" },
+    { media: "(prefers-color-scheme: dark)", color: "#12181B" },
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <a className="skip-link" href="#main">Skip to content</a>
+        <Header />
+        <main id="main" tabIndex={-1}>{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
