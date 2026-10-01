@@ -1,0 +1,404 @@
+[
+  {
+    "id": "OQ-account-deletion-retention",
+    "question": "What is removed, what is kept and why when an account is deleted, given that public records and audit trails exist?",
+    "why": "People have a right to leave. The public record and moderation audit also have value and legal limits.",
+    "default": "Email and sessions are erased. Drafts are hard-deleted. Published contributions stay under a \"deleted member\" label with the handle de-linked. Audit events keep a pseudonymous id.",
+    "roles": [
+      "Privacy lawyers",
+      "archivists",
+      "trust-and-safety practitioners"
+    ],
+    "file": "docs/open-questions/OQ-account-deletion-retention.md"
+  },
+  {
+    "id": "OQ-age-default",
+    "question": "What minimum age applies, how is it confirmed, and what may a younger person do?",
+    "why": "Rules differ by jurisdiction. The platform must not collect more data than it needs to check age.",
+    "default": "18 or over, self-declared at sign-up. A capability with no age rule in the active jurisdiction pack is denied except public reading.",
+    "roles": [
+      "Child-safety specialists",
+      "legal reviewers",
+      "educators"
+    ],
+    "file": "docs/open-questions/OQ-age-default.md"
+  },
+  {
+    "id": "OQ-cooldown-lengths",
+    "question": "What delays between contributions, and after a rejected contribution, encourage thoughtful posting without silencing urgent updates?",
+    "why": "A flat wait punishes everyone. A well-aimed delay calms a heated exchange.",
+    "default": "2 minutes between contributions by one account on one problem; 10 minutes after a rejected contribution on that problem; none for progress updates and verification evidence.",
+    "roles": [
+      "Community managers",
+      "behavioural researchers",
+      "UX researchers"
+    ],
+    "file": "docs/open-questions/OQ-cooldown-lengths.md"
+  },
+  {
+    "id": "OQ-decision-method",
+    "question": "What decision method turns proposals into a chosen solution, and how do stewardship groups form, reach quorum and handle dissent?",
+    "why": "Majority voting is not assumed to be right. The method decides local legitimacy, expert weight and minority rights.",
+    "default": "A recorded decision with rationale, decider, authority and dissent notes. No vote. The initiator is provisional steward and a moderator confirms publish, solved, closed and redirected.",
+    "roles": [
+      "Governance and deliberation researchers",
+      "facilitators",
+      "mediators",
+      "community organizers"
+    ],
+    "file": "docs/open-questions/OQ-decision-method.md"
+  },
+  {
+    "id": "OQ-domain",
+    "question": "What brand name, domain name and visual identity should the project use publicly?",
+    "why": "The domain appears in emails, links and the promo site, and is hard to move later. The name needs a trademark and clash check.",
+    "default": "No domain and no brand. The promo site uses a placeholder repository link. Local development uses localhost ports.",
+    "roles": [
+      "Naming and brand designers",
+      "trademark searchers",
+      "nonprofit counsel",
+      "accessibility-minded visual designers"
+    ],
+    "file": "docs/open-questions/OQ-domain.md"
+  },
+  {
+    "id": "OQ-draft-ttl",
+    "question": "Are 30 days deletion for rejected or withdrawn drafts, 90 days for the repost fingerprint, 14 days to appeal, and 30 days before an idle needs_revision draft is withdrawn the right numbers?",
+    "why": "Deleting too fast hurts people who want to appeal or revise; keeping too long holds personal text.",
+    "default": "The numbers above. The UI shows the exact deletion date.",
+    "roles": [
+      "Privacy specialists",
+      "data-protection officers",
+      "UX researchers"
+    ],
+    "file": "docs/open-questions/OQ-draft-ttl.md"
+  },
+  {
+    "id": "OQ-duplicate-handling",
+    "question": "How are duplicates detected and merged, who decides, and how can the initiator contest it?",
+    "why": "Merging wrongly buries a problem; failing to merge splits effort.",
+    "default": "A moderator decides. duplicate_of is the only link type. A duplicate closure is a moderation decision and can be appealed.",
+    "roles": [
+      "Information architects",
+      "moderators",
+      "search specialists"
+    ],
+    "file": "docs/open-questions/OQ-duplicate-handling.md"
+  },
+  {
+    "id": "OQ-edit-after-publication",
+    "question": "What can an author change after publication, what needs a visible correction, and what history is kept?",
+    "why": "Honest correction matters, and so does the right to remove personal information quickly.",
+    "default": "Published text is not edited. An author can add a visible correction note or tombstone their own text. Moderators can hide text with a decision. Originals stay in history unless personal data must be removed.",
+    "roles": [
+      "Archivists",
+      "editors",
+      "privacy specialists"
+    ],
+    "file": "docs/open-questions/OQ-edit-after-publication.md"
+  },
+  {
+    "id": "OQ-eligible-categories",
+    "question": "What is the real list of eligible problem categories and explicit exclusions for the pilot?",
+    "why": "It decides what moderators accept, what users see in the form, and which problems are redirected. A list that is too broad invites conflict; too narrow fails people.",
+    "default": "A placeholder list for fictional data: public services, infrastructure, environment, safety, accessibility. Exclusions follow the scope rule (no individual advice, no emergencies, no named private people).",
+    "roles": [
+      "Policy analysts",
+      "civic practitioners",
+      "moderators",
+      "journalists"
+    ],
+    "file": "docs/open-questions/OQ-eligible-categories.md"
+  },
+  {
+    "id": "OQ-emergency-routing",
+    "question": "For each launch jurisdiction, which static emergency and crisis routes should every form show, who verifies them and how often?",
+    "why": "The platform is not an emergency service. A wrong or stale number can cause harm. This is a hard blocker for publishing anything real.",
+    "default": "Every form shows a generic \"If someone is in danger, contact your local emergency number\" notice. No real numbers. The fictional jurisdiction has placeholder text.",
+    "roles": [
+      "Crisis-service professionals",
+      "public-safety workers",
+      "translators",
+      "accessibility reviewers"
+    ],
+    "file": "docs/open-questions/OQ-emergency-routing.md"
+  },
+  {
+    "id": "OQ-evidence-tier-plain-language",
+    "question": "What plain wording explains evidence tiers and the investigation_needed flag without jargon?",
+    "why": "Misreading \"needs investigation\" as \"false\" or \"established\" as \"proven\" harms trust.",
+    "default": "A neutral chip, \"Evidence still being gathered\", with a one-sentence explanation and a link to what would help.",
+    "roles": [
+      "Plain-language writers",
+      "UX researchers",
+      "accessibility reviewers"
+    ],
+    "file": "docs/open-questions/OQ-evidence-tier-plain-language.md"
+  },
+  {
+    "id": "OQ-founder-stewardship-sunset",
+    "question": "The founder acts as a time-limited steward until a quorum exists. What exactly ends it?",
+    "why": "Without a clear end the arrangement looks permanent, and nobody can hold it to account.",
+    "default": "It ends when at least 5 independent stewards exist, or after 24 months, whichever comes first. Every founder approval is logged publicly with an expiry.",
+    "roles": [
+      "Governance designers",
+      "open-source foundation staff",
+      "community organizers"
+    ],
+    "file": "docs/open-questions/OQ-founder-stewardship-sunset.md"
+  },
+  {
+    "id": "OQ-guest-read-search-indexing",
+    "question": "Should unauthenticated visitors read published problems, and should those pages appear in web search?",
+    "why": "Indexing makes a mistake permanent in practice. Blocking it limits discovery and trust.",
+    "default": "Guests can read published problems. All pages are noindex in slice 1.",
+    "roles": [
+      "Privacy engineers",
+      "journalists",
+      "SEO and web-archive specialists"
+    ],
+    "file": "docs/open-questions/OQ-guest-read-search-indexing.md"
+  },
+  {
+    "id": "OQ-handle-scope",
+    "question": "Should a person keep one public handle everywhere, or get a separate pseudonym per problem?",
+    "why": "One handle builds a recognizable history but can link someone across problems. Per-problem handles protect privacy but hinder trust and abuse handling.",
+    "default": "One generated handle per account, with one regenerate before first publish.",
+    "roles": [
+      "Privacy researchers",
+      "trust-and-safety practitioners"
+    ],
+    "file": "docs/open-questions/OQ-handle-scope.md"
+  },
+  {
+    "id": "OQ-handle-word-lists",
+    "question": "Are the curated word lists used to generate public handles free of offensive, confusing or culturally loaded combinations?",
+    "why": "A handle is a person's public face. A bad combination can embarrass or harm.",
+    "default": "English curated lists, one regenerate allowed before first publish.",
+    "roles": [
+      "Linguists",
+      "cultural reviewers",
+      "sensitivity readers"
+    ],
+    "file": "docs/open-questions/OQ-handle-word-lists.md"
+  },
+  {
+    "id": "OQ-hosting-region",
+    "question": "Which hosting region and provider, and which real email provider, should the first deployment use?",
+    "why": "Region sets data-protection obligations and latency. The email provider sees every sign-in address. Both involve cost and legal terms.",
+    "default": "No deployment. Local development only, with Postgres and Mailpit in docker compose. A real email provider is founder-gated.",
+    "roles": [
+      "Site reliability engineers",
+      "data-protection specialists",
+      "nonprofit infrastructure donors"
+    ],
+    "file": "docs/open-questions/OQ-hosting-region.md"
+  },
+  {
+    "id": "OQ-human-presence",
+    "question": "What mechanism, beyond an invite, an email code and rate limits, could show that an account is a real person without identity documents or device tracking?",
+    "why": "Fake accounts distort every discussion. Identity checks create privacy risk and exclude people.",
+    "default": "Invite-only writes, email code sign-in, rate limits. No device identifiers or biometrics.",
+    "roles": [
+      "Anti-abuse engineers",
+      "privacy researchers",
+      "accessibility reviewers"
+    ],
+    "file": "docs/open-questions/OQ-human-presence.md"
+  },
+  {
+    "id": "OQ-launch-jurisdiction-language",
+    "question": "After the fictional slice, which real jurisdiction and which language should host the first controlled pilot?",
+    "why": "It decides the policy rule set, emergency routing, legal reviewers, moderation language evaluation and who the first users are. It must be a place where qualified reviewers exist.",
+    "default": "One fictional jurisdiction and English only. No real jurisdiction is named anywhere, including the promo site.",
+    "roles": [
+      "Civic practitioners",
+      "local-government liaisons",
+      "legal and policy reviewers",
+      "translators"
+    ],
+    "file": "docs/open-questions/OQ-launch-jurisdiction-language.md"
+  },
+  {
+    "id": "OQ-legal-data-requests",
+    "question": "What is the process, and who decides, when a court, police force or government asks for user data or for content to be removed?",
+    "why": "Email addresses and moderation records could be demanded. A policy written after the first request is too late.",
+    "default": "No process yet. Slice 1 holds only fictional data. No real user data may be collected until a policy exists.",
+    "roles": [
+      "Lawyers",
+      "digital-rights organizations",
+      "people who have written transparency reports"
+    ],
+    "file": "docs/open-questions/OQ-legal-data-requests.md"
+  },
+  {
+    "id": "OQ-legal-policy-reviewers",
+    "question": "Which qualified legal and safety people will review policy packs and escalation procedures for a real jurisdiction?",
+    "why": "A policy pack states what is lawful to discuss and do. Without qualified review the platform must not claim legal grounding.",
+    "default": "No real pack exists. The fictional jurisdiction uses a rule set written by the project and marked as fictional.",
+    "roles": [
+      "Lawyers",
+      "legal-aid workers",
+      "academics in public law",
+      "data protection or election law"
+    ],
+    "file": "docs/open-questions/OQ-legal-policy-reviewers.md"
+  },
+  {
+    "id": "OQ-license",
+    "question": "Which open-source license applies to can_server, can_app, can_promo_site, the documentation and the protocol schemas?",
+    "why": "It is very hard to change once outside contributions land. It decides whether hosted forks must stay open, how easily companies and public bodies can adopt the code, and who can contribute. It blocks publishing the repositories and broad promotion, not building.",
+    "default": "No LICENSE file exists in any repository (D-27). Nothing is published. Recommendation to be confirmed: AGPL-3.0 for can_server (network copyleft keeps hosted forks open), Apache-2.0 for can_app, can_promo_site, documentation and protocol schemas.",
+    "roles": [
+      "Open-source licensing lawyers",
+      "nonprofit counsel",
+      "maintainers of AGPL or Apache projects",
+      "public-sector procurement staff"
+    ],
+    "file": "docs/open-questions/OQ-license.md"
+  },
+  {
+    "id": "OQ-location-verification",
+    "question": "How should the platform express and (if at all) verify that someone is materially connected to the affected area, without GPS, tracking or exclusion?",
+    "why": "It decides who counts as a core participant and whose voice shapes a decision. Wrong answers either leak location or let outsiders steer local problems.",
+    "default": "A self-declared coarse area, for display only, never verified. Nobody is excluded in slice 1. No GPS is collected.",
+    "roles": [
+      "Privacy researchers",
+      "GIS and geography specialists",
+      "civic participation researchers",
+      "accessibility reviewers"
+    ],
+    "file": "docs/open-questions/OQ-location-verification.md"
+  },
+  {
+    "id": "OQ-moderation-confidence-threshold",
+    "question": "Once AI assistance exists, what thresholds force human review, per task and risk tier?",
+    "why": "Too low a threshold lets errors through; too high swamps volunteers.",
+    "default": "Not applicable yet. Slice 1 has no live AI and a human reviews everything published (D-13).",
+    "roles": [
+      "Machine-learning evaluators",
+      "trust-and-safety practitioners"
+    ],
+    "file": "docs/open-questions/OQ-moderation-confidence-threshold.md"
+  },
+  {
+    "id": "OQ-moderator-pool-size",
+    "question": "What is the smallest moderator pool that allows independent appeal review and removes the \"Interim decision\" label?",
+    "why": "With one moderator the same person decides and reviews the appeal.",
+    "default": "Decisions are labelled \"Interim decision, will be re-reviewed\" while the pool is below 2. With 2 or more, the appeal reviewer differs from the decider.",
+    "roles": [
+      "Community organizers",
+      "trust-and-safety practitioners",
+      "volunteer coordinators"
+    ],
+    "file": "docs/open-questions/OQ-moderator-pool-size.md"
+  },
+  {
+    "id": "OQ-moderator-signin",
+    "question": "What additional factor, if any, should moderators use beyond the email code?",
+    "why": "Moderators can publish, close and see internal notes. A taken-over moderator account is serious.",
+    "default": "The same email code as everyone, with every privileged action audited. Acceptable only on fictional data.",
+    "roles": [
+      "Security engineers",
+      "identity specialists"
+    ],
+    "file": "docs/open-questions/OQ-moderator-signin.md"
+  },
+  {
+    "id": "OQ-native-device-testing",
+    "question": "Which volunteers can test secure storage, push notifications, deep links and screen readers on real iOS and Android devices?",
+    "why": "Slice 1 is verified on web only. Native-only behaviour is untested until people with devices help.",
+    "default": "Web verification only. Native builds must bundle. Device tests are founder-gated.",
+    "roles": [
+      "iOS and Android testers",
+      "assistive-technology users",
+      "mobile engineers"
+    ],
+    "file": "docs/open-questions/OQ-native-device-testing.md"
+  },
+  {
+    "id": "OQ-promo-interest-channel",
+    "question": "What channel, if any, should the promo site offer for people who want updates or want to help?",
+    "why": "A form or list collects personal data and needs a controller, storage and a privacy notice. A repository link needs none.",
+    "default": "No form, no list, no analytics. The primary call to action is the repository and its open questions. The repository link is a placeholder until the remote exists.",
+    "roles": [
+      "Privacy engineers",
+      "community managers",
+      "open-source maintainers who have run public discussion spaces"
+    ],
+    "file": "docs/open-questions/OQ-promo-interest-channel.md"
+  },
+  {
+    "id": "OQ-review-wait-statement",
+    "question": "Once real data exists, how should the pending-review screen state how long review takes?",
+    "why": "A made-up promise erodes trust. A silent wait causes anxiety.",
+    "default": "The screen says volunteers review in the order received and that there is no guaranteed time. A number appears only when there is data to support it.",
+    "roles": [
+      "UX writers",
+      "community managers",
+      "operations analysts"
+    ],
+    "file": "docs/open-questions/OQ-review-wait-statement.md"
+  },
+  {
+    "id": "OQ-rights-core-amendment",
+    "question": "The constitution protects a rights core that ordinary amendments cannot remove. Should there be an extraordinary procedure, and what would it require?",
+    "why": "No procedure can mean the rule is unfixable if it is wrong. An easy one defeats the protection.",
+    "default": "No procedure. The core cannot be changed by the ordinary amendment process, and the founder cannot change it.",
+    "roles": [
+      "Constitutional scholars",
+      "governance designers",
+      "human-rights lawyers"
+    ],
+    "file": "docs/open-questions/OQ-rights-core-amendment.md"
+  },
+  {
+    "id": "OQ-security-and-conduct-contact",
+    "question": "How can someone privately report a security vulnerability or a conduct problem before the project has a hosted repository and a named team?",
+    "why": "A public issue tracker is the wrong place for a vulnerability or a harassment report. Without a private channel, people either stay silent or disclose in public.",
+    "default": "No private channel exists yet. Until the repository is hosted, reports go privately to the founder through whatever channel they used to share the repository. GitHub private vulnerability reporting is enabled at hosting time, and SECURITY.md and CODE_OF_CONDUCT.md then name the channel.",
+    "roles": [
+      "Security engineers who have run coordinated disclosure",
+      "governance and community-conduct practitioners"
+    ],
+    "file": "docs/open-questions/OQ-security-and-conduct-contact.md"
+  },
+  {
+    "id": "OQ-solved-evidence-threshold",
+    "question": "What kinds and amounts of verification evidence let a moderator confirm solved?",
+    "why": "Declaring victory too early damages trust. Too strict a bar means nothing is ever solved.",
+    "default": "The steward proposes with at least one verification_evidence URL and an outcome statement against the success metric. A moderator confirms. The decision is interim.",
+    "roles": [
+      "Evaluation and audit specialists",
+      "public-administration researchers",
+      "journalists"
+    ],
+    "file": "docs/open-questions/OQ-solved-evidence-threshold.md"
+  },
+  {
+    "id": "OQ-unsupported-language",
+    "question": "How should the platform treat text in a language it cannot yet moderate, which languages come next, and who reviews translations and right-to-left layouts?",
+    "why": "Moderation quality must be evaluated per language. Silent rejection excludes people; silent acceptance skips safety review.",
+    "default": "English only. Text that looks non-English is accepted for human review with a \"language not yet supported\" label, and a moderator may request a translation.",
+    "roles": [
+      "Translators",
+      "linguists",
+      "right-to-left readers",
+      "moderators who read other languages"
+    ],
+    "file": "docs/open-questions/OQ-unsupported-language.md"
+  },
+  {
+    "id": "OQ-visibility-classes",
+    "question": "Which classes of record exist, who can see each, and what becomes public by default?",
+    "why": "What becomes public is the most consequential privacy decision. It is hard to take back.",
+    "default": "Two classes plus notes: private (draft, submitted, needs_revision, rejected: initiator and moderators) and public (published problems). Moderator-only notes are never public.",
+    "roles": [
+      "Privacy engineers",
+      "data-protection officers",
+      "journalists",
+      "archivists"
+    ],
+    "file": "docs/open-questions/OQ-visibility-classes.md"
+  }
+]

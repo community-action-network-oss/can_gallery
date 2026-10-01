@@ -1,0 +1,41 @@
+# can_promo_site
+
+The public concept and founding-contributor site for the Community Action Network (CAN). Next.js static export, plain CSS, no forms, no cookies, no analytics, no third-party requests. Developer-first; nothing here handles real problems.
+
+## Run
+
+```
+npm install
+npm run dev        # http://localhost:3000
+```
+
+Node 24 or newer.
+
+## Verify
+
+```
+npm run verify
+```
+
+Runs: `sync:check` (fails if synced content would change), `lint`, `typecheck`, `build` (writes `out/`), and `check:out` (no `<form`, no analytics, no external hosts, no em or en dashes in rendered HTML, all six routes present).
+
+## Routes
+
+`/`, `/how-it-works/`, `/contribute/`, `/open-questions/`, `/roadmap/`, `/principles/`.
+
+## Content sync
+
+`npm run sync:content` copies `../docs/design/ux/tokens.json` to `src/content/tokens.json`, generates `src/app/tokens.css` (CSS variables with a `prefers-color-scheme` block), and compiles `../docs/open-questions/OQ-*.md` headers into `src/content/open-questions.json`. Outputs are committed so the repo builds standalone. Never edit them by hand; change the source in `docs/` and re-run. The lifecycle labels in `src/content/stages.ts` are a copy of `docs/spec/01-slice-1-brief.md`; update them when that table changes.
+
+## Repository link
+
+`src/config/site.ts` holds `REPO_URL`. It is `#repository-coming-soon` until a remote exists; links then read "Repository link coming soon". Set a real `https://` URL there to switch every link and doc reference over.
+
+## Rules
+
+- No em or en dashes in copy. Examples are labelled "Fictional example". No real jurisdiction is named.
+- Anything not built is labelled "Planned". Never imply the platform is live.
+- No call to action without an owned channel: the repository and the open questions are the channel.
+- No colour outside the tokens. System fonts only.
+
+Contribution process: see [../CONTRIBUTING.md](../CONTRIBUTING.md).

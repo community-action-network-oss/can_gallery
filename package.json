@@ -1,0 +1,30 @@
+{
+  "name": "can_promo_site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static promo and founding-contributor site for the Community Action Network (CAN).",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "sync:content": "node scripts/sync-content.mjs",
+    "sync:check": "node scripts/sync-content.mjs --check",
+    "check:out": "node scripts/check-out.mjs",
+    "verify": "npm run sync:check && npm run lint && npm run typecheck && npm run build && npm run check:out"
+  },
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "typescript": "^5"
+  }
+}
