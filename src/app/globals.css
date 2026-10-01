@@ -179,7 +179,6 @@ caption { text-align: left; padding: var(--can-space-3) var(--can-space-4); font
 .footer-title { font-weight: 700; margin-bottom: var(--can-space-2); }
 .footer-links { list-style: none; padding: 0; }
 .footer-links li + li { margin: 0; }
-.footer-repo:target { outline: var(--can-size-focus-ring) solid var(--can-color-focus); outline-offset: var(--can-space-3); border-radius: var(--can-radius-sm); }
 
 @media (prefers-reduced-motion: reduce) { * { transition-duration: 0s !important; animation: none !important; scroll-behavior: auto !important; } }
 @media print { .skip-link, .status-strip { display: none; } }

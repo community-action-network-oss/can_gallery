@@ -18,7 +18,11 @@ for (const f of files) {
   const rel = f.slice(out.length + 1);
   if (/<form[\s>]/i.test(html)) problems.push(`${rel}: <form found`);
   if (analytics.test(html)) problems.push(`${rel}: analytics reference`);
-  for (const m of html.matchAll(/<(?:a|link|script|img|iframe|source)\b[^>]*?\s(?:href|src)="(https?:)?\/\/[^"]*"/gi)) problems.push(`${rel}: external reference ${m[0].slice(0, 80)}`);
+  // The only external host allowed is github.com, and only as an <a href> over https.
+  for (const m of html.matchAll(/<(?:a|link|script|img|iframe|source)\b[^>]*?\s(?:href|src)="(https?:)?\/\/[^"]*"/gi)) {
+    if (/^<a\s/i.test(m[0]) && /\shref="https:\/\/github\.com\//.test(m[0])) continue;
+    problems.push(`${rel}: external reference ${m[0].slice(0, 80)}`);
+  }
   const text = html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "");
   if (/[–—]/.test(text)) problems.push(`${rel}: em or en dash in rendered HTML`);
 }

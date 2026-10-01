@@ -1,18 +1,17 @@
 /**
  * Single place for links that depend on where the project is hosted.
- *
- * REPO_URL stays "#repository-coming-soon" until a remote exists. While it
- * starts with "#", every repository link renders the text
- * "Repository link coming soon" and points at the footer note. To go live, set
- * REPO_URL to the real https URL (no trailing slash); links to docs then
- * resolve to `${REPO_URL}/blob/main/<path>` automatically.
+ * REPO_URL is the superproject on GitHub (no trailing slash). Docs resolve to
+ * `${REPO_URL}/blob/main/<path>` (`tree` for directories). The other three
+ * repositories live in the same organisation. github.com is the only external
+ * host the output check allows.
  */
-export const REPO_URL = "#repository-coming-soon";
-export const REPO_LINK_TEXT = "Repository link coming soon";
-export const REPO_LIVE = REPO_URL.startsWith("http");
+export const REPO_URL = "https://github.com/community-action-network-oss/community_action_network_oss";
+export const ORG_URL = "https://github.com/community-action-network-oss";
 
-export const docUrl = (path: string): string | null =>
-  REPO_LIVE ? `${REPO_URL}/blob/main/${path}` : null;
+export const repoUrl = (name: "can_server" | "can_app" | "can_gallery"): string => `${ORG_URL}/${name}`;
+
+export const docUrl = (path: string): string =>
+  `${REPO_URL}/${path.endsWith("/") ? "tree" : "blob"}/main/${path.replace(/\/$/, "")}`;
 
 export const SITE_NAME = "Community Action Network";
 export const SITE_SHORT = "CAN";

@@ -52,7 +52,7 @@
     "id": "OQ-domain",
     "question": "What brand name, domain name and visual identity should the project use publicly?",
     "why": "The domain appears in emails, links and the gallery, and is hard to move later. The name needs a trademark and clash check.",
-    "default": "No domain and no brand. The gallery uses a placeholder repository link. Local development uses localhost ports.",
+    "default": "No domain and no brand. The code is hosted on GitHub under the organization community-action-network-oss (repository hosting is answered; the domain and brand are still open). The gallery links to those repositories. Local development uses localhost ports.",
     "roles": [
       "Naming and brand designers",
       "trademark searchers",
@@ -320,7 +320,7 @@
     "id": "OQ-promo-interest-channel",
     "question": "What channel, if any, should the gallery offer for people who want updates or want to help?",
     "why": "A form or list collects personal data and needs a controller, storage and a privacy notice. A repository link needs none.",
-    "default": "No form, no list, no analytics. The primary call to action is the repository and its open questions. The repository link is a placeholder until the remote exists.",
+    "default": "No form, no list, no analytics. The primary call to action is the repository and its open questions. The repository link points at the GitHub organization community-action-network-oss. GitHub Discussions is a candidate interest channel; the decision stays with the founder.",
     "roles": [
       "Privacy engineers",
       "community managers",

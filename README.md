@@ -17,7 +17,7 @@ Node 24 or newer.
 npm run verify
 ```
 
-Runs: `sync:check` (fails if synced content would change), `lint`, `typecheck`, `build` (writes `out/`), and `check:out` (no `<form`, no analytics, no external hosts, no em or en dashes in rendered HTML, all six routes present).
+Runs: `sync:check` (fails if synced content would change), `lint`, `typecheck`, `build` (writes `out/`), and `check:out` (no `<form`, no analytics, no external hosts except github.com, no em or en dashes in rendered HTML, all six routes present).
 
 ## Routes
 
@@ -29,7 +29,7 @@ Runs: `sync:check` (fails if synced content would change), `lint`, `typecheck`, 
 
 ## Repository link
 
-`src/config/site.ts` holds `REPO_URL`. It is `#repository-coming-soon` until a remote exists; links then read "Repository link coming soon". Set a real `https://` URL there to switch every link and doc reference over.
+`src/config/site.ts` holds `REPO_URL`, the GitHub superproject (`https://github.com/community-action-network-oss/community_action_network_oss`). Doc references and repository links derive from it. `check:out` allows exactly one external host, `github.com`, and only as an `<a href>` over https.
 
 ## Rules
 

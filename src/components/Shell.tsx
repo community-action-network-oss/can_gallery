@@ -52,12 +52,11 @@ export function Footer() {
             ))}
           </ul>
         </nav>
-        <div id="repository-coming-soon" className="footer-repo">
+        <div className="footer-repo">
           <p className="footer-title">Repository</p>
           <p>
             <RepoLink />. The code, specification and open questions are
-            public work in progress; the link appears here and in the header
-            of every page once the repository is hosted.
+            public work in progress on GitHub.
           </p>
           <p>
             This site has no forms, no cookies, no analytics and no

@@ -1,21 +1,23 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { REPO_LINK_TEXT, REPO_LIVE, REPO_URL, docUrl } from "@/config/site";
+import { REPO_URL, docUrl } from "@/config/site";
 import type { Tone } from "@/content/stages";
 
 export function RepoLink({ className }: { className?: string }) {
   return (
     <a className={className} href={REPO_URL}>
-      {REPO_LIVE ? "Repository" : REPO_LINK_TEXT}
+      Repository
     </a>
   );
 }
 
-/** A path inside the repository: a link once the remote exists, plain code until then. */
+/** A path inside the repository, linked to GitHub. */
 export function DocRef({ path, children }: { path: string; children?: ReactNode }) {
-  const href = docUrl(path);
-  const inner = <code>{children ?? path}</code>;
-  return href ? <a href={href}>{inner}</a> : inner;
+  return (
+    <a href={docUrl(path)}>
+      <code>{children ?? path}</code>
+    </a>
+  );
 }
 
 export function Planned({ children = "Planned" }: { children?: ReactNode }) {
