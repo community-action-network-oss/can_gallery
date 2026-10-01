@@ -397,18 +397,6 @@
     "file": "docs/open-questions/OQ-mera-disclosure.md"
   },
   {
-    "id": "OQ-model-provider-spend-cap",
-    "question": "Which provider, models and monthly spend cap switch live model calls on, and under what data-processing terms?",
-    "why": "Live calls cost money and send content to a third party. The cap and the terms decide who can run the platform and what leaves the trust boundary.",
-    "default": "Live calls are off. Tests and night runs use FakeModel with recorded responses. The first provider adapter is Claude via the Anthropic API, founder-gated by an API key and a spend cap (D-53). Hitting the cap holds items (FAIL-CLOSED-AI-1).",
-    "roles": [
-      "Founder (approval)",
-      "privacy and security reviewers",
-      "cost and inference engineers"
-    ],
-    "file": "docs/open-questions/OQ-model-provider-spend-cap.md"
-  },
-  {
     "id": "OQ-moderation-confidence-threshold",
     "question": "Superseded by OQ-dp-confidence-thresholds: AI decides single items (D-51), so a low-confidence result holds the item rather than sending it to a human reviewer. Only the emergency and legal lane goes to a human.",
     "why": "Too low a threshold lets errors through; too high holds too much.",

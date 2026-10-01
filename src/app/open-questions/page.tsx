@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { DocRef, PageHead, Section } from "@/components/ui";
 import oq from "@/content/open-questions.json";
 
@@ -32,6 +33,7 @@ export default function Page() {
                   <div><dt>Who can help</dt><dd>{q.roles.join(", ")}</dd></div>
                 )}
                 <div><dt>File in the repository</dt><dd><DocRef path={q.file} /></dd></div>
+                <div><dt>Read it here</dt><dd><Link href={`/docs/open-questions/${q.id}/`}>Read the full question</Link></dd></div>
               </dl>
             </li>
           ))}

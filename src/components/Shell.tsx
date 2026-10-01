@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAV, SITE_NAME, SITE_SHORT, docUrl } from "@/config/site";
+import { PRIVACY_URL, THIRD_PARTY } from "@/config/docs-origin.mjs";
 import { RepoLink } from "./ui";
 
 export function Header() {
@@ -63,8 +64,13 @@ export function Footer() {
             <a href={docUrl("LICENSE")}>Read the license</a>.
           </p>
           <p>
-            This site has no forms, no cookies, no analytics and no
-            third-party requests. CAN is a non-monetary project.
+            This site has no forms, no cookies and no analytics.
+            {THIRD_PARTY
+              ? " Only the Read everything pages ask GitHub for the current text of a document, so GitHub can see your IP address then."
+              : " It makes no third-party requests."}{" "}
+            {THIRD_PARTY && <a href={PRIVACY_URL}>GitHub privacy statement</a>}
+            {THIRD_PARTY && ". "}
+            CAN is a non-monetary project.
           </p>
         </div>
       </div>
