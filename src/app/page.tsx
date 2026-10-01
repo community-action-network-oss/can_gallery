@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ButtonLink, Chip, Fictional, Planned, RepoLink, Section } from "@/components/ui";
-import { JOURNEY } from "@/content/stages";
+import { PATH, STAGE_GRAPH, STAGE_GRAPH_TEXT } from "@/content/stages";
 import oq from "@/content/open-questions.json";
 
 const TEASER = ["OQ-hosting-region", "OQ-decision-method", "OQ-launch-jurisdiction-language"];
@@ -41,17 +41,30 @@ export default function Home() {
               The path every public problem will follow <Planned />
             </p>
             <ol className="rail" aria-labelledby="journey-t">
-              {JOURNEY.map((s, i) => (
+              {PATH.map((s, i) => (
                 <li key={s.label} style={{ "--i": i } as CSSProperties}>
                   <Chip tone={s.tone}>{s.label}</Chip>
+                  {s.vis && <span className="vis">{s.vis}</span>}
                   <span className="says">{s.says}</span>
+                  {s.label === "Stages" && (
+                    <>
+                      <div className="stage-graph" aria-hidden="true">
+                        {STAGE_GRAPH.map((col, c) => (
+                          <div className="sg-col" key={c}>
+                            {col.map((n) => <span className="sg-node" key={n}>{n}</span>)}
+                          </div>
+                        ))}
+                      </div>
+                      <p className="sr-only">{STAGE_GRAPH_TEXT}</p>
+                    </>
+                  )}
                 </li>
               ))}
             </ol>
             <p className="journey-foot">
-              These are the public labels in the first design, not a live
-              product. Along the way a problem can also be paused, stuck,
-              redirected or closed, always with the reason shown. See{" "}
+              This is the planned design, not a live product. Along the way a
+              problem can also be paused, stuck, redirected or closed, always
+              with the reason shown. See{" "}
               <Link href="/how-it-works/">how it works</Link>.
             </p>
           </div>
@@ -74,15 +87,15 @@ export default function Home() {
 
       <Section id="how" title="How a problem moves from evidence to outcome" wide>
         <ol className="steps">
-          <li><div><h3>Raise it</h3><p>Describe the public problem, who and where it affects, and the evidence. Nothing identifying anyone.</p></div></li>
-          <li><div><h3>Check it</h3><p>Rules-based checks run first, then a volunteer reviews. Nothing is published until a person has said yes.</p></div></li>
-          <li><div><h3>Work it out</h3><p>People add evidence, constraints and proposals in structured stages, at a deliberate pace. Solution-focused only.</p></div></li>
-          <li><div><h3>Decide in the open</h3><p>A chosen solution gets a decision record: the reason, who decided, on what authority, and a check that it is lawful.</p></div></li>
-          <li><div><h3>Do it, then prove it</h3><p>Tasks are tracked. A problem is solved only when a volunteer confirms the evidence matches the goal.</p></div></li>
+          <li><div><h3>Prepare it</h3><p>The poster describes the public problem, the evidence from trusted sources, and what solved will mean. Nothing identifying anyone.</p></div></li>
+          <li><div><h3>Volunteers review it</h3><p>Volunteers suggest improvements. The poster accepts or declines each one. Still private.</p></div></li>
+          <li><div><h3>Publish it</h3><p>AI checks it against the rules the community wrote, then publishes it.</p></div></li>
+          <li><div><h3>Work through the stages</h3><p>In each stage people offer options, a choice is made, the work is done and evidence is posted. Solution-focused only.</p></div></li>
+          <li><div><h3>Prove it is solved</h3><p>A problem is solved only when every stage is done and the evidence meets the final finish line.</p></div></li>
         </ol>
         <p className="prose">
-          Moderation today is rules-based checks and human review. AI
-          assistance is planned; people make and answer for every decision.
+          Publishing is planned to use an AI check against community written
+          rules, after volunteer review. People can appeal every decision.
         </p>
         <p><ButtonLink href="/how-it-works/" variant="quiet">The full lifecycle</ButtonLink></p>
       </Section>
@@ -124,12 +137,11 @@ export default function Home() {
             invented, to show the shape of the process.
           </p>
           <ul className="timeline">
-            <li><Chip tone="pending">Awaiting volunteer review</Chip><span>A resident posts that the signal at a school crossing stays dark after dusk, with dated photos and two repair tickets that were never answered. No names.</span></li>
-            <li><Chip tone="active">Open: gathering facts</Chip><span>A volunteer publishes it. Neighbours add dates. A transport engineer explains who owns the signal.</span></li>
-            <li><Chip tone="active">Open: developing solutions</Chip><span>Three proposals: an urgent repair order, interim reflective markings, and a monthly inspection schedule.</span></li>
-            <li><Chip tone="active">In progress</Chip><span>The repair order and inspection schedule are chosen, with reasons and a lawfulness check on record. Tasks get owners.</span></li>
-            <li><Chip tone="interim">Checking the result</Chip><span>The signal is repaired. People add a dated night photo and the next inspection log.</span></li>
-            <li><Chip tone="solved">Solved</Chip><span>A volunteer confirms the evidence matches the goal. The whole journey stays public for the next town.</span></li>
+            <li><Chip tone="pending">Prepare</Chip><span>A resident lays out that the signal at a school crossing stays dark after dusk, with dated photos, two repair tickets that were never answered, and what solved means: a working signal at night, checked twice. They plan two stages. No names.</span></li>
+            <li><Chip tone="interim">Volunteer review</Chip><span>Volunteers suggest splitting the plan into a repair stage and an inspection stage, and sharpening the finish line. The poster accepts two suggestions and declines one, with a reason.</span></li>
+            <li><Chip tone="active">Published</Chip><span>The AI check passes it against the community rules and it goes public.</span></li>
+            <li><Chip tone="active">Stages</Chip><span>The repair stage runs first: options, a choice, the work, then a dated night photo as evidence. The inspection schedule was prepared in the meantime and starts once the repair is done.</span></li>
+            <li><Chip tone="solved">Solved</Chip><span>Both stages are done and the evidence meets the final finish line. The whole journey stays public for the next town.</span></li>
           </ul>
         </div>
       </Section>

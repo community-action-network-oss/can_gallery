@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Chip, DocRef, PageHead, Planned, Section } from "@/components/ui";
-import { JOURNEY, SIDE_STATES } from "@/content/stages";
+import { PATH, SIDE_STATES } from "@/content/stages";
 
 export const metadata: Metadata = {
   title: "How it works",
   description: "The lifecycle of a public problem in CAN, the roles involved, how moderation works today, and the privacy stance.",
 };
 
-const ALL = [...JOURNEY, ...SIDE_STATES];
+const ALL = [...PATH, ...SIDE_STATES];
 
 export default function Page() {
   return (
@@ -20,13 +20,16 @@ export default function Page() {
 
       <Section id="lifecycle" title="The lifecycle, in the words visitors will see" wide>
         <p className="prose">
-          Every problem carries one public label at a time. Each label comes
-          with a plain explanation and a next action. The first build uses
-          one fictional place and fictional problems only.
+          Every problem follows the same five steps, labelled Planned. The
+          first three happen before anything is public. In the Stages step,
+          stages can run one after another, side by side, or both, and a
+          stage finishes only when its evidence meets its finish line. Along
+          the way a problem can also be paused, stuck, redirected or closed.
+          The first build uses one fictional place and fictional problems only.
         </p>
         <div className="table-wrap">
           <table>
-            <caption className="small muted">Public labels and what they mean</caption>
+            <caption className="small muted">The five steps, then the other states, and what they mean</caption>
             <thead><tr><th scope="col">Label</th><th scope="col">What it says</th></tr></thead>
             <tbody>
               {ALL.map((s) => (
@@ -37,16 +40,14 @@ export default function Page() {
         </div>
         <p className="prose small muted">
           Stuck and paused are ordinary parts of real civic work. They are
-          styled calmly, never in red, and never read as blame. Closed and
-          solved decisions are shown as interim, and will be re-reviewed,
-          while the volunteer pool is small. Source: <DocRef path="docs/spec/01-slice-1-brief.md" />.
+          styled calmly, never in red, and never read as blame. Source: <DocRef path="docs/spec/01a-lifecycle.md" />.
         </p>
       </Section>
 
       <Section id="roles" title="Who does what">
         <ul className="rows">
           <li><strong>The person who raised it, the steward</strong><span className="d">Provisionally guides the problem: proposes decisions and moves it through the stages. Owns nothing; the problem belongs to the public record.</span></li>
-          <li><strong>Moderators, volunteers</strong><span className="d">Confirm what gets published, solved, closed or redirected. Every decision carries the rules applied and a hint for what to change.</span></li>
+          <li><strong>Moderators, volunteers</strong><span className="d">Review problems before they are published, and suggest improvements to facts, stages and finish lines. Every decision carries the rules applied and a hint for what to change.</span></li>
           <li><strong>Contributors</strong><span className="d">Add evidence, questions, risks, proposals and progress updates. Nobody is excluded in the first build.</span></li>
           <li><strong>Core participants, visitors, experts, observers <Planned /></strong><span className="d">People with a material connection to the problem lead the thread; visitors and verified experts contribute without steering it; observers follow along.</span></li>
         </ul>
@@ -54,16 +55,17 @@ export default function Page() {
 
       <Section id="moderation" title="Moderation: rules first, people always">
         <p>
-          Today: rules-based checks and human review of everything published.
-          AI assistance is planned; people make and answer for every decision.
+          Planned: volunteers review every problem in private, then AI checks it
+          against the rules the community wrote before it is published. People
+          can appeal every decision.
         </p>
         <ul>
           <li>Deterministic checks catch contact details, secrets and obviously unsafe links before anyone reviews.</li>
-          <li>A volunteer reviews every problem before it is public.</li>
+          <li>Volunteers review every problem in private before it is public, and the poster accepts or declines each suggestion.</li>
           <li>Every decision names the rule applied, points at the part it is about, and says what would make it acceptable.</li>
           <li>Anyone can appeal a moderation decision. When two or more moderators exist, the reviewer differs from the original decider; until then, that is disclosed on the page.</li>
           <li>Discussion is solution-only, with targeted waits between contributions, so it stays thoughtful instead of reactive.</li>
-          <li>AI assistance <Planned /> will be advisory and switched on only after evaluation. It cannot satisfy a required human approval.</li>
+          <li>The AI publishing check <Planned /> follows the community written rules and is switched on only after evaluation.</li>
         </ul>
       </Section>
 

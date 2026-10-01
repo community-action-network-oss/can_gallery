@@ -1,24 +1,29 @@
-// Public status labels and explanations, from docs/spec/01-slice-1-brief.md
-// (lifecycle table, public label and plain explanation columns). Wording here
-// is a copy; the brief is the single owner.
+// Public lifecycle labels and explanations. Mirrors docs/spec/01a-lifecycle.md
+// (lifecycle v2, D-72), with the stage plan in 01b if it is split out. Wording
+// here is a copy; the spec is the single owner. Update it when the public
+// labels change there.
 export type Tone =
   | "pending" | "active" | "paused" | "stuck" | "withdrawn"
   | "solved" | "closed" | "redirected" | "interim";
 
 export type Stage = { label: string; tone: Tone; says: string };
+export type PathStep = Stage & { vis?: string };
 
-export const JOURNEY: Stage[] = [
-  { label: "Awaiting volunteer review", tone: "pending", says: "A volunteer checks it. Nothing is public yet." },
-  { label: "Open: gathering facts", tone: "active", says: "Published. Anyone can ask questions and add evidence." },
-  { label: "Open: developing solutions", tone: "active", says: "Enough is known to start proposing fixes." },
-  { label: "In progress", tone: "active", says: "A solution was chosen and the reason is on record. Work is tracked." },
-  { label: "Checking the result", tone: "interim", says: "Work is done. People check whether it fixed the problem." },
-  { label: "Solved", tone: "solved", says: "A volunteer confirmed the result matches the goal, using the evidence shown." },
+export const PATH: PathStep[] = [
+  { label: "Prepare", tone: "pending", vis: "Private", says: "The poster lays out the facts, trusted sources that show the problem is real, and what \u201csolved\u201d will mean. They can also plan stages, each with its own finish line." },
+  { label: "Volunteer review", tone: "interim", vis: "Still private", says: "Volunteers check it and suggest improvements to everything, from facts to stages to the finish line. The poster accepts or declines each suggestion." },
+  { label: "Published", tone: "active", says: "AI checks it against the rules the community wrote, then publishes it." },
+  { label: "Stages", tone: "active", says: "Stages run one after another, side by side, or both. In each stage people offer options, a choice is made, the work is done and evidence is posted. A stage finishes only when its evidence meets its finish line. Anyone can prepare work for later stages in the meantime." },
+  { label: "Solved", tone: "solved", says: "When every stage is done and the evidence meets the final finish line." },
 ];
 
+// Step 4 as a small graph: columns run left to right, stages in a column run side by side.
+export const STAGE_GRAPH: string[][] = [["Stage A"], ["Stage B", "Stage C"], ["Stage D"]];
+export const STAGE_GRAPH_TEXT =
+  "Example: Stage A first. Then Stage B and Stage C at the same time. Stage D starts when both are done.";
+
 export const SIDE_STATES: Stage[] = [
-  { label: "Changes requested", tone: "interim", says: "A volunteer asked for changes before this can be published. Each note sits next to the part it is about." },
-  { label: "Open: choosing a solution", tone: "active", says: "Proposals are ready to compare." },
+  { label: "Changes requested", tone: "interim", says: "The publishing check asked for changes. Hints sit next to the part they are about." },
   { label: "Paused", tone: "paused", says: "On hold, with the reason and the condition for resuming." },
   { label: "Stuck", tone: "stuck", says: "Documented work hit a blocker. The blocker and the next route are shown." },
   { label: "Redirected", tone: "redirected", says: "Better handled elsewhere. The route is shown." },
