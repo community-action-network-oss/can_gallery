@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Chip, DocRef, PageHead, Planned, Section } from "@/components/ui";
+import { Chip, DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
 import { RoleList, StagePanel } from "@/components/Path";
+import { Pictogram, Plate } from "@/components/Pictogram";
+import { Unfold } from "@/components/Unfold";
+import "./how-it-works.css";
 import { PATH, SIDE_STATES, type Roles } from "@/content/stages";
 
 export const metadata: Metadata = {
@@ -19,7 +22,41 @@ export default function Page() {
         lede="A plain-words tour of the lifecycle, who does what, how moderation works today and what we protect. Everything described is the design for the first build, not a running service."
       />
 
+      <section className="section" id="in-short" aria-labelledby="in-short-h">
+        <div className="wrap">
+          <h2 id="in-short-h">In short <Planned /></h2>
+          <div className="stack">
+            <Plate
+              title="One problem, many hands"
+              legend="Each figure is one person. The symbol is the problem."
+              caption={<><Fictional /> Nobody here is real. One person raises it, a few volunteers check it, then others help fix it.</>}
+            >
+              <div className="hands">
+                <Pictogram name="clerk" ink="cobalt" size={64} title="The person who raised it" />
+                <span className="hands-rule" aria-hidden="true" />
+                <Pictogram name="crossing" ink="ochre" size={64} title="A public problem" />
+                <span className="hands-rule" aria-hidden="true" />
+                <ul className="hands-helpers" aria-label="People who help">
+                  <li><Pictogram name="nurse" ink="cobalt" size={44} title="A volunteer" /></li>
+                  <li><Pictogram name="cook" ink="cobalt" size={44} title="A volunteer" /></li>
+                  <li><Pictogram name="electrician" ink="cobalt" size={44} title="A volunteer" /></li>
+                </ul>
+              </div>
+            </Plate>
+            <ol className="plain-steps">
+              <li><h3>It stays private first</h3><p>The person who raised it and a few volunteers shape it together. Nothing is public yet.</p></li>
+              <li><h3>Then it is shared and worked on in stages</h3><p>Each stage ends only when there is evidence anyone can check.</p></li>
+              <li><h3>People always have the last word</h3><p>Rules are applied openly, and every decision can be appealed.</p></li>
+              <li><h3>Your details stay yours</h3><p>You get a made up public name, and this site collects nothing about you.</p></li>
+            </ol>
+            <p className="small muted">Open any section below for the full detail. None of this is running yet.</p>
+          </div>
+        </div>
+      </section>
+
       <Section id="lifecycle" title="The lifecycle, in the words visitors will see" wide>
+        <p className="prose">Six steps take a problem from a private draft to a saved path for others. Open the detail to see every label, who does what, and the other states.</p>
+        <Unfold id="lifecycle-detail" summary="Every step and state, and what each one says">
         <p className="prose">
           Every problem follows the same six steps, labelled Planned. The
           first two happen before anything is public. In the Stages step,
@@ -46,15 +83,19 @@ export default function Page() {
           Stuck and paused are ordinary parts of real civic work. They are
           styled calmly, never in red, and never read as blame. Source: <DocRef path="docs/spec/01a-lifecycle.md" />.
         </p>
+        </Unfold>
       </Section>
 
       <Section id="roles" title="Who does what">
+        <p>Whoever raises a problem guides it, volunteers check it, and everyone else adds what they know.</p>
+        <Unfold id="roles-detail" summary="The four kinds of people, and what each does">
         <ul className="rows">
           <li><strong>The person who raised it, the steward</strong><span className="d">Provisionally guides the problem: proposes decisions and moves it through the stages. Owns nothing; the problem belongs to the public record.</span></li>
           <li><strong>Moderators, volunteers</strong><span className="d">Review problems before they are published, and suggest improvements to facts, stages and finish lines. Every decision carries the rules applied and a hint for what to change.</span></li>
           <li><strong>Contributors</strong><span className="d">Add evidence, questions, risks, proposals and progress updates. Nobody is excluded in the first build.</span></li>
           <li><strong>Core participants, visitors, experts, observers <Planned /></strong><span className="d">People with a material connection to the problem lead the thread; visitors and verified experts contribute without steering it; observers follow along.</span></li>
         </ul>
+        </Unfold>
       </Section>
 
       <Section id="moderation" title="Moderation: rules first, people always">
@@ -63,6 +104,7 @@ export default function Page() {
           against the rules the community wrote before it is published. People
           can appeal every decision.
         </p>
+        <Unfold id="moderation-detail" summary="Six things moderation is built to do">
         <ul>
           <li>Deterministic checks catch contact details, secrets and obviously unsafe links before anyone reviews.</li>
           <li>Volunteers review every problem in private before it is public, and the poster accepts or declines each suggestion.</li>
@@ -71,9 +113,12 @@ export default function Page() {
           <li>Discussion is solution-only, with targeted waits between contributions, so it stays thoughtful instead of reactive.</li>
           <li>The AI publishing check <Planned /> follows the community written rules and is switched on only after evaluation.</li>
         </ul>
+        </Unfold>
       </Section>
 
       <Section id="privacy" title="Privacy stance">
+        <p>Your email stays private, a problem never names anyone, and this site collects nothing about you.</p>
+        <Unfold id="privacy-detail" summary="What we protect, and the numbers still open">
         <ul>
           <li>You get a generated public name. Your email is encrypted and never shown.</li>
           <li>Problems must not identify anyone. A personal experience is welcome only as evidence of a wider condition.</li>
@@ -84,6 +129,7 @@ export default function Page() {
           Exact numbers (deletion windows, waiting times, ages) are defaults,
           and several are <Link href="/open-questions/">open questions</Link>.
         </p>
+        </Unfold>
       </Section>
     </>
   );

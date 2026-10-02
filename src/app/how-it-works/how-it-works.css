@@ -1,0 +1,5 @@
+.hands { display: flex; flex-wrap: wrap; align-items: center; gap: var(--can-space-3); }
+.hands-rule { flex: 0 0 2rem; height: 2px; background: var(--can-color-text); opacity: 0.5; }
+.hands-helpers { list-style: none; padding: 0; margin: 0; display: flex; gap: var(--can-space-2); }
+.hands-helpers li { margin: 0; }
+@media (max-width: 30rem) { .hands-rule { flex-basis: 1rem; } }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { DocRef, PageHead, Section } from "@/components/ui";
+import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
+import { Pictogram, Plate } from "@/components/Pictogram";
+import { Unfold } from "@/components/Unfold";
+import "./principles.css";
 
 export const metadata: Metadata = {
   title: "Principles",
@@ -27,7 +30,33 @@ export default function Page() {
         title="Principles"
         lede="A short reading of the constitution. It is a working draft, tagged by how settled each article is, and open to challenge through its amendment process."
       />
+      <section className="section" id="in-short" aria-labelledby="in-short-h">
+        <div className="wrap">
+          <h2 id="in-short-h">In short</h2>
+          <div className="stack">
+            <Plate
+              title="Public problems only"
+              legend="Each crossing is a shared problem. Each figure is one person."
+              caption={<><Fictional /> CAN looks at what many people face together, and keeps the person out of it.</>}
+            >
+              <div className="scope">
+                <Pictogram name="clinic" ink="ochre" size={56} title="A shared public problem" />
+                <Pictogram name="bus" ink="ochre" size={56} title="A shared public problem" />
+                <Pictogram name="school" ink="ochre" size={56} title="A shared public problem" />
+              </div>
+            </Plate>
+            <ul className="rows">
+              <li><strong>It takes shared problems, not personal cases.</strong></li>
+              <li><strong>People decide and can be asked to explain. AI never decides alone.</strong></li>
+              <li><strong>Nothing is called live before it is.</strong> <Planned /></li>
+            </ul>
+            <p className="small muted">The constitution is a working draft. Open any section below for the full detail.</p>
+          </div>
+        </div>
+      </section>
       <Section id="never" title="What we will never do" wide>
+        <p className="prose">Eight promises about what CAN will not become. The first three matter most to people who come with a personal worry.</p>
+        <Unfold id="never-detail" summary="All eight, with the reason for each">
         <ul className="rows">
           <li><strong>Treat an individual as a case.</strong> <span className="d">No personal advice, therapy, legal service or case management.</span></li>
           <li><strong>Publish a personal crisis as a public problem.</strong> <span className="d">If someone may be in danger, the platform stops and shows safety routes instead.</span></li>
@@ -38,8 +67,11 @@ export default function Page() {
           <li><strong>Show your email.</strong> <span className="d">Public names are generated. Contact details stay private.</span></li>
           <li><strong>Claim to be live before it is.</strong> <span className="d">Anything not built is labelled planned.</span></li>
         </ul>
+        </Unfold>
       </Section>
       <Section id="precedence" title="When rules conflict, this order wins">
+        <p>Rights come first and ranking comes last.</p>
+        <Unfold id="precedence-detail" summary="The full order, and what happens in a tie">
         <ol>
           <li>Rights</li>
           <li>Crisis and safety</li>
@@ -53,8 +85,11 @@ export default function Page() {
           settled mechanically, it goes to a human and the record cites both
           rules.
         </p>
+        </Unfold>
       </Section>
       <Section id="chapters" title="The eleven chapters" wide>
+        <p className="prose">The constitution has eleven chapters, from purpose and privacy to governance. Some are already written and some are planned.</p>
+        <Unfold id="chapters-detail" summary="The chapter table, and how to read the tags">
         <div className="table-wrap">
           <table>
             <thead><tr><th scope="col">Chapter</th><th scope="col">Title</th><th scope="col">In short</th></tr></thead>
@@ -71,6 +106,7 @@ export default function Page() {
           in <DocRef path="docs/spec/constitution/" /> and the testable rules
           in <DocRef path="docs/spec/constitution/rules.md" />.
         </p>
+        </Unfold>
       </Section>
     </>
   );
