@@ -33,6 +33,7 @@ export const DEEPER_NAV = [
   { href: "/how-decisions-are-made/", label: "How decisions are made" },
   { href: "/community-policy/", label: "Community policy" },
   { href: "/lawful-everywhere/", label: "Lawful everywhere" },
+  { href: "/archive-and-reuse/", label: "The Archive and reuse" },
   { href: "/re-resolution/", label: "When rules improve" },
   { href: "/proof/", label: "How CAN proves its rules" },
   { href: "/whats-new/", label: "What is new" },

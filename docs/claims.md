@@ -127,3 +127,13 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-119 | proof | Early scaffolding exists for running these simulations, but it refuses to run until the server has a simulation mode, and that is not built. | docs/design/ai/simulation.md | supported |
 | C-120 | proof | These are defaults to be ratified by the community, not settled rules. | docs/design/ai/simulation.md | supported |
 | C-121 | proof | Every finished seed run would leave a labelled simulation record in the Archive that new problems can learn from. | docs/design/ai/simulation.md | supported |
+| C-122 | archive-and-reuse | The whole journey of an ended problem, with personal data removed. | docs/spec/24-archive-reuse.md | supported |
+| C-123 | archive-and-reuse | Failed paths are kept on purpose, because a path that failed is as useful as one that worked. | docs/spec/24-archive-reuse.md | supported |
+| C-124 | archive-and-reuse | A suggestion that fails the legality check is shown as unusable, with the reason, and is never hidden. | docs/spec/24-archive-reuse.md | supported |
+| C-125 | archive-and-reuse | Nothing is adopted automatically. | docs/spec/24-archive-reuse.md | supported |
+| C-126 | archive-and-reuse | A volunteer review is still required. | docs/spec/24-archive-reuse.md | supported |
+| C-127 | archive-and-reuse | The community is invited to take part and is not a blocker. | docs/spec/24-archive-reuse.md | supported |
+| C-128 | archive-and-reuse | Every suggestion and every stage plan drawn from one links back to its source case. | docs/spec/24-archive-reuse.md | supported |
+| C-129 | archive-and-reuse | The default license is CC BY 4.0, and that is an open question you are invited to help answer | docs/open-questions/OQ-contribution-license.md | supported |
+| C-130 | archive-and-reuse | The Archive starts empty. | docs/spec/24-archive-reuse.md | supported |
+| C-131 | archive-and-reuse | High-stakes areas such as medicine, law and engineering need expert review. | docs/spec/24-archive-reuse.md | supported |

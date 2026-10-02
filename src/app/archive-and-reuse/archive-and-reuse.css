@@ -1,0 +1,5 @@
+.ar-diagram { display: block; width: 100%; max-width: 28rem; height: auto; }
+.ar-diagram rect { fill: var(--can-color-surface, transparent); stroke: var(--can-color-text); stroke-width: 2; }
+.ar-diagram text { fill: var(--can-color-text); font: 15px system-ui, sans-serif; }
+.ar-diagram path { stroke: var(--can-color-text); stroke-width: 2; fill: none; }
+.ar-diagram .head { fill: var(--can-color-text); stroke: none; }
