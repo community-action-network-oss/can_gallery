@@ -1,12 +1,14 @@
-.fit-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--can-space-4); }
-.fit-list > li { margin: 0; display: grid; gap: var(--can-space-3); padding: var(--can-space-4); border: 1px solid var(--can-color-border); border-radius: var(--can-radius-sm); background: var(--can-color-surface); min-width: 0; }
+.fit-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; width: 100%; grid-template-columns: 1fr; }
+.fit-list > li { margin: 0; display: grid; gap: var(--can-space-3); padding: var(--can-space-4) 0; border-top: 1px solid var(--can-color-border); min-width: 0; }
 .fit-who { display: flex; align-items: center; gap: var(--can-space-3); }
 .fit-who span { font-weight: 700; }
 .fit-shown { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--can-space-2); }
 .fit-shown li { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: var(--can-space-3); align-items: center; font-size: 0.9375rem; }
 .fit-shown strong { display: block; }
-.ask-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--can-space-3); }
-.ask-list li { margin: 0; padding: var(--can-space-3) var(--can-space-4); border: 1px dashed var(--can-color-border); border-radius: var(--can-radius-sm); min-width: 0; }
+.ask-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; grid-template-columns: 1fr; }
+.ask-list li { margin: 0; padding: var(--can-space-3) 0; border-top: 1px solid var(--can-color-border); min-width: 0; }
 .ask-list strong { display: block; }
 .ask-list span { color: var(--can-color-text-muted); font-size: 0.9375rem; }
-@media (min-width: 48rem) { .fit-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ask-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 48rem) { .fit-list > li { grid-template-columns: 16rem 1fr; align-items: start; } .ask-list li { display: grid; grid-template-columns: 16rem 1fr; gap: var(--can-space-4); } }
+#people .wrap > p { margin-bottom: var(--can-space-4); }
+p > .tag:first-child { margin-left: 0; }

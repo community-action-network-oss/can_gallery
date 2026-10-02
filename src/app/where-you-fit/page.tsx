@@ -23,7 +23,7 @@ const PEOPLE: { who: string; person: PictogramName; shown: Shown[] }[] = [
   },
   {
     who: "A hotel night manager",
-    person: "clerk",
+    person: "manager",
     shown: [
       { problem: "bus", what: "A night bus that stops too early", why: "A skill: he knows who travels at night." },
       { problem: "crossing", what: "A crossing that stays dark", why: "A place: he walks it to work." },

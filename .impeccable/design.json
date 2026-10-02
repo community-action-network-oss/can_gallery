@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T00:00:00Z",
+  "title": "Design System: CAN Gallery",
+  "extensions": {
+    "colorMeta": {
+      "cobalt": {
+        "role": "primary",
+        "displayName": "Plate Cobalt",
+        "canonical": "#1F4FA3",
+        "tonalRamp": [
+          "#0A1A36",
+          "#102852",
+          "#15356D",
+          "#1A4288",
+          "#1F4FA3",
+          "#486FB4",
+          "#9BB0D6",
+          "#D8E1EF"
+        ]
+      },
+      "ochre": {
+        "role": "secondary",
+        "displayName": "Survey Ochre",
+        "canonical": "#A87413",
+        "tonalRamp": [
+          "#43300F",
+          "#644817",
+          "#85601F",
+          "#A77826",
+          "#C8902E",
+          "#D2A454",
+          "#DCB97B",
+          "#F6ECDB"
+        ]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Field Green",
+        "canonical": "#2F7D4F",
+        "tonalRamp": [
+          "#102A1A",
+          "#183F28",
+          "#1F5335",
+          "#276842",
+          "#2F7D4F",
+          "#55956F",
+          "#7CAD90",
+          "#DBE9E1"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Chart Paper",
+        "canonical": "#E9EEF2",
+        "tonalRamp": [
+          "#14181C",
+          "#1F2327",
+          "#363A3E",
+          "#62676B",
+          "#8F9498",
+          "#BCC1C5",
+          "#D3D7DB",
+          "#E9EEF2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Near-Black Ink",
+        "canonical": "#1A1A1A",
+        "tonalRamp": [
+          "#1A1A1A",
+          "#262626",
+          "#3E3E3E",
+          "#565656",
+          "#6E6E6E",
+          "#868686",
+          "#B7B7B7",
+          "#F3F3F3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Plate and step titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Legends, captions, chips."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "count-in",
+        "value": "480ms cubic-bezier(0.16, 1, 0.3, 1), 140ms stagger",
+        "purpose": "Figures appear one by one on first view; off under reduced motion."
+      },
+      {
+        "name": "pair-light",
+        "value": "160ms ease-out",
+        "purpose": "Rule color and sibling dimming on hover or focus."
+      },
+      {
+        "name": "motion-fast",
+        "value": "120ms",
+        "purpose": "Shared fast token."
+      },
+      {
+        "name": "motion-normal",
+        "value": "200ms",
+        "purpose": "Shared normal token."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "40rem"
+      },
+      {
+        "name": "pairs",
+        "value": "48rem"
+      },
+      {
+        "name": "doc-toc",
+        "value": "64rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Primary action, cobalt, square.",
+      "html": "<a class=\"ds-btn\" href=\"#\">See where you fit</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:#1F4FA3;border:2px solid #1F4FA3;color:#fff;border-radius:2px;font:600 1rem system-ui,sans-serif;text-decoration:none}.ds-btn:hover{background:#1A1A1A;border-color:#1A1A1A;color:#E9EEF2}.ds-btn:focus-visible{outline:2px solid #1F4FA3;outline-offset:2px}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary action, outlined.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">Go deeper</a>",
+      "css": ".ds-btn-quiet{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:transparent;border:2px solid #1F4FA3;color:#1A4288;border-radius:2px;font:600 1rem system-ui,sans-serif;text-decoration:none}.ds-btn-quiet:hover{background:#DEE3E7}.ds-btn-quiet:focus-visible{outline:2px solid #1F4FA3;outline-offset:2px}"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "plate",
+      "description": "Planned state label, paused family.",
+      "html": "<span class=\"ds-chip\">Planned</span>",
+      "css": ".ds-chip{display:inline-block;padding:4px 12px;border-radius:2px;background:#F6EBD3;color:#6B4A12;font:600 .875rem/1.3 system-ui,sans-serif}"
+    },
+    {
+      "name": "Plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Chart plate: title, legend, figures, caption.",
+      "html": "<figure class=\"ds-plate\"><div class=\"ds-t\">People and problems</div><div class=\"ds-l\">Each figure is one person.</div><figcaption>Fictional example</figcaption></figure>",
+      "css": ".ds-plate{margin:0;padding:24px;background:#F4F7F9;border:2px solid #1A1A1A;border-radius:2px;font-family:system-ui,sans-serif;color:#1A1A1A}.ds-t{font-weight:800;font-size:1.125rem}.ds-l{margin:4px 0 12px;font-size:.875rem;color:#3F4A52}.ds-plate figcaption{font-size:.875rem;color:#3F4A52;border-top:1px solid #BFC9D1;padding-top:12px}"
+    },
+    {
+      "name": "Brand Nav",
+      "kind": "nav",
+      "refersTo": "brand-mark",
+      "description": "Cobalt square mark with inline nav links.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-mark\">CAN</span><a href=\"#\">How it works</a><a href=\"#\">Roadmap</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:8px;font-family:system-ui,sans-serif}.ds-mark{display:inline-grid;place-items:center;min-width:40px;height:40px;padding:0 8px;background:#1F4FA3;color:#fff;border-radius:2px;font-weight:800;letter-spacing:.04em}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;color:#1F4FA3}.ds-nav a:focus-visible{outline:2px solid #1F4FA3;outline-offset:2px}"
+    },
+    {
+      "name": "Unfold",
+      "kind": "custom",
+      "refersTo": "plate",
+      "description": "Native details with visible Show more label.",
+      "html": "<details class=\"ds-unfold\"><summary><span>One plain sentence.</span><span class=\"ds-lab\">Show more</span></summary><p>Detail opens on request.</p></details>",
+      "css": ".ds-unfold{border-top:1px solid #BFC9D1;font-family:system-ui,sans-serif;color:#1A1A1A}.ds-unfold summary{display:flex;justify-content:space-between;gap:16px;min-height:44px;padding-block:12px;cursor:pointer;list-style:none;font-weight:600}.ds-lab{font-size:.875rem;font-weight:700;color:#1F4FA3;text-decoration:underline;text-underline-offset:.2em}.ds-unfold summary:focus-visible{outline:2px solid #1F4FA3;outline-offset:2px}"
+    },
+    {
+      "name": "Person Pair",
+      "kind": "custom",
+      "refersTo": "plate",
+      "description": "Person, rule and problem symbol; rule lights ochre on hover.",
+      "html": "<div class=\"ds-pair\" tabindex=\"0\"><svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"#1F4FA3\"><circle cx=\"12\" cy=\"6.5\" r=\"3.5\"/><path d=\"M5 24v-7a7 7 0 0 1 14 0v7z\"/></svg><span class=\"ds-rule\"></span><svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"#A87413\"><path d=\"M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z\"/></svg></div>",
+      "css": ".ds-pair{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:8px;border:1px solid transparent;border-radius:2px;max-width:320px}.ds-rule{border-top:2px solid #BFC9D1;transition:border-color 160ms ease-out}.ds-pair:hover,.ds-pair:focus-visible{border-color:#1A1A1A;outline:none}.ds-pair:hover .ds-rule,.ds-pair:focus-visible .ds-rule{border-color:#A87413}.ds-pair:focus-visible{outline:2px solid #1F4FA3;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Chart Plate",
+    "overview": "Words divide, pictures unite. The gallery explains CAN as an Isotype picture language: each section is a plate with a title, a one-line legend and a caption, set on cool grey-blue paper in near-black ink. Figures are hand-authored SVG on one 24-unit grid (people by trade, problems by symbol, states by symbol) in one of three flat inks. Quantity is shown by repetition: one person with five problems is five symbols, never one big symbol.\n\nThe voice is calm, plain and unhurried. Type is the heavy system sans, flush left, sentence case. Surfaces are solid and square: 2px corners, solid fills, no shadows, no gradients. Detail is never removed; it opens on request through native details and summary.",
+    "keyCharacteristics": [
+      "Paper, ink and three pictogram inks only; status chips keep the shared status hue families.",
+      "Counted, not scaled: repetition carries quantity.",
+      "Square 2px corners and 2px ink rules; borders do the work shadows would.",
+      "System fonts only, no downloads.",
+      "Light first, dark by system preference, with lighter pictogram inks in dark."
+    ],
+    "rules": [
+      {
+        "name": "The Three Inks Rule",
+        "body": "Figures use cobalt, ochre or green, one per figure, solid. No fourth hue, no tints in light mode.",
+        "section": "colors"
+      },
+      {
+        "name": "The Status Hue Rule",
+        "body": "Chips take their colors only from the shared status families (pending, active, paused, stuck, solved and the rest). Stuck and paused are ordinary states and are never red.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flush Left Rule",
+        "body": "Everything aligns left, sentence case; headings use balanced wrapping and tight negative tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Plate Rule",
+        "body": "A surface is separated by border or tone, never by shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do draw new figures on the 24-unit grid, one ink, solid, six shapes or fewer, with paper cut-outs.",
+      "Do show quantity by repeating a figure.",
+      "Do give each new section a plate title, legend and caption.",
+      "Do keep controls at 44px and honor reduced motion.",
+      "Do label unbuilt things Planned and examples Fictional."
+    ],
+    "donts": [
+      "Don't scale a figure to mean \"more\".",
+      "Don't add shadows, gradients or radii above 2px.",
+      "Don't use red for ordinary states.",
+      "Don't add a font download or a fourth pictogram ink.",
+      "Don't use em or en dashes in rendered text."
+    ]
+  }
+}

@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ButtonLink, Chip, Fictional, Planned, RepoLink } from "@/components/ui";
 import { PathRail } from "@/components/Path";
-import { Pictogram, Plate, type PictogramName } from "@/components/Pictogram";
+import { Pictogram, Plate, type PictogramName, type Ink } from "@/components/Pictogram";
 import { Unfold } from "@/components/Unfold";
 import oq from "@/content/open-questions.json";
 
@@ -25,11 +25,11 @@ const FIVE: { name: PictogramName; label: string }[] = [
   { name: "water", label: "a water supply" },
 ];
 
-const STEPS = [
-  { id: "s1", title: "Someone notices a problem", text: "A shared public problem is written down with evidence, and nothing that identifies anyone.", from: 0, to: 1 },
-  { id: "s2", title: "People who know help shape it", text: "Volunteers suggest improvements. The person who wrote it accepts or declines each one.", from: 1, to: 2 },
-  { id: "s3", title: "It gets fixed, step by step, with proof", text: "The work runs in stages. Each stage ends with evidence anyone can check.", from: 2, to: 5 },
-  { id: "s4", title: "The fix is kept for others", text: "The whole journey, including what failed, is saved so the next town can start from it.", from: 5, to: 6 },
+const STEPS: { id: string; title: string; text: string; from: number; to: number; fig: PictogramName; ink: Ink }[] = [
+  { id: "s1", title: "Someone notices a problem", text: "A shared public problem is written down with evidence, and nothing that identifies anyone.", from: 0, to: 1, fig: "noticed", ink: "ochre" },
+  { id: "s2", title: "People who know help shape it", text: "Volunteers suggest improvements. The person who wrote it accepts or declines each one.", from: 1, to: 2, fig: "shaped", ink: "cobalt" },
+  { id: "s3", title: "It gets fixed, step by step, with proof", text: "The work runs in stages. Each stage ends with evidence anyone can check.", from: 2, to: 5, fig: "fixed", ink: "green" },
+  { id: "s4", title: "The fix is kept for others", text: "The whole journey, including what failed, is saved so the next town can start from it.", from: 5, to: 6, fig: "kept", ink: "cobalt" },
 ];
 
 export default function Home() {
@@ -55,13 +55,17 @@ export default function Home() {
               ))}
             </ol>
           </Plate>
+          <div className="hero-foot">
+          <div className="hero-copy">
           <p className="lede">
             CAN is a place where people with every kind of know-how help fix
             problems that affect a whole community.
           </p>
           <p className="status-line"><strong>Being built. Nothing is live yet.</strong> CAN is not an emergency service. If someone is in danger, call your local emergency number.</p>
+          </div>
           <div className="cta-row">
             <ButtonLink href="#where-you-fit">See where you fit</ButtonLink>
+          </div>
           </div>
         </div>
       </section>
@@ -76,10 +80,11 @@ export default function Home() {
               caption={<><Fictional /> A person shares what they know, and sees a handful of public problems they could move. Not a long list.</>}
             >
               <div className="one-five">
-                <Pictogram name="nurse" ink="cobalt" size={88} />
-                <ul className="five" aria-label="Five problems, as symbols">
+                <Pictogram name="nurse" ink="cobalt" size={120} />
+                <span className="one-rule" aria-hidden="true" />
+                <ul className="five">
                   {FIVE.map((f) => (
-                    <li key={f.name}><Pictogram name={f.name} ink="ochre" size={56} title={f.label} /></li>
+                    <li key={f.name}><Pictogram name={f.name} ink="ochre" size={80} /><span>{f.label}</span></li>
                   ))}
                 </ul>
               </div>
@@ -101,6 +106,7 @@ export default function Home() {
           <ol className="plain-steps">
             {STEPS.map((st, i) => (
               <li key={st.id}>
+                <Pictogram name={st.fig} ink={st.ink} size={40} />
                 <h3 id={`${st.id}-h`}>{st.title}</h3>
                 <p>{st.text}</p>
                 <Unfold summary={`What happens at step ${i + 1}, in detail`}>

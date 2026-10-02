@@ -41,6 +41,44 @@ const FIGURES = {
       <path className="cut" d="M9 14h6v6H9z" />
     </>,
   ),
+  manager: person(
+    <>
+      <path d="M7.500 5.500h9V3.500h-9zM6 5h12v1.500H6z" />
+      <path className="cut" d="M9.500 14.500a2 2 0 1 1 3.900.5H16v1.500h-1v1.500h-1.500V16.500h-.5a2 2 0 0 1-3.500-2z" />
+    </>,
+  ),
+  teacher: person(<path className="cut" d="M7.500 14h4v6h-4zM12.500 14h4v6h-4z" />),
+  driver: person(
+    <>
+      <path d="M7.500 4.500a4.500 4.500 0 0 1 9 0z" />
+      <path className="cut" d="M12 13.500a3.500 3.500 0 1 1 0 7 3.500 3.500 0 0 1 0-7zm0 1.500a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+    </>,
+  ),
+  noticed: (
+    <>
+      <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z" />
+      <path className="cut" d="M10.800 6.500h2.400l-.5 7h-1.400zM10.800 15.500h2.400v2.400h-2.400z" />
+    </>
+  ),
+  shaped: (
+    <>
+      <path d="M2 3h20v14H14l-5 4v-4H2z" />
+      <path className="cut" d="M5.500 7h13v1.800h-13zM5.500 11h8v1.800h-8z" />
+    </>
+  ),
+  fixed: (
+    <>
+      <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z" />
+      <path className="cut" d="M6.500 12.300l1.800-1.800 2.500 2.500 5-5 1.800 1.800-6.800 6.800z" />
+    </>
+  ),
+  kept: (
+    <>
+      <path d="M2 4h20v5H2z" />
+      <path d="M3.500 10.500h17V21h-17z" />
+      <path className="cut" d="M9 13h6v2.200H9z" />
+    </>
+  ),
   crossing: <path d="M2 4h4v16H2zM7 4h4v16H7zM12 4h4v16h-4zM17 4h5v16h-5z" />,
   bus: (
     <>
