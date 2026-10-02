@@ -8,7 +8,7 @@ const badgeStyle = tva({
   variants: {
     tone: {
       planned: 'bg-[var(--can-status-paused-bg)] text-[color:var(--can-status-paused-fg)]',
-      fictional: 'bg-[var(--can-status-interim-bg)] text-[color:var(--can-status-interim-fg)]',
+      fictional: 'bg-[var(--can-status-transitional-bg)] text-[color:var(--can-status-transitional-fg)]',
     },
   },
 });

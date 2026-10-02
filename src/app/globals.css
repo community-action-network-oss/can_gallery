@@ -338,7 +338,7 @@ main:focus { outline: none; }
 .roles li { margin: 0; display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--can-space-2); align-items: baseline; font-size: 0.875rem; line-height: 1.4; }
 .role-chip { justify-self: start; padding: 0.05rem 0.6rem; font-size: 0.75rem; font-weight: 700; border: 1.5px solid var(--can-color-primary); color: var(--can-color-primary); background: var(--can-color-surface); border-radius: var(--can-radius-pill); }
 .role-community .role-chip { border-style: dashed; }
-.role-ai .role-chip { border-radius: var(--can-radius-sm); background: var(--can-status-interim-bg); color: var(--can-status-interim-fg); border-color: var(--can-status-interim-fg); }
+.role-ai .role-chip { border-radius: var(--can-radius-sm); background: var(--can-status-transitional-bg); color: var(--can-status-transitional-fg); border-color: var(--can-status-transitional-fg); }
 .role-line { color: var(--can-color-text); }
 @media (max-width: 29.99rem) { .roles li { grid-template-columns: 1fr; gap: var(--can-space-1); } }
 
@@ -382,7 +382,7 @@ td .roles { margin-top: var(--can-space-2); }
 .chip-solved { background: var(--can-status-solved-bg); color: var(--can-status-solved-fg); }
 .chip-closed { background: var(--can-status-closed-bg); color: var(--can-status-closed-fg); }
 .chip-redirected { background: var(--can-status-redirected-bg); color: var(--can-status-redirected-fg); }
-.chip-interim { background: var(--can-status-interim-bg); color: var(--can-status-interim-fg); }
+.chip-transitional { background: var(--can-status-transitional-bg); color: var(--can-status-transitional-fg); }
 
 /* Sections */
 .section { padding-block: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--can-color-border); }

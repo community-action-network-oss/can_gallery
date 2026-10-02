@@ -211,7 +211,7 @@ export default function Home() {
           </p>
           <ul className="timeline">
             <li><Chip tone="pending">Prepare</Chip><span>A resident lays out that the signal at a school crossing stays dark after dusk, with dated photos, two repair tickets that were never answered, and what solved means: a working signal at night, checked twice. They plan two stages. No names.</span></li>
-            <li><Chip tone="interim">Volunteer review</Chip><span>Volunteers suggest splitting the plan into a repair stage and an inspection stage, and sharpening the finish line. The poster accepts two suggestions and declines one, with a reason.</span></li>
+            <li><Chip tone="transitional">Volunteer review</Chip><span>Volunteers suggest splitting the plan into a repair stage and an inspection stage, and sharpening the finish line. The poster accepts two suggestions and declines one, with a reason.</span></li>
             <li><Chip tone="active">Published</Chip><span>The AI check passes it against the community rules and it goes public.</span></li>
             <li><Chip tone="active">Stages</Chip><span>The repair stage runs first: options, a choice, the work, then a dated night photo as evidence. The inspection schedule was prepared in the meantime and starts once the repair is done.</span></li>
             <li><Chip tone="solved">Solved</Chip><span>Both stages are done and the evidence meets the final finish line. </span></li>

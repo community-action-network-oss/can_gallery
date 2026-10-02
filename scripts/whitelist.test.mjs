@@ -72,3 +72,18 @@ test("tree listing filters to the whitelist and treats an empty policy repo as o
   assert.deepEqual(r.paths.sort(), ["docs/spec/new.md", "manifesto.md"]);
   assert.equal((await listTrees(async () => new Response("", { status: 403 }))).ok, false);
 });
+
+// 07-u20: the status.interim token was renamed to transitional (07-u18); no token reference may return.
+test("no status.interim token reference in src", async () => {
+  const { readdirSync, readFileSync, statSync } = await import("node:fs");
+  const bad = [];
+  const walk = (d) => {
+    for (const f of readdirSync(d)) {
+      const p = `${d}/${f}`;
+      if (statSync(p).isDirectory()) walk(p);
+      else if (/\.(css|tsx?|mjs|json)$/.test(f) && /status[.-]interim|chip-interim|["']interim["']/.test(readFileSync(p, "utf8"))) bad.push(p);
+    }
+  };
+  walk(new URL("../src", import.meta.url).pathname);
+  assert.deepEqual(bad, []);
+});

@@ -4,7 +4,7 @@
 // labels change there.
 export type Tone =
   | "pending" | "active" | "paused" | "stuck" | "withdrawn"
-  | "solved" | "closed" | "redirected" | "interim";
+  | "solved" | "closed" | "redirected" | "transitional";
 
 export type Stage = { label: string; tone: Tone; says: string };
 // Who helps in a step: one short line each. Role is always named in text.
@@ -20,7 +20,7 @@ export const ROLE_LABELS: { key: keyof Roles; label: string }[] = [
 export const PATH: PathStep[] = [
   { label: "Prepare", tone: "pending", vis: "Private", says: "The poster lays out the facts, trusted sources that show the problem is real, what \u201csolved\u201d will mean, and optionally the stages.",
     roles: { poster: "Lays out facts, trusted sources, what solved means and any optional stages.", community: "Not involved yet. Nothing is public.", ai: "Suggests paths from the archive of similar solved problems as the poster types." } },
-  { label: "Volunteer review", tone: "interim", vis: "Still private", says: "Volunteers check it and suggest improvements to everything, from facts to stages to the finish line.",
+  { label: "Volunteer review", tone: "transitional", vis: "Still private", says: "Volunteers check it and suggest improvements to everything, from facts to stages to the finish line.",
     roles: { poster: "Accepts or declines each suggestion.", community: "Volunteers suggest improvements.", ai: "Flags gaps." } },
   { label: "Published", tone: "active", says: "The problem goes public with a stage plan.",
     roles: { poster: "Edits the drafted stage plan.", community: "Can now read it and take part.", ai: "Checks it against the community\u2019s rules and publishes. Drafts a stage plan from matching archive paths." } },
@@ -59,7 +59,7 @@ export const STAGE_GRAPH_TEXT =
   "Example: Stage A first. Then Stage B and Stage C at the same time. Stage D starts when both are done.";
 
 export const SIDE_STATES: Stage[] = [
-  { label: "Changes requested", tone: "interim", says: "The publishing check asked for changes. Hints sit next to the part they are about." },
+  { label: "Changes requested", tone: "transitional", says: "The publishing check asked for changes. Hints sit next to the part they are about." },
   { label: "Paused", tone: "paused", says: "On hold, with the reason and the condition for resuming." },
   { label: "Stuck", tone: "stuck", says: "Documented work hit a blocker. The blocker and the next route are shown." },
   { label: "Redirected", tone: "redirected", says: "Better handled elsewhere. The route is shown." },
