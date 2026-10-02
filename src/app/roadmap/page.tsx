@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { DocRef, PageHead, Section } from "@/components/ui";
+import { Pictogram } from "@/components/Pictogram";
+import { Unfold } from "@/components/Unfold";
+import "./roadmap.css";
 
 export const metadata: Metadata = {
   title: "Roadmap",
@@ -18,6 +21,8 @@ const PHASES: { name: string; state: "Now" | "Next" | "Later"; text: string }[] 
   { name: "Phase 8: Election accountability", state: "Later", text: "Off by default. Considered only after legal review, a neutrality evaluation and independent oversight exist." },
 ];
 
+const count = (s: string) => PHASES.filter((p) => p.state === s).length;
+
 export default function Page() {
   return (
     <>
@@ -26,27 +31,42 @@ export default function Page() {
         lede="Honest about order, not about dates. Each phase has to earn the next one. Today we are explaining, deciding and laying the foundation."
       />
       <Section id="phases" title="Phases in plain words" wide>
-        <ol className="phases">
-          {PHASES.map((p) => (
+        <p className="prose">
+          There are {PHASES.length} phases. {count("Now")} are under way, {count("Next")} is next and {count("Later")} come later. Each figure below is one phase, in order.
+        </p>
+        <ol className="phase-row" aria-label="The phases in order">
+          {PHASES.map((p, i) => (
             <li key={p.name} className={p.state === "Now" ? "now" : undefined}>
-              <h3>
-                {p.name}
-                <span className={p.state === "Now" ? "chip chip-active" : "chip chip-withdrawn"}>
-                  {p.state === "Now" ? "We are here" : p.state}
-                </span>
-              </h3>
-              <p>{p.text}</p>
+              <Pictogram name="crossing" ink={p.state === "Now" ? "green" : p.state === "Next" ? "ochre" : "cobalt"} size={32} />
+              <span className="small">{i + 1}. {p.state === "Now" ? "We are here" : p.state}</span>
             </li>
           ))}
         </ol>
-        <p className="prose small muted">
-          Source: <DocRef path="docs/spec/18-phases-gates.md" />. The
-          indicative plan is about two months for phases 0A and 0B, then three
-          months for the first slice, then a pilot. It is a hypothesis, not a
-          promise.
-        </p>
+        <Unfold id="phases-detail" summary="Every phase, what it covers and where each one stands">
+          <ol className="phases">
+            {PHASES.map((p) => (
+              <li key={p.name} className={p.state === "Now" ? "now" : undefined}>
+                <h3>
+                  {p.name}
+                  <span className={p.state === "Now" ? "chip chip-active" : "chip chip-withdrawn"}>
+                    {p.state === "Now" ? "We are here" : p.state}
+                  </span>
+                </h3>
+                <p>{p.text}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="prose small muted">
+            Source: <DocRef path="docs/spec/18-phases-gates.md" />. The
+            indicative plan is about two months for phases 0A and 0B, then three
+            months for the first slice, then a pilot. It is a hypothesis, not a
+            promise.
+          </p>
+          </Unfold>
       </Section>
       <Section id="decentralization" title="Decentralization: a later, parallel track">
+        <p>A later, separate group is exploring a way for independent nodes to share the same rules. The first build only leaves room for it.</p>
+        <Unfold id="decentralization-detail" summary="What the track covers and what the first build leaves room for">
         <p>
           CAN starts as one centralized reference platform, because that is
           the fastest way to learn what works. A separate working group
@@ -60,6 +80,7 @@ export default function Page() {
           later and need their own decisions. See{" "}
           <DocRef path="docs/spec/13-decentralization-track.md" />.
         </p>
+        </Unfold>
       </Section>
     </>
   );

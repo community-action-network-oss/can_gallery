@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { IndexStatus, LiveExtras } from "@/components/LiveExtras";
 import { PageHead } from "@/components/ui";
+import { Unfold } from "@/components/Unfold";
 import { SECTIONS } from "@/content/docs-sections";
 import { PRIVACY_NOTE, PRIVACY_URL, THIRD_PARTY } from "@/config/docs-origin.mjs";
 import { manifest, type DocEntry } from "@/lib/manifest";
@@ -33,6 +34,12 @@ export default function Page() {
         lede="Everything that matters about CAN is public. Read it here, written by the people building it, without going to GitHub. Each page is fetched live, so you always see the current text."
       />
       <div className="wrap">
+        <p className="prose">
+          You do not have to read any of this to help. It is here so that
+          nothing is hidden. If you only have a few minutes, open the
+          manifesto and the open questions first. The other groups are there
+          when you want the detail.
+        </p>
         {THIRD_PARTY && (
           <p className="status-note prose">
             <strong>Privacy note</strong>
@@ -45,7 +52,7 @@ export default function Page() {
         <IndexStatus />
         <nav aria-label="Sections" className="doc-jump">
           <ul>
-            {SECTIONS.map((s) => (<li key={s.id}><a href={`#${s.id}`}>{s.title}</a></li>))}
+            {SECTIONS.map((s) => (<li key={s.id}><a href={`#${s.id}-list`}>{s.title}</a></li>))}
           </ul>
         </nav>
       </div>
@@ -57,24 +64,19 @@ export default function Page() {
             <div className="wrap">
               <h2 id={`${s.id}-h`}>{s.title}</h2>
               <p className="prose muted">{s.blurb}</p>
-              <div className="doc-sectionlist">
-                {s.id === "design"
-                  ? keys.map((k) => (
-                      <div key={k}>
-                        <h3>{GROUPS[k] ?? k}</h3>
-                        <List items={items.filter((e) => group(e) === k)} />
-                      </div>
-                    ))
-                  : items.length > 12
-                    ? (
-                      <details>
-                        <summary>Show all {items.length} documents</summary>
-                        <List items={items} />
-                      </details>
-                    )
+              <Unfold id={`${s.id}-list`} summary={`${items.length} ${items.length === 1 ? "document" : "documents"} in this group`}>
+                <div className="doc-sectionlist">
+                  {s.id === "design"
+                    ? keys.map((k) => (
+                        <div key={k}>
+                          <h3>{GROUPS[k] ?? k}</h3>
+                          <List items={items.filter((e) => group(e) === k)} />
+                        </div>
+                      ))
                     : <List items={items} />}
-                <LiveExtras section={s.id} />
-              </div>
+                  <LiveExtras section={s.id} />
+                </div>
+              </Unfold>
             </div>
           </section>
         );
