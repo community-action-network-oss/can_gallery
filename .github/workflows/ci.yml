@@ -1,0 +1,60 @@
+# can_gallery CI. Runs on GitHub once merged; nothing runs it before that.
+# One job runs `npm run verify`, the same chain as local. Gates, in order:
+#   sync:check      content drift vs ../docs (skips itself with a message when ../docs is absent)
+#   check:catalog   shape of the committed task catalog (needs nothing outside this repo)
+#   check:roles     role data shape; the ../docs link check is skipped when ../docs is absent
+#   check:decisions shape of the committed decisions.json; the cross-check with ../DECISIONS.md is skipped when absent
+#   check:changelog shape of the committed changelog.json; the git ancestry check is skipped without a superproject .git
+#   test            whitelist unit tests
+#   lint, typecheck eslint and tsc
+#   build           sync:docs then next build. With no ../ it reads titles from raw.githubusercontent.com
+#                   (build time only; needs network, which hosted runners have)
+#   check:out       scans out/ (no forms, analytics, external hosts, dashes; superproject sentence scan skipped when absent)
+#   check:claims    skips itself when ../docs is absent
+#   check:copy      copy rules on committed sources
+#   check:locale    routes have locale pages
+# This repo is checked out alone, so the superproject-dependent steps above run in
+# their built-in standalone mode. We do not run sync:content, sync:decisions,
+# sync:changelog or sync:catalog: they rewrite committed files from ../ and are a
+# local, founder-side job (they are not part of verify).
+# The accessibility and budget job is guarded: it activates when scripts/a11y.mjs lands (06-u08).
+# No deploy, no secrets, read-only token.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      # Reviewer copy of the static export. Not a deploy: kept 7 days, downloadable from the run page.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gallery-out
+          path: out/
+          retention-days: 7
+          if-no-files-found: error
+      # Activates when 06-u08 adds scripts/a11y.mjs (hashFiles is not allowed in job-level if, so it guards each step).
+      - name: Install browser for a11y and perf
+        if: hashFiles('scripts/a11y.mjs') != ''
+        run: npx playwright install --with-deps chromium
+      - name: Accessibility checks
+        if: hashFiles('scripts/a11y.mjs') != ''
+        run: npm run a11y
+      - name: Performance budget
+        if: hashFiles('scripts/a11y.mjs') != ''
+        run: npm run perf
