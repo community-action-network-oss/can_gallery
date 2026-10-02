@@ -5,7 +5,7 @@ import { docUrl } from "@/config/site";
 import { PageHead, Section, Planned } from "@/components/ui";
 import { Unfold } from "@/components/Unfold";
 import { ROLES } from "@/content/roles/data";
-import { FOUNDING_RULES, NO_AUTHORITY, URGENT_SENTENCE } from "@/content/roles/types";
+import { FOUNDING_RULES, NEEDED_NOW_SENTENCE, NO_AUTHORITY, URGENT_SENTENCE } from "@/content/roles/types";
 import catalog from "@/content/catalog.json";
 import "../roles.css";
 
@@ -34,6 +34,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     <>
       <PageHead title={r.name} lede={r.summary} />
       <Section id="role" title="About this role" wide>
+        {r.urgency === "needed-now" && <p className="prose"><strong>{NEEDED_NOW_SENTENCE}</strong> <Planned /></p>}
         {r.urgency === "most-urgent-now" && <p className="prose"><strong>{URGENT_SENTENCE}</strong> <Planned /></p>}
         <p className="prose role-fixed">{NO_AUTHORITY}</p>
         <dl className="legend">

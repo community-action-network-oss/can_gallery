@@ -7,7 +7,7 @@ export type Role = {
   /** One plain sentence, shown first and on the index. */
   summary: string;
   stage: "founding";
-  urgency?: "most-urgent-now";
+  urgency?: "most-urgent-now" | "needed-now";
   doNow: string[];
   prerequisites: string[];
   time: string[];
@@ -18,10 +18,11 @@ export type Role = {
   review: string[];
   decisions: string[];
   links: RoleLink[];
-  pictogram: "electrician" | "clerk" | "nurse" | "manager";
+  pictogram: "electrician" | "clerk" | "nurse" | "manager" | "teacher" | "student" | "cook";
 };
 
 export const URGENT_SENTENCE = "Most urgent today: the platform is being built.";
+export const NEEDED_NOW_SENTENCE = "Needed now, not later: the rules and policy packs are being drafted, and they need people who know law, rights and policy.";
 export const NO_AUTHORITY = "A role page does not grant authority merely by allowing self-selection.";
 export const FOUNDING_RULES = [
   "Work uses fictional or public material only. No real personal data goes anywhere, ever.",
