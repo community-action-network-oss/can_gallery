@@ -1,0 +1,7 @@
+.wn-rows { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--can-color-text); }
+.wn-rows > li { display: grid; gap: var(--can-space-1); padding-block: var(--can-space-3); border-bottom: 1px solid var(--can-color-border); min-width: 0; overflow-wrap: anywhere; }
+.wn-rows .k { font-weight: 800; }
+.wn-rows .sha { color: var(--can-color-text-muted); }
+@media (min-width: 48rem) {
+  .wn-rows > li { grid-template-columns: 9rem 1fr; gap: var(--can-space-4); }
+}

@@ -14,7 +14,7 @@
     "test": "node --test scripts/whitelist.test.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "sync:content": "node scripts/sync-content.mjs && node scripts/sync-decisions.mjs && node scripts/sync-docs.mjs",
+    "sync:content": "node scripts/sync-content.mjs && node scripts/sync-decisions.mjs && node scripts/sync-changelog.mjs && node scripts/sync-docs.mjs",
     "sync:check": "node scripts/sync-content.mjs --check && node scripts/sync-docs.mjs --check",
     "sync:decisions": "node scripts/sync-decisions.mjs",
     "sync:catalog": "node scripts/sync-catalog.mjs",
@@ -25,7 +25,9 @@
     "check:catalog": "node scripts/check-catalog.mjs",
     "check:roles": "node scripts/check-roles.mjs",
     "check:decisions": "node scripts/check-decisions.mjs",
-    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:decisions && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale"
+    "sync:changelog": "node scripts/sync-changelog.mjs",
+    "check:changelog": "node scripts/check-changelog.mjs",
+    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",

@@ -1,0 +1,573 @@
+{
+  "source": "git log main",
+  "head": "9fe27b6",
+  "count": 112,
+  "weeks": [
+    {
+      "week": "2026-W39",
+      "start": "2026-09-28",
+      "entries": [
+        {
+          "sha": "d6625df",
+          "date": "2026-10-01",
+          "text": "CAN for everyone, plan 16 runs first, gallery skill briefed"
+        },
+        {
+          "sha": "d5c7c60",
+          "date": "2026-10-01",
+          "text": "Npm start at the root runs server, gallery and app together"
+        },
+        {
+          "sha": "1e9e065",
+          "date": "2026-10-01",
+          "text": "Plan 06 (archive and location explainers, static Archive pages, lifecycle v2 copy) and plan 08 notes"
+        },
+        {
+          "sha": "3e0a103",
+          "date": "2026-10-01",
+          "text": "Plan 11 reworked (volunteer, stage and reuse personas, seeds run stage plans, archive cold start, reuse and location scenarios, G1 wording)"
+        },
+        {
+          "sha": "bffcc8c",
+          "date": "2026-10-01",
+          "text": "Wire plans 04, 05, 12 to the new schemas and DPs of plan 10 (stage_option, review_recommendation, stage_plan, DP-PUBLISH and friends)"
+        },
+        {
+          "sha": "3cc3e59",
+          "date": "2026-10-01",
+          "text": "Plan 12 and 03, 04 cross-reference fixes (plan deps, review module deps, wireframe refs)"
+        },
+        {
+          "sha": "5d90df0",
+          "date": "2026-10-01",
+          "text": "Plan 12 units u06 to u26 and plan 04 reworked for stage plans (options, stage choice, retired tabs)"
+        },
+        {
+          "sha": "e656d62",
+          "date": "2026-10-01",
+          "text": "Plan 02 reworked for lifecycle v2 (states vocabulary, volunteer opt-in column, read model, fixtures)"
+        },
+        {
+          "sha": "064efed",
+          "date": "2026-10-01",
+          "text": "Plan 12 anchors (stages domain, stages API, review module, preparation API, stage map screen)"
+        },
+        {
+          "sha": "37b9c55",
+          "date": "2026-10-01",
+          "text": "Re-resolution reads the archive record"
+        },
+        {
+          "sha": "1a09a21",
+          "date": "2026-10-01",
+          "text": "Archive and reuse UX, flows and components (suggested paths, Archive, stage draft)"
+        },
+        {
+          "sha": "a5f6aec",
+          "date": "2026-10-01",
+          "text": "Archive and reuse design, ADR 0017, DPs and schema updates"
+        },
+        {
+          "sha": "0747e30",
+          "date": "2026-10-01",
+          "text": "The Archive replaces Resolution records, archive and reuse spec, rules and questions"
+        },
+        {
+          "sha": "cb2649a",
+          "date": "2026-10-01",
+          "text": "Remap design docs to lifecycle v2 transition ids, proposal to stage_option"
+        },
+        {
+          "sha": "1085a13",
+          "date": "2026-10-01",
+          "text": "Canonical vocabulary brief for archive and reuse"
+        },
+        {
+          "sha": "1952ac9",
+          "date": "2026-10-01",
+          "text": "Impacted and guest labels, private location attestation rules and questions, review needs one completed review"
+        },
+        {
+          "sha": "bcd9b33",
+          "date": "2026-10-01",
+          "text": "Record the archive and AI path suggestions as the second main goal"
+        },
+        {
+          "sha": "6782e0a",
+          "date": "2026-10-01",
+          "text": "Manifesto path in plain words, can-spec skill for lifecycle v2"
+        },
+        {
+          "sha": "33fd55a",
+          "date": "2026-10-01",
+          "text": "Update spec references to lifecycle v2, add four review and stage open questions"
+        },
+        {
+          "sha": "fa03e9d",
+          "date": "2026-10-01",
+          "text": "Lifecycle v2 tables, stage plan spec, slice-1 preparation and review flow, new rules"
+        },
+        {
+          "sha": "16cee5b",
+          "date": "2026-10-01",
+          "text": "Private location attestation design, ADR 0016"
+        },
+        {
+          "sha": "e59823d",
+          "date": "2026-10-01",
+          "text": "Impacted and guest labels, impacted filter, location permission wireframes"
+        },
+        {
+          "sha": "8a482cc",
+          "date": "2026-10-01",
+          "text": "Record impacted vs guest contributions with private location attestation"
+        },
+        {
+          "sha": "cde26d2",
+          "date": "2026-10-01",
+          "text": "Lifecycle v2 UX: preparation, volunteer review and stage wireframes"
+        },
+        {
+          "sha": "d362468",
+          "date": "2026-10-01",
+          "text": "Use canonical decision method values in flows and components"
+        },
+        {
+          "sha": "9875ee8",
+          "date": "2026-10-01",
+          "text": "Lifecycle v2 flows, stages and review modules, ERD"
+        },
+        {
+          "sha": "4838c20",
+          "date": "2026-10-01",
+          "text": "AI design for stage plans and volunteer review, ADR 0015"
+        },
+        {
+          "sha": "d6fbd14",
+          "date": "2026-10-01",
+          "text": "Canonical vocabulary brief for the lifecycle redesign"
+        },
+        {
+          "sha": "c70e1c2",
+          "date": "2026-10-01",
+          "text": "Record lifecycle redesign with preparation, volunteer review and stage plans"
+        },
+        {
+          "sha": "234e119",
+          "date": "2026-10-01",
+          "text": "Record GitHub IP exposure as an accepted dependency with an exit path"
+        },
+        {
+          "sha": "a103cd5",
+          "date": "2026-10-01",
+          "text": "Mark can_policy repo creation done"
+        },
+        {
+          "sha": "500901d",
+          "date": "2026-10-01",
+          "text": "Record no stale fallback for gallery documents"
+        },
+        {
+          "sha": "2a8191b",
+          "date": "2026-10-01",
+          "text": "Record public document rendering in the gallery"
+        },
+        {
+          "sha": "9878272",
+          "date": "2026-10-01",
+          "text": "Keep the shared agent rules brief in the repo"
+        },
+        {
+          "sha": "62e448e",
+          "date": "2026-10-01",
+          "text": "Trim system design overview under the size cap"
+        },
+        {
+          "sha": "2751c1d",
+          "date": "2026-10-01",
+          "text": "Design, spec and ADR 0014 for OpenRouter free-first models"
+        },
+        {
+          "sha": "3de2f45",
+          "date": "2026-10-01",
+          "text": "Activate agent settings, record OpenRouter free-first model policy"
+        },
+        {
+          "sha": "43a8aa6",
+          "date": "2026-10-01",
+          "text": "Record final plan corpus state and pre-night checklist"
+        },
+        {
+          "sha": "c951139",
+          "date": "2026-10-01",
+          "text": "Point the reopened screen unit at WF-DETAIL-4"
+        },
+        {
+          "sha": "9f4c4a5",
+          "date": "2026-10-01",
+          "text": "Plan 07 journeys for the AI-executed model, portability units, token rename units, no-moderator authz"
+        },
+        {
+          "sha": "bfa5fc0",
+          "date": "2026-10-01",
+          "text": "WF-DETAIL-4 reopened variant, plan 11 re-resolution and legal-stack scenario units"
+        },
+        {
+          "sha": "2a4bc06",
+          "date": "2026-10-01",
+          "text": "Let the gallery skill name the Amsterdam seed problems under the synthetic label"
+        },
+        {
+          "sha": "767ead8",
+          "date": "2026-10-01",
+          "text": "Plan 10 units for D-59 to D-61 (legal stack, re-resolution, gallery pitch, policy contributor path)"
+        },
+        {
+          "sha": "29cf703",
+          "date": "2026-10-01",
+          "text": "Plan 09 units for D-59 to D-61 (legal stack, re-resolution, gallery pitch, policy contributor path)"
+        },
+        {
+          "sha": "c6861fb",
+          "date": "2026-10-01",
+          "text": "Plan 08 units for D-59 to D-61 (legal stack, re-resolution, gallery pitch, policy contributor path)"
+        },
+        {
+          "sha": "753099b",
+          "date": "2026-10-01",
+          "text": "Plan 06 units for D-59 to D-61 (legal stack, re-resolution, gallery pitch, policy contributor path)"
+        },
+        {
+          "sha": "c4aeffc",
+          "date": "2026-10-01",
+          "text": "Plan 05 proposals and screens decided by runs, skipped units no longer block dependents"
+        },
+        {
+          "sha": "e317bab",
+          "date": "2026-10-01",
+          "text": "Plan 04 drops moderator review, uses schema-validated bodies and renderer shells"
+        },
+        {
+          "sha": "e780379",
+          "date": "2026-10-01",
+          "text": "Plan 03 drops the human moderator path, skips units superseded by plans 09 and 10"
+        },
+        {
+          "sha": "beb1305",
+          "date": "2026-10-01",
+          "text": "Record legal stack and re-resolution landing details"
+        },
+        {
+          "sha": "c4726ed",
+          "date": "2026-10-01",
+          "text": "Align design rule and question ids with the spec registry"
+        },
+        {
+          "sha": "1f686bc",
+          "date": "2026-10-01",
+          "text": "Legal layer stack, DP-RERESOLUTION and retroactive re-resolution, ADRs 0012 and 0013"
+        },
+        {
+          "sha": "f9f07f5",
+          "date": "2026-10-01",
+          "text": "Re-resolution and legal-corpus-update flows, legal layer stack in legality checks, corpora registry and packs/legal, plan label fixes"
+        },
+        {
+          "sha": "df7d548",
+          "date": "2026-10-01",
+          "text": "Record re-resolution, all-professions pitch and legal layer stack"
+        },
+        {
+          "sha": "bc28bde",
+          "date": "2026-10-01",
+          "text": "Plans 10 and 11 fixes: sim stack packs, narrow verify for docker-free units, no night push in scaffold, migration deps"
+        },
+        {
+          "sha": "64ffc21",
+          "date": "2026-10-01",
+          "text": "Plan 11 persona simulation and seeds (42 units); plan 10 fill-assist, hints and form units aligned to plan 09 ids"
+        },
+        {
+          "sha": "e49f03b",
+          "date": "2026-10-01",
+          "text": "Plan 09 AI moderation pipeline: 55 units (server pipeline, appeals, labels, audit, lane, FakeModel e2e; app screens)"
+        },
+        {
+          "sha": "cd1e594",
+          "date": "2026-10-01",
+          "text": "Plan 10 units u06-u40 (schemas, DP content, eval, replay, ratification, server and app units)"
+        },
+        {
+          "sha": "edf99dc",
+          "date": "2026-10-01",
+          "text": "Plan 10 can_policy and structured content, first units u01-u05 (cross-plan contract)"
+        },
+        {
+          "sha": "7ef4a4b",
+          "date": "2026-10-01",
+          "text": "Add can_policy lane to the corpus tool"
+        },
+        {
+          "sha": "12644a4",
+          "date": "2026-10-01",
+          "text": "Point amendment loop at the existing ratification-method question"
+        },
+        {
+          "sha": "bd9c11e",
+          "date": "2026-10-01",
+          "text": "Apply new WF ids to flows and components, trim system-design under cap"
+        },
+        {
+          "sha": "e65280e",
+          "date": "2026-10-01",
+          "text": "Structured-submission, persona-simulation, seed-bootstrap and schema-change flows; canonical DP ids; components for schemas, simulation, portability"
+        },
+        {
+          "sha": "e3a4900",
+          "date": "2026-10-01",
+          "text": "UX for AI moderation and structured forms: schema-driven form pattern, hold, decision and re-review notices, auditor, label, lane, policy and simulation wireframes, seed labels, copy deck"
+        },
+        {
+          "sha": "182c90b",
+          "date": "2026-10-01",
+          "text": "Split lifecycle into 01a, apply D-55..D-58 across spec, structured-content and simulation rules, new open questions, manifesto"
+        },
+        {
+          "sha": "c081ca9",
+          "date": "2026-10-01",
+          "text": "Structured content schemas, persona simulation proof, DP-ASSUMPTIONS and DP-COMPLETENESS, ADRs 0010 and 0011"
+        },
+        {
+          "sha": "1228a6b",
+          "date": "2026-10-01",
+          "text": "Record persona simulation proof, real seed framings, portable hosting, structured content"
+        },
+        {
+          "sha": "b30a3f0",
+          "date": "2026-10-01",
+          "text": "Remove remaining human-review wording from scope, artifacts, OQs"
+        },
+        {
+          "sha": "b053ebc",
+          "date": "2026-10-01",
+          "text": "Spec 02-18 reframe AI as slice-1 core, can_policy as 5th repo, glossary; manifesto and can-spec skill"
+        },
+        {
+          "sha": "52640eb",
+          "date": "2026-10-01",
+          "text": "Remove stray sed backup files from AI design"
+        },
+        {
+          "sha": "bbec6da",
+          "date": "2026-10-01",
+          "text": "Open questions for policy ratification, retroactivity, provider, thresholds; update moderator-era OQs"
+        },
+        {
+          "sha": "f6510d9",
+          "date": "2026-10-01",
+          "text": "Design AI-executed community policy moderation"
+        },
+        {
+          "sha": "ac4991b",
+          "date": "2026-10-01",
+          "text": "Add flows and components folders and update overview for AI moderation"
+        },
+        {
+          "sha": "9debbe0",
+          "date": "2026-10-01",
+          "text": "Slice 1 brief and constitution adopt community-legislated, AI-executed moderation"
+        },
+        {
+          "sha": "14c8100",
+          "date": "2026-10-01",
+          "text": "Record that the repo supersedes Notion design pages"
+        },
+        {
+          "sha": "b333259",
+          "date": "2026-10-01",
+          "text": "Record AI-executed community policy model and can_policy repo decisions"
+        },
+        {
+          "sha": "f257667",
+          "date": "2026-10-01",
+          "text": "Plan gluestack-ui adoption across all surfaces"
+        },
+        {
+          "sha": "3fc88f8",
+          "date": "2026-10-01",
+          "text": "MIT license for all four repos, resolve OQ-license, record D-49"
+        },
+        {
+          "sha": "4546266",
+          "date": "2026-10-01",
+          "text": "Mark repository link unit done and point spec at the hosted repo"
+        },
+        {
+          "sha": "37d64f6",
+          "date": "2026-10-01",
+          "text": "Add renamed gallery skill, ADR 0003 and plan 06 folder"
+        },
+        {
+          "sha": "3fd032c",
+          "date": "2026-10-01",
+          "text": "Reframe promo site as the public gallery across docs, skills, plans and scripts"
+        },
+        {
+          "sha": "fef1387",
+          "date": "2026-10-01",
+          "text": "W1 P3a: record tsconfig trap in can-app skill"
+        },
+        {
+          "sha": "70cd11a",
+          "date": "2026-10-01",
+          "text": "Make plan-level dependencies explicitly informational"
+        },
+        {
+          "sha": "41aab0e",
+          "date": "2026-10-01",
+          "text": "Cap unit wall-clock time in night runs"
+        },
+        {
+          "sha": "260d696",
+          "date": "2026-10-01",
+          "text": "Record wave W1 decisions and morning review list"
+        },
+        {
+          "sha": "81deb3b",
+          "date": "2026-10-01",
+          "text": "Note protocol.file.allow for local submodule clones"
+        },
+        {
+          "sha": "9953c07",
+          "date": "2026-10-01",
+          "text": "Tighten contributor docs"
+        },
+        {
+          "sha": "b2934e6",
+          "date": "2026-10-01",
+          "text": "Complete not-accepted decision screen"
+        },
+        {
+          "sha": "de7c951",
+          "date": "2026-10-01",
+          "text": "Put contributor path first in plans root"
+        },
+        {
+          "sha": "6a632c8",
+          "date": "2026-10-01",
+          "text": "Add plans root index and night-1 dry run"
+        },
+        {
+          "sha": "b84a656",
+          "date": "2026-10-01",
+          "text": "Plan corpus, hardening"
+        },
+        {
+          "sha": "02137f3",
+          "date": "2026-10-01",
+          "text": "Plan corpus, implementation and verification"
+        },
+        {
+          "sha": "d6ec771",
+          "date": "2026-10-01",
+          "text": "Plan corpus, structured resolution"
+        },
+        {
+          "sha": "bfb435e",
+          "date": "2026-10-01",
+          "text": "Plan corpus, safe intake"
+        },
+        {
+          "sha": "7c49582",
+          "date": "2026-10-01",
+          "text": "Plan corpus, platform foundation"
+        },
+        {
+          "sha": "26650d3",
+          "date": "2026-10-01",
+          "text": "Add plan 08 (08-contributor-experience-ops)"
+        },
+        {
+          "sha": "77544f2",
+          "date": "2026-10-01",
+          "text": "Add plan 06 (06-promo-phase-0a)"
+        },
+        {
+          "sha": "b31890f",
+          "date": "2026-10-01",
+          "text": "Add can-root skill"
+        },
+        {
+          "sha": "2a0d819",
+          "date": "2026-10-01",
+          "text": "Add contributor docs, verify-all and night-run permission proposal"
+        },
+        {
+          "sha": "b07d742",
+          "date": "2026-10-01",
+          "text": "Teach can-code-large submodules, decision log and overnight runs"
+        },
+        {
+          "sha": "cb354a6",
+          "date": "2026-10-01",
+          "text": "Add can_server and can_app as submodules"
+        },
+        {
+          "sha": "329f0ef",
+          "date": "2026-10-01",
+          "text": "Align design labels with slice brief"
+        },
+        {
+          "sha": "098ca40",
+          "date": "2026-10-01",
+          "text": "Use slice brief state names in rules"
+        },
+        {
+          "sha": "b988276",
+          "date": "2026-10-01",
+          "text": "Remove build_spec.md (kept in history), add can-spec skill, align appeal reviewer rule"
+        },
+        {
+          "sha": "346cfd9",
+          "date": "2026-10-01",
+          "text": "Edit pass on spec, slice-1 brief, open-questions register, manifesto"
+        },
+        {
+          "sha": "bbbbd4b",
+          "date": "2026-10-01",
+          "text": "Order night lanes topologically"
+        },
+        {
+          "sha": "25e33ad",
+          "date": "2026-10-01",
+          "text": "Align design pack with slice-1 brief states and anchor"
+        },
+        {
+          "sha": "17ae6eb",
+          "date": "2026-10-01",
+          "text": "Design pack, UX pack and ADRs 0001-0006"
+        },
+        {
+          "sha": "05bde5f",
+          "date": "2026-10-01",
+          "text": "Restructure constitution into chapters, rules registry and checks"
+        },
+        {
+          "sha": "75e3f6a",
+          "date": "2026-10-01",
+          "text": "Add constitution article map and check"
+        },
+        {
+          "sha": "7f61360",
+          "date": "2026-10-01",
+          "text": "Split build spec verbatim into docs/spec"
+        },
+        {
+          "sha": "858b076",
+          "date": "2026-10-01",
+          "text": "Import original manifesto, build spec, orchestration skill and decision log"
+        }
+      ]
+    }
+  ]
+}
