@@ -1,0 +1,5 @@
+.who { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--can-space-3); }
+.who li { margin: 0; display: grid; grid-template-columns: 2.75rem 1fr; gap: var(--can-space-3); align-items: center; }
+.who span { min-width: 0; }
+.builder-block { margin-block: var(--can-space-5); min-width: 0; }
+.steps h4 { margin-bottom: var(--can-space-1); }
