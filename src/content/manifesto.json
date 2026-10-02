@@ -1,0 +1,21 @@
+{
+  "generated": "from manifesto.md by scripts/sync-manifesto.mjs, do not hand edit",
+  "sections": [
+    {
+      "title": "Core promise",
+      "text": "Surface a public problem. Say who and where it affects. Contribute evidence and lived experience. Let the platform help the community understand root causes, develop lawful and safe structural solutions, coordinate implementation, and track outcomes, without letting the discussion collapse into hate, chaos, personality conflict or unrelated ideology."
+    },
+    {
+      "title": "Core principles",
+      "text": "- Open source, in the open.\n- Real, solvable, bounded problems.\n- Progress is visible and trackable.\n- People make every rule. AI applies it, explains it and answers to appeal.\n- Everything is structured: no free-form posting, so every poster sees the whole situation first.\n- Proven first by AI participants on real problems with synthetic evidence, then opened to people.\n- The community writes and improves the moderation rules, and appeals improve them for everyone.\n- Location-aware and context-aware, built on a material connection to a problem, not only a postcode.\n- Law-aware: grounded in the constitution, laws and local rules that apply.\n- Solution-first, not conflict-first.\n- Preparation-oriented, not only reactive.\n- Improvable by design, not perfect by assumption.\n- Non-monetary by design."
+    },
+    {
+      "title": "Moderation model",
+      "text": "- Rules define which problems, contributions and actions are allowed.\n- The stack starts with base platform rules, then the constitution, then the laws, regulations and local rules connected to the problem's place. For a problem raised in a given country, that means that country's constitution and laws, so nobody builds a solution that is illegal where it would happen.\n- Many public problems are political in the broad sense. The goal is not to avoid politics. The goal is to stop discussions turning into unrelated, hateful, unsafe or inflammatory conflict.\n- AI agents apply the rules before publication, on every update and after publication. They run behind strict privacy and safety gates, with no tools beyond the check they were asked to do, and if anything fails, the post waits and is never published. AI never makes the law. People do, and AI answers to appeal.\n- No person edits a single outcome by hand. People change the rules, and the rules then apply to everyone. The only exception is the small emergency and legal team, and every action is logged.\n- Every moderation decision is explainable:\n    - which rule applied\n    - which part of the content triggered it\n    - what the person can change to make it eligible\n    - which version of the rules was used\n    - how to appeal, and by when"
+    },
+    {
+      "title": "Open source, and how to contribute",
+      "text": "The code, the specification and the constitution are open. The project is built so that one hour can be useful.\n\n**One hour, one problem, one step.** Check one claim. Find one authoritative source. Translate one passage. Test one screen with a screen reader. Map one institution's responsibility. Review one piece of public evidence. Improve one test or document. No streaks, no leaderboards, no pressure.\n\n- Browse the questions the project has not answered yet and help close one: [docs/open-questions/](docs/open-questions/README.md). Most need knowledge and care, not code.\n- Pick a small, bounded unit of work from [plans/](plans/).\n- Read the specification index: [docs/spec/00-index.md](docs/spec/00-index.md).\n\nEvery profession is welcome. Engineers, designers and other technical people are the most urgent need today, because the platform is being built. Lawyers, activists, policy and rights experts are needed now as well, to draft the rules and policy packs the AI will apply. There is a real task waiting for you."
+    }
+  ]
+}

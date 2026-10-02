@@ -178,8 +178,10 @@ export default function Home() {
           <li><div><h3>Archive the journey</h3><p>The whole journey, including what failed, becomes a path others can start from, adapted to their own laws and means.</p></div></li>
         </ol>
         <p className="prose">
-          Publishing is planned to use an AI check against community written
-          rules, after volunteer review. People can appeal every decision.
+          Planned: after volunteer review, an AI applies rules the community
+          wrote before publication, on every update and afterwards, and explains
+          each decision. People can appeal every decision.
+          {" "}<Link href={localePath("/community-policy/")}>How the AI applies the rules</Link>
         </p>
         <p><ButtonLink href={localePath("/how-it-works/")} variant="quiet">The full lifecycle</ButtonLink></p>
               </Unfold>
@@ -195,7 +197,7 @@ export default function Home() {
             <li><strong>Law-aware moderation <Planned /></strong><span className="d">Rules that follow the affected place, written with qualified local reviewers.</span></li>
             <li><strong>Participation by connection <Planned /></strong><span className="d">People with a material connection to the problem lead the thread; experts and visitors contribute without steering it.</span></li>
             <li><strong>An archive of solved paths <Planned /></strong><span className="d">A finished problem, with what failed, becomes a path the next community can start from, adapted to its own laws.</span></li>
-            <li><strong>Community-improved AI <Planned /></strong><span className="d">People help label and correct moderation gaps through masked, randomized review.</span></li>
+            <li><strong>Community-improved AI <Planned /></strong><span className="d">People help label and correct gaps in how the AI applies the rules, through masked, randomized review.</span></li>
           </ul>
         </div>
               </Unfold>
@@ -204,7 +206,7 @@ export default function Home() {
           <li><strong>Open source, open process.</strong> <span className="d">Specification, decisions and open questions are public.</span></li>
           <li><strong>Public problems, never individual cases.</strong> <span className="d">No advice, therapy, legal service or personal case management.</span></li>
           <li><strong>Progress you can check.</strong> <span className="d">Every claim of “solved” points to evidence.</span></li>
-          <li><strong>People answer for decisions.</strong> <span className="d">AI may assist later. It never decides alone.</span></li>
+          <li><strong>The community writes the rules.</strong> <span className="d">An AI applies them and explains each decision <Planned />. It never makes policy, and appeals stay open to everyone.</span></li>
           <li><strong>Improvable by design, not perfect by assumption.</strong> <span className="d">The platform fixes itself with the same process it offers everyone.</span></li>
         </ul>
         <p><Link href={localePath("/principles/")}>Read the principles and what we will never do</Link></p>

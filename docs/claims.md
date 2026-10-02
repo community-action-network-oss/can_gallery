@@ -23,7 +23,7 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-015 | home | A generated public name. Email is encrypted and never shown. | docs/spec/01-slice-1-brief.md | supported |
 | C-016 | home | AI checks it against the rules the community wrote, then publishes it. | docs/spec/01a-lifecycle.md | supported |
 | C-017 | home | People can appeal every decision. | docs/spec/constitution/ch05-ai-review-appeals.md | supported |
-| C-018 | home | AI may assist later. It never decides alone. | docs/spec/constitution/ch05-ai-review-appeals.md | supported |
+| C-018 | home | AI may assist later. It never decides alone. | docs/adr/0008-ai-executed-community-policy.md | removed |
 | C-019 | home | CAN never takes individual cases. | docs/spec/constitution/ch01-purpose-scope.md | supported |
 | C-020 | home | The town of Alderbrook, its roads and everyone in this story are | docs/spec/18-phases-gates.md | supported |
 | C-021 | home | A problem is solved only when every stage is done and the evidence meets the final finish line. | docs/spec/01a-lifecycle.md | supported |
@@ -94,3 +94,8 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-086 | community-policy | Nothing is removed silently. | docs/design/ai/README.md | supported |
 | C-087 | community-policy | Someone in crisis is shown fixed, static help text. The AI never acts as a counsellor. | docs/design/ai/safety-and-privacy.md | supported |
 | C-088 | community-policy | No pack has been ratified. | can_policy/packs/base/pack.yaml | supported |
+| C-089 | home | An AI applies them and explains each decision <Planned />. It never makes policy, and appeals stay open to everyone. | docs/adr/0008-ai-executed-community-policy.md | supported |
+| C-090 | how-it-works | An AI applies them, explains each decision, and every decision can be appealed. | docs/adr/0008-ai-executed-community-policy.md | supported |
+| C-091 | principles | The AI executes rules the community wrote and never makes policy. | docs/adr/0008-ai-executed-community-policy.md | supported |
+| C-092 | principles | People make and answer for every decision. | docs/adr/0008-ai-executed-community-policy.md | removed |
+| C-093 | how-it-works | People always have the last word | docs/adr/0008-ai-executed-community-policy.md | removed |

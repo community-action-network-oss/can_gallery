@@ -25,7 +25,7 @@ Runs: `sync:check` (fails if synced content would change), `lint`, `typecheck`, 
 
 ## Content sync
 
-`npm run sync:content` copies `../docs/design/ux/tokens.json` to `src/content/tokens.json`, generates `src/app/tokens.css` (CSS variables with a `prefers-color-scheme` block), and compiles `../docs/open-questions/OQ-*.md` headers into `src/content/open-questions.json`. Outputs are committed so the repo builds standalone. Never edit them by hand; change the source in `docs/` and re-run. The lifecycle labels in `src/content/stages.ts` are a copy of `docs/spec/01-slice-1-brief.md`; update them when that table changes.
+`npm run sync:content` copies `../docs/design/ux/tokens.json` to `src/content/tokens.json`, generates `src/app/tokens.css` (CSS variables with a `prefers-color-scheme` block), and compiles `../docs/open-questions/OQ-*.md` headers into `src/content/open-questions.json`. It also writes `src/content/manifesto.json` from four sections of `../manifesto.md` (reference only: `check:out` forbids manifesto sentences in pages; `sync:check` checks its shape, not freshness, because the root lane edits the manifesto) and the decisions and changelog files. Outputs are committed so the repo builds standalone. Never edit them by hand; change the source in `docs/` and re-run. The lifecycle labels in `src/content/stages.ts` are a copy of `docs/spec/01a-lifecycle.md` (draft, in volunteer review, active with a stage plan, solved and the rest) and `docs/spec/01b-stages.md`; the optional default stage template is classic-5. Update them when those change.
 
 ## Repository link
 

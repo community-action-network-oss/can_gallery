@@ -47,7 +47,7 @@ export default function Page() {
             <ol className="plain-steps">
               <li><h3>It stays private first</h3><p>The person who raised it and a few volunteers shape it together. Nothing is public yet.</p></li>
               <li><h3>Then it is shared and worked on in stages</h3><p>Each stage ends only when there is evidence anyone can check.</p></li>
-              <li><h3>People always have the last word</h3><p>Rules are applied openly, and every decision can be appealed.</p></li>
+              <li><h3>Rules the community wrote</h3><p>An AI applies them, explains each decision, and every decision can be appealed.</p></li>
               <li><h3>Your details stay yours</h3><p>You get a made up public name, and this site collects nothing about you.</p></li>
             </ol>
             <p className="small muted">Open any section below for the full detail. None of this is running yet.</p>
@@ -92,18 +92,21 @@ export default function Page() {
         <Unfold id="roles-detail" summary="The four kinds of people, and what each does">
         <ul className="rows">
           <li><strong>The person who raised it, the steward</strong><span className="d">Provisionally guides the problem: proposes decisions and moves it through the stages. Owns nothing; the problem belongs to the public record.</span></li>
-          <li><strong>Moderators, volunteers</strong><span className="d">Review problems before they are published, and suggest improvements to facts, stages and finish lines. Every decision carries the rules applied and a hint for what to change.</span></li>
+          <li><strong>Volunteer reviewers</strong><span className="d">Review problems before they are published, and suggest improvements to facts, stages and finish lines. Every decision carries the rules applied and a hint for what to change.</span></li>
           <li><strong>Contributors</strong><span className="d">Add evidence, questions, risks, proposals and progress updates. Nobody is excluded in the first build.</span></li>
           <li><strong>Core participants, visitors, experts, observers <Planned /></strong><span className="d">People with a material connection to the problem lead the thread; visitors and verified experts contribute without steering it; observers follow along.</span></li>
         </ul>
         </Unfold>
       </Section>
 
-      <Section id="moderation" title="Moderation: rules first, people always">
+      <Section id="moderation" title="Moderation: community rules, applied by AI">
         <p>
-          Planned: volunteers review every problem in private, then AI checks it
-          against the rules the community wrote before it is published. People
-          can appeal every decision.
+          Planned: volunteers review every problem in private. Then an AI checks
+          it against the rules the community wrote, before publication, on every
+          update and afterwards. It never makes policy. People change the rules,
+          the rules apply to everyone, and every decision can be appealed. Only
+          emergencies and legal process are handled by people, in a small,
+          logged lane. <Link href={localePath("/community-policy/")}>How the AI applies the rules</Link>
         </p>
         <Unfold id="moderation-detail" summary="Six things moderation is built to do">
         <ul>
