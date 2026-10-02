@@ -112,3 +112,13 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-104 | lawful-everywhere | Amsterdam is the first planned jurisdiction overlay. | docs/design/ai/legal-stack.md | supported |
 | C-105 | lawful-everywhere | The legal corpus format is not built yet. | can_policy/decision-points/DP-LEGALITY/eval/README.md | supported |
 | C-106 | lawful-everywhere | No pack has been ratified. | can_policy/packs/base/pack.yaml | supported |
+| C-107 | re-resolution | A rule or law change reaching rollout starts a review of earlier solved, closed, redirected and stuck problems. | docs/design/flows/re-resolution.md | supported |
+| C-108 | re-resolution | The review replays the new rule over those earlier results and their decision records. | docs/adr/0013-retroactive-re-resolution.md | supported |
+| C-109 | re-resolution | Only a reopen changes the state of a problem. Keep, annotate and hold change no state. | docs/spec/01a-lifecycle.md | supported |
+| C-110 | re-resolution | The notice reads Reopened under policy vX and names the rule that changed. | docs/spec/01a-lifecycle.md | supported |
+| C-111 | re-resolution | The full history is kept and the old Archive record is never deleted. | docs/spec/constitution/rules.md | supported |
+| C-112 | re-resolution | The decision can be appealed. | docs/spec/constitution/rules.md | supported |
+| C-113 | re-resolution | Reopening is never silent. | docs/spec/constitution/rules.md | supported |
+| C-114 | re-resolution | A reopen returns the problem to active, and only the affected stages return to work. | docs/spec/01a-lifecycle.md | supported |
+| C-115 | re-resolution | A new Archive record is added when the problem ends again. | docs/design/flows/re-resolution.md | supported |
+| C-116 | re-resolution | The working default has four checks. They are an open question, and you are invited to help answer it. | docs/open-questions/OQ-reresolution-feasibility.md | supported |

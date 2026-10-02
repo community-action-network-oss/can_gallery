@@ -1,0 +1,3 @@
+.rr-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--can-space-2); counter-reset: rr; }
+.rr-list > li { border: 2px solid var(--can-color-text); padding: var(--can-space-2) var(--can-space-3); min-width: 0; overflow-wrap: anywhere; }
+.rr-list > li > span { display: block; color: var(--can-color-text-muted); }
