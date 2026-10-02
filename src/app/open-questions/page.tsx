@@ -1,15 +1,13 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { DocRef, PageHead, Planned, Section } from "@/components/ui";
 import { Unfold } from "@/components/Unfold";
 import oq from "@/content/open-questions.json";
 import "./open-questions.css";
 
-export const metadata: Metadata = {
-  title: "Open questions",
-  description: "Decisions CAN has not made yet, each with a current default, why it matters and who can help.",
-};
+export const metadata: Metadata = pageMetadata("/open-questions/", "Open questions", "Decisions CAN has not made yet, each with a current default, why it matters and who can help.");
 
 type Q = (typeof oq)[number];
 

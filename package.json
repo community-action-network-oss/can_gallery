@@ -30,10 +30,12 @@
     "check:decisions": "node scripts/check-decisions.mjs",
     "sync:changelog": "node scripts/sync-changelog.mjs",
     "check:changelog": "node scripts/check-changelog.mjs",
-    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:pitch && npm run check:seeds && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale && npm run a11y && npm run check:budget && npm run perf",
+    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:pitch && npm run check:seeds && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale && npm run check:og && npm run a11y && npm run check:budget && npm run perf",
     "a11y": "node scripts/a11y.mjs",
     "perf": "node scripts/perf.mjs",
-    "check:budget": "node scripts/check-budget.mjs"
+    "check:budget": "node scripts/check-budget.mjs",
+    "gen:og": "node scripts/gen-og.mjs",
+    "check:og": "node scripts/check-og.mjs"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",

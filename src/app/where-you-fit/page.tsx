@@ -1,15 +1,13 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { ButtonLink, Fictional, Planned, PageHead, Section } from "@/components/ui";
 import { Pictogram, Plate, type PictogramName } from "@/components/Pictogram";
 import { Unfold } from "@/components/Unfold";
 import "./where-you-fit.css";
 
-export const metadata: Metadata = {
-  title: "Where you fit",
-  description: "Anyone can tell CAN what they know. Nobody is underqualified. CAN plans to show each person only the few problems they can move.",
-};
+export const metadata: Metadata = pageMetadata("/where-you-fit/", "Where you fit", "Anyone can tell CAN what they know. Nobody is underqualified. CAN plans to show each person only the few problems they can move.");
 
 type Shown = { problem: PictogramName; what: string; why: string };
 const PEOPLE: { who: string; person: PictogramName; shown: Shown[] }[] = [

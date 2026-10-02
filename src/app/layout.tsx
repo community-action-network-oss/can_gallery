@@ -2,15 +2,17 @@ import type { Metadata, Viewport } from "next";
 import "./tokens.css";
 import "./globals.css";
 import "./theme.css";
+import { pageMetadata, SITE_URL } from "@/lib/metadata";
 import { htmlAttrs } from "@/lib/locale";
 import { Footer, Header } from "@/components/Shell";
 import { UNFOLD_HASH_SCRIPT } from "@/components/Unfold";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
+const home = pageMetadata("/", "CAN: solve public problems, with evidence", "An open source project to move a public problem from evidence to a lawful solution to a verified, tracked outcome. Concept and early scaffolding. Nothing here handles real problems yet.");
 export const metadata: Metadata = {
+  ...home,
+  metadataBase: new URL(SITE_URL),
   title: { default: "CAN: solve public problems, with evidence", template: "%s | CAN" },
-  description:
-    "An open source project to move a public problem from evidence to a lawful solution to a verified, tracked outcome. Concept and early scaffolding. Nothing here handles real problems yet.",
 };
 
 export const viewport: Viewport = {

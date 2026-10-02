@@ -1,5 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { Chip, DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
 import { RoleList, StagePanel } from "@/components/Path";
@@ -8,10 +9,7 @@ import { Unfold } from "@/components/Unfold";
 import "./how-it-works.css";
 import { PATH, SIDE_STATES, type Roles } from "@/content/stages";
 
-export const metadata: Metadata = {
-  title: "How it works",
-  description: "The lifecycle of a public problem in CAN, the roles involved, how moderation works today, and the privacy stance.",
-};
+export const metadata: Metadata = pageMetadata("/how-it-works/", "How it works", "The lifecycle of a public problem in CAN, the roles involved, how moderation works today, and the privacy stance.");
 
 const ALL = [...PATH, ...SIDE_STATES];
 

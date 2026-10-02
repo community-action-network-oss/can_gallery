@@ -8,6 +8,7 @@
  *   What is being built (list, Planned)
  */
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
@@ -15,10 +16,7 @@ import { Unfold } from "@/components/Unfold";
 import { BUILDING, LAYERS, OUTCOMES } from "@/content/legal-stack";
 import "./lawful-everywhere.css";
 
-export const metadata: Metadata = {
-  title: "Lawful everywhere",
-  description: "A plain explainer of the planned legal layer stack: every layer from human rights to the city applies together. Not legal advice.",
-};
+export const metadata: Metadata = pageMetadata("/lawful-everywhere/", "Lawful everywhere", "A plain explainer of the planned legal layer stack: every layer from human rights to the city applies together. Not legal advice.");
 
 export default function Page() {
   return (

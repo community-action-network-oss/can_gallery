@@ -8,6 +8,7 @@
  *   ... six sections ... then "twelve decision points" unfold
  */
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, PageHead, Planned, Section } from "@/components/ui";
@@ -15,10 +16,7 @@ import { Unfold } from "@/components/Unfold";
 import { DECISION_POINTS, FLOW, SECTIONS } from "@/content/policy-explainer";
 import "./community-policy.css";
 
-export const metadata: Metadata = {
-  title: "Community policy",
-  description: "People write the rules, an AI applies them and explains each decision, and appeals stay easy. A plain-words explainer of the planned design.",
-};
+export const metadata: Metadata = pageMetadata("/community-policy/", "Community policy", "People write the rules, an AI applies them and explains each decision, and appeals stay easy. A plain-words explainer of the planned design.");
 
 export default function Page() {
   return (

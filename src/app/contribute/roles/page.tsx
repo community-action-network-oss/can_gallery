@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { Pictogram } from "@/components/Pictogram";
@@ -7,10 +8,7 @@ import { ROLES } from "@/content/roles/data";
 import { FOUNDING_RULES, NO_AUTHORITY, URGENT_SENTENCE } from "@/content/roles/types";
 import "./roles.css";
 
-export const metadata: Metadata = {
-  title: "Roles",
-  description: "Founding roles for people who want to help build CAN: what you can do now, what to know first, and how your work is reviewed.",
-};
+export const metadata: Metadata = pageMetadata("/contribute/roles/", "Roles", "Founding roles for people who want to help build CAN: what you can do now, what to know first, and how your work is reviewed.");
 
 export default function Page() {
   return (

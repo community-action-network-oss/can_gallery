@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { docUrl } from "@/config/site";
@@ -17,7 +18,7 @@ export const generateStaticParams = (): Params[] => ROLES.map((r) => ({ role: r.
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const r = find((await params).role);
-  return { title: r.name, description: r.summary };
+  return pageMetadata(`/contribute/roles/${r.slug}/`, r.name, r.summary, "/contribute/roles/");
 }
 
 const List = ({ items }: { items: string[] }) => <ul>{items.map((t) => <li key={t}>{t}</li>)}</ul>;

@@ -10,6 +10,7 @@
  *   Honest limits
  */
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
@@ -17,10 +18,7 @@ import { Unfold } from "@/components/Unfold";
 import { DECIDES, DIAGRAM_LABEL, DIAGRAM_STEPS, EXAMPLE, KEEPS, LIMITS, SUGGEST } from "@/content/archive-explainer";
 import "./archive-and-reuse.css";
 
-export const metadata: Metadata = {
-  title: "The Archive and reuse",
-  description: "A plain explainer of the planned public Archive of ended problems and how a new problem can start from what worked or failed elsewhere. Nothing here is built yet.",
-};
+export const metadata: Metadata = pageMetadata("/archive-and-reuse/", "The Archive and reuse", "A plain explainer of the planned public Archive of ended problems and how a new problem can start from what worked or failed elsewhere. Nothing here is built yet.");
 
 const H = 46, GAP = 22;
 

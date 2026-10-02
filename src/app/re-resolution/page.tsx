@@ -8,6 +8,7 @@
  *   Fictional example x2
  */
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
@@ -15,10 +16,7 @@ import { Unfold } from "@/components/Unfold";
 import { CRITERIA, EXAMPLES, NOTICE, RESULTS, STAGES, STEPS } from "@/content/re-resolution";
 import "./re-resolution.css";
 
-export const metadata: Metadata = {
-  title: "When the rules improve",
-  description: "A plain explainer of the planned re-examination of past cases when a rule or law changes. Nothing here is running yet.",
-};
+export const metadata: Metadata = pageMetadata("/re-resolution/", "When the rules improve", "A plain explainer of the planned re-examination of past cases when a rule or law changes. Nothing here is running yet.");
 
 export default function Page() {
   return (

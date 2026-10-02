@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import { LiveDoc } from "@/components/LiveDoc";
 import { manifest } from "@/lib/manifest";
@@ -13,7 +14,7 @@ const find = async (params: Promise<{ slug: string[] }>) => {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const e = await find(params);
-  return { title: e?.title ?? "Document", description: "A public CAN document, read live from GitHub." };
+  return pageMetadata(`/docs/${(await params).slug.join("/")}/`, e?.title ?? "Document", "A public CAN document, read live from GitHub.", "/docs/");
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {

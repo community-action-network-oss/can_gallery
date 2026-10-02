@@ -8,6 +8,7 @@
  *   Four seed cards  "Seed problem, synthetic evidence" + stage plan (Planned)
  */
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, PageHead, Planned, Section } from "@/components/ui";
@@ -15,10 +16,7 @@ import { Unfold } from "@/components/Unfold";
 import { ATTACKS, GRADUATION, PERSONAS, SEEDS, SEED_LABEL } from "@/content/seeds";
 import "./proof.css";
 
-export const metadata: Metadata = {
-  title: "How CAN proves its rules",
-  description: "A plain explainer of the planned persona simulation and the four seed problems. No simulation has been run and there are no results yet.",
-};
+export const metadata: Metadata = pageMetadata("/proof/", "How CAN proves its rules", "A plain explainer of the planned persona simulation and the four seed problems. No simulation has been run and there are no results yet.");
 
 export default function Page() {
   return (

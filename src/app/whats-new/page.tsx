@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { REPO_URL } from "@/config/site";
 import { PageHead, Section, Planned, DocRef } from "@/components/ui";
 import { Unfold } from "@/components/Unfold";
 import log from "@/content/changelog.json";
 import "./whats-new.css";
 
-export const metadata: Metadata = {
-  title: "What is new",
-  description: "A plain weekly list of the work done so far on CAN, taken from the project history. Development activity, not product releases.",
-};
+export const metadata: Metadata = pageMetadata("/whats-new/", "What is new", "A plain weekly list of the work done so far on CAN, taken from the project history. Development activity, not product releases.");
 
 const SHOWN = 10;
 type Entry = { sha: string; date: string; text: string };

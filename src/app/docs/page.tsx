@@ -1,5 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { IndexStatus, LiveExtras } from "@/components/LiveExtras";
 import { PageHead } from "@/components/ui";
@@ -8,10 +9,7 @@ import { SECTIONS } from "@/content/docs-sections";
 import { PRIVACY_NOTE, PRIVACY_URL, THIRD_PARTY } from "@/config/docs-origin.mjs";
 import { manifest, type DocEntry } from "@/lib/manifest";
 
-export const metadata: Metadata = {
-  title: "Read everything",
-  description: "Every public CAN document in one place, read live from GitHub: manifesto, rules, decisions, open questions, specification, design and architecture.",
-};
+export const metadata: Metadata = pageMetadata("/docs/", "Read everything", "Every public CAN document in one place, read live from GitHub: manifesto, rules, decisions, open questions, specification, design and architecture.");
 
 const GROUPS: Record<string, string> = { ai: "AI moderation", flows: "Flows", components: "Components", ux: "UX and screens", overview: "Overview" };
 const group = (e: DocEntry) => (e.section === "design" ? (e.path.split("/").length > 3 ? e.path.split("/")[2] : "overview") : "");

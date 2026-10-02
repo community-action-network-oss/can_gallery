@@ -11,6 +11,7 @@
  *   Fictional example: resident, visitor, commuter
  */
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
@@ -18,10 +19,7 @@ import { Unfold } from "@/components/Unfold";
 import { CANNOT, DIAGRAM_LABEL, DIAGRAM_STEPS, EXAMPLE_NOTE, EXAMPLE_ROWS, FAILS, HOW, NEVER, NEXT, WHY } from "@/content/location-explainer";
 import "./private-location.css";
 
-export const metadata: Metadata = {
-  title: "The private location check",
-  description: "A plain explainer of the planned private location check: how a message could be labelled impacted or guest without anyone learning where a person is. Nothing here is built yet.",
-};
+export const metadata: Metadata = pageMetadata("/private-location/", "The private location check", "A plain explainer of the planned private location check: how a message could be labelled impacted or guest without anyone learning where a person is. Nothing here is built yet.");
 
 const H = 46, GAP = 22;
 

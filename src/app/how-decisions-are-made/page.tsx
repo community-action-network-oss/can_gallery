@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { docUrl } from "@/config/site";
@@ -7,10 +8,7 @@ import { Unfold } from "@/components/Unfold";
 import log from "@/content/decisions.json";
 import "./decisions.css";
 
-export const metadata: Metadata = {
-  title: "How decisions are made",
-  description: "Which kind of decision needs which kind of process, how an open question becomes a decision, and the public list of decisions so far.",
-};
+export const metadata: Metadata = pageMetadata("/how-decisions-are-made/", "How decisions are made", "Which kind of decision needs which kind of process, how an open question becomes a decision, and the public list of decisions so far.");
 
 const KINDS: [string, string][] = [
   ["A small bug fix", "A maintainer reviews it."],

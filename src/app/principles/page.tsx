@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
 import { Pictogram, Plate } from "@/components/Pictogram";
 import Link from "@/components/A";
@@ -6,10 +7,7 @@ import { localePath } from "@/lib/paths";
 import { Unfold } from "@/components/Unfold";
 import "./principles.css";
 
-export const metadata: Metadata = {
-  title: "Principles",
-  description: "The CAN constitution in brief: chapters, the order rules win in, and what the project will never do.",
-};
+export const metadata: Metadata = pageMetadata("/principles/", "Principles", "The CAN constitution in brief: chapters, the order rules win in, and what the project will never do.");
 
 const CHAPTERS: [string, string, string][] = [
   ["I", "Purpose and scope", "Public problems, never individual cases."],

@@ -52,7 +52,7 @@ export function LiveDoc({ path, fallbackTitle, section }: { path: string; fallba
       <nav aria-label="Breadcrumb" className="crumbs">
         <Link href={localePath("/docs/")}>Read everything</Link>
         <span aria-hidden="true"> / </span>
-        <Link href={localePath(`/docs/#${section}`)}>{sectionTitle(section)}</Link>
+        <Link href={localePath(`/docs/#${section}`)} aria-label={`${sectionTitle(section)}, section of Read everything`}>{sectionTitle(section)}</Link>
       </nav>
       <h1 className="doc-title">{title}</h1>
       <p className="doc-meta">

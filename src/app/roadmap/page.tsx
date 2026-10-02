@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { DocRef, PageHead, Section } from "@/components/ui";
 import { Pictogram } from "@/components/Pictogram";
 import { Unfold } from "@/components/Unfold";
 import "./roadmap.css";
 
-export const metadata: Metadata = {
-  title: "Roadmap",
-  description: "The phases from concept page to controlled pilot and beyond, where CAN is today, and the decentralization track.",
-};
+export const metadata: Metadata = pageMetadata("/roadmap/", "Roadmap", "The phases from concept page to controlled pilot and beyond, where CAN is today, and the decentralization track.");
 
 const PHASES: { name: string; state: "Now" | "Next" | "Later"; text: string }[] = [
   { name: "Phase 0A: Public concept and contributor page", state: "Now", text: "This site: what CAN is, what does not exist yet, and how to help without handing over any personal data." },

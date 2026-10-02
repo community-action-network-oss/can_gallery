@@ -1,5 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { repoUrl } from "@/config/site";
 import { Unfold } from "@/components/Unfold";
@@ -8,10 +9,7 @@ import "./contribute.css";
 import { PITCH, PITCH_TWO, HARDENING_NOTE, type PitchItem, type Urgency } from "@/content/pitch";
 import { DocRef, PageHead, Fictional, Planned, RepoLink, Section } from "@/components/ui";
 
-export const metadata: Metadata = {
-  title: "Contribute",
-  description: "Every profession can help. Plain roles first, then the three repositories, how to start in about an hour, and how decisions and AI-assisted work are handled.",
-};
+export const metadata: Metadata = pageMetadata("/contribute/", "Contribute", "Every profession can help. Plain roles first, then the three repositories, how to start in about an hour, and how decisions and AI-assisted work are handled.");
 
 const GROUPS: { urgency: Urgency; title: string }[] = [
   { urgency: "most-urgent-now", title: "Most urgent today" },

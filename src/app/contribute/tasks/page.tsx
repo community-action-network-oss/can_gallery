@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { docUrl } from "@/config/site";
@@ -7,10 +8,7 @@ import { TaskCard, type Task } from "@/components/TaskCard";
 import catalog from "@/content/catalog.json";
 import "./tasks.css";
 
-export const metadata: Metadata = {
-  title: "One hour tasks",
-  description: "Small, bounded pieces of work listed from the project plans, each with its owner, review and expected outcome.",
-};
+export const metadata: Metadata = pageMetadata("/contribute/tasks/", "One hour tasks", "Small, bounded pieces of work listed from the project plans, each with its owner, review and expected outcome.");
 
 const AREAS: Record<string, string> = {
   "can-server": "Server",

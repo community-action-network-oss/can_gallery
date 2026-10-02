@@ -30,7 +30,9 @@ for (const route of routes()) {
 
 // every external URL in HTML and CSS: only https://github.com as an anchor (the allow list in the budget file); namespaces are not requests
 const URLS = /https?:\/\/[^\s"'<>)\\]+/g;
-const allowed = (u) => /^https:\/\/github\.com\//.test(u) || /^https?:\/\/www\.w3\.org\/\d{4}\//.test(u);
+// the site's own origin (SITE_URL, 06-u10) appears in absolute og:image and og:url meta values
+const SELF = process.env.SITE_URL || 'http:' + '//localhost:3000';
+const allowed = (u) => u.startsWith(SELF + '/') || /^https:\/\/github\.com\//.test(u) || /^https?:\/\/www\.w3\.org\/\d{4}\//.test(u);
 const files = [];
 (function walk(d) {
   for (const e of readdirSync(d, { withFileTypes: true })) {
