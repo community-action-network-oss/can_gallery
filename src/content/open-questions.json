@@ -73,6 +73,19 @@
     "file": "docs/open-questions/OQ-boundary-data.md"
   },
   {
+    "id": "OQ-capability-taxonomy",
+    "question": "Which groups does the capability profile offer for \"what you know\", and who keeps the list current?",
+    "why": "The groups are the only vocabulary shared by the profile and by help_needed on public problems. Groups that are too coarse match nothing useful, and groups that are too fine or too jargon-heavy shut out people who do not use job titles.",
+    "default": "The plain-language groups in spec 26, extended through policy packs so a place or field can add its own. No job titles, no employers.",
+    "roles": [
+      "People from every profession",
+      "plain-language writers",
+      "translators",
+      "and people who do not think of what they do as a profession"
+    ],
+    "file": "docs/open-questions/OQ-capability-taxonomy.md"
+  },
+  {
     "id": "OQ-content-schema-design",
     "question": "Who drafts the version 1 schemas for each content type (problem, contribution, proposal, decision record, task and verification, appeal, policy proposal), which fields are required, and how do the schemas force a poster to cover facts, causes, affected people, scope, lawful options, uncertainty and assumptions without making posting a chore? How does a major schema bump treat in-flight drafts?",
     "why": "Schemas are the only way anyone can post (D-58, STRUCT-ONLY-1). Too few fields lets a poster skip the hard parts; too many drives honest people away or produces filler. Schema v1 shapes every later policy and every simulated and real post.",
@@ -308,6 +321,19 @@
     "file": "docs/open-questions/OQ-handle-word-lists.md"
   },
   {
+    "id": "OQ-help-needed-tags",
+    "question": "Each public problem carries a help_needed set (skill groups, languages, coarse place, topic). How strictly must volunteer review check it?",
+    "why": "Wrong tags send the wrong people to a problem or hide it from the right ones. Strict checking slows publication and adds a burden for reviewers.",
+    "default": "The poster proposes the set during preparation, volunteer review checks it, and the publication run validates the tag set against the taxonomy. Review may correct tags but a wrong tag alone does not block publication.",
+    "roles": [
+      "Volunteer reviewers",
+      "community organisers",
+      "moderators",
+      "and people who have tried to find help for a public problem"
+    ],
+    "file": "docs/open-questions/OQ-help-needed-tags.md"
+  },
+  {
     "id": "OQ-hosting-region",
     "question": "Which hosting provider and region, and which real email provider, should the first deployment use? D-57: hosting is undecided, and every service must be portable whichever answer is chosen.",
     "why": "Region sets data-protection obligations and latency. The email provider sees every sign-in address. Both involve cost and legal terms.",
@@ -470,6 +496,19 @@
     "file": "docs/open-questions/OQ-location-verification.md"
   },
   {
+    "id": "OQ-match-notify-channel",
+    "question": "How are people told about newly published problems that fit their profile, without the server learning their interests?",
+    "why": "Matching needs a channel. A channel that knows interests would break PROFILE-LOCAL-1 and NOTIFY-CONSENT-1.",
+    "default": "An opt-in push that is interest-blind (it only says new public problems were published) plus on-device matching (D-80). A digest in the app is the fallback when push is off.",
+    "roles": [
+      "Mobile developers",
+      "privacy engineers",
+      "accessibility specialists",
+      "and people who dislike notifications"
+    ],
+    "file": "docs/open-questions/OQ-match-notify-channel.md"
+  },
+  {
     "id": "OQ-mera-disclosure",
     "question": "If a related company hosts early servers or links to CAN problems from its own products, what must CAN disclose publicly (who hosts, who can access data, what the links show), and what must stay separate (brand, ownership, data, policy)?",
     "why": "Independence is a core promise. Earlier planning notes say CAN should not operate under another brand or be owned by it, and that the company may host early servers and offer neutral links. Hidden dependence would damage trust.",
@@ -576,6 +615,18 @@
       "people who have been moderated"
     ],
     "file": "docs/open-questions/OQ-policy-retroactivity.md"
+  },
+  {
+    "id": "OQ-profile-multi-device",
+    "question": "The profile stays on the device (PROFILE-LOCAL-1). How does someone use it on a second device or after losing a phone?",
+    "why": "Any sync service would have to hold the profile, which D-80 rules out. Without a way to move it, people must retype it, or lose it with the device.",
+    "default": "Export to an encrypted file and import on the other device. No sync server, nothing leaves the device unless the person moves the file.",
+    "roles": [
+      "Privacy engineers",
+      "local-first developers",
+      "and people who use several devices or share one"
+    ],
+    "file": "docs/open-questions/OQ-profile-multi-device.md"
   },
   {
     "id": "OQ-promo-interest-channel",

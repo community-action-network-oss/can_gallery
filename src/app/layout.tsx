@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./tokens.css";
 import "./globals.css";
 import { Footer, Header } from "@/components/Shell";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
 export const metadata: Metadata = {
   title: { default: "CAN: solve public problems, with evidence", template: "%s | CAN" },
@@ -21,10 +22,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <a className="skip-link" href="#main">Skip to content</a>
-        <Header />
-        <main id="main" tabIndex={-1}>{children}</main>
-        <Footer />
+        <GluestackUIProvider>
+          <a className="skip-link" href="#main">Skip to content</a>
+          <Header />
+          <main id="main" tabIndex={-1}>{children}</main>
+          <Footer />
+        </GluestackUIProvider>
       </body>
     </html>
   );

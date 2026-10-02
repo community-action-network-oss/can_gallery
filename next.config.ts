@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withGluestackUI } from "@gluestack/ui-next-adapter";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -6,4 +7,4 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
 };
 
-export default nextConfig;
+export default withGluestackUI(nextConfig);
