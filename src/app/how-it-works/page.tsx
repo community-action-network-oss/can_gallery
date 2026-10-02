@@ -64,7 +64,7 @@ export default function Page() {
           stage finishes only when its evidence meets its finish line. The
           last step keeps the whole journey as a path others can start from. Along
           the way a problem can also be paused, stuck, redirected or closed.
-          The first build uses one fictional place and fictional problems only.
+          The first build uses made up evidence and no real participants or personal data.
         </p>
         <div className="table-wrap">
           <table>
@@ -106,10 +106,10 @@ export default function Page() {
         </p>
         <Unfold id="moderation-detail" summary="Six things moderation is built to do">
         <ul>
-          <li>Deterministic checks catch contact details, secrets and obviously unsafe links before anyone reviews.</li>
+          <li>Fixed checks run before anyone reviews, and catch things like contact details.</li>
           <li>Volunteers review every problem in private before it is public, and the poster accepts or declines each suggestion.</li>
           <li>Every decision names the rule applied, points at the part it is about, and says what would make it acceptable.</li>
-          <li>Anyone can appeal a moderation decision. When two or more moderators exist, the reviewer differs from the original decider; until then, that is disclosed on the page.</li>
+          <li>Anyone can appeal a moderation decision. The appeal is re-checked independently, by a different model or prompt variant, so the same check never grades itself.</li>
           <li>Discussion is solution-only, with targeted waits between contributions, so it stays thoughtful instead of reactive.</li>
           <li>The AI publishing check <Planned /> follows the community written rules and is switched on only after evaluation.</li>
         </ul>

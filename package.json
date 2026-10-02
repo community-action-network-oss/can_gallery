@@ -17,7 +17,9 @@
     "sync:content": "node scripts/sync-content.mjs && node scripts/sync-docs.mjs",
     "sync:check": "node scripts/sync-content.mjs --check && node scripts/sync-docs.mjs --check",
     "check:out": "node scripts/check-out.mjs",
-    "verify": "npm run sync:check && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out"
+    "check:claims": "node scripts/check-claims.mjs",
+    "check:copy": "node scripts/check-copy.mjs",
+    "verify": "npm run sync:check && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",

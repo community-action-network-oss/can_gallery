@@ -31,7 +31,7 @@ export default function Page() {
     <>
       <PageHead
         title="Read everything"
-        lede="Everything that matters about CAN is public. Read it here, written by the people building it, without going to GitHub. Each page is fetched live, so you always see the current text."
+        lede="Everything that matters about CAN is public. Read it here, written by the people building it, without going to GitHub. Each page is fetched live, so you see the current text."
       />
       <div className="wrap">
         <p className="prose">
