@@ -52,10 +52,11 @@ export function StagePanel({ id = "stages-h" }: { id?: string }) {
   );
 }
 
-export function PathRail({ labelledBy }: { labelledBy: string }) {
+/** The whole rail, or only steps `from` to `to` (exclusive); numbering keeps its place in the full path. */
+export function PathRail({ labelledBy, from = 0, to = PATH.length }: { labelledBy: string; from?: number; to?: number }) {
   return (
-    <ol className="rail" aria-labelledby={labelledBy}>
-      {PATH.map((s, i) => (
+    <ol className="rail" aria-labelledby={labelledBy} style={{ counterReset: `step ${from}` }}>
+      {PATH.slice(from, to).map((s, i) => (
         <li key={s.label} style={{ "--i": i } as CSSProperties}>
           <div className="rail-head">
             <Chip tone={s.tone}>{s.label}</Chip>

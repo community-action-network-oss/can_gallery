@@ -309,9 +309,8 @@ main:focus { outline: none; }
 
 /* Hero */
 .hero { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(2rem, 5vw, 4rem); }
-.hero h1 { font-size: clamp(2.125rem, 6.2vw + 0.4rem, 4.25rem); font-weight: 750; line-height: 1.04; letter-spacing: -0.03em; max-width: 17ch; }
-.hero h1 .frustration { color: var(--can-color-text-muted); }
-.hero h1 .answer { color: var(--can-color-primary); display: block; margin-top: 0.12em; }
+.hero h1 { font-size: clamp(2rem, 3.2vw + 1rem, 3rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; max-width: 24ch; margin-bottom: var(--can-space-5); }
+.contrast-lead .frustration { color: var(--can-color-text-muted); }
 .hero .lede { max-width: 38rem; margin-top: var(--can-space-5); }
 .lede { font-size: clamp(1.125rem, 1.4vw + 0.8rem, 1.375rem); line-height: 1.5; color: var(--can-color-text); }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--can-space-3) var(--can-space-5); margin-top: var(--can-space-6); }

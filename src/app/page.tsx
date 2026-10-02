@@ -1,9 +1,35 @@
 import Link from "next/link";
-import { ButtonLink, Chip, Fictional, Planned, RepoLink, Section } from "@/components/ui";
+import type { CSSProperties } from "react";
+import { ButtonLink, Chip, Fictional, Planned, RepoLink } from "@/components/ui";
 import { PathRail } from "@/components/Path";
+import { Pictogram, Plate, type PictogramName } from "@/components/Pictogram";
+import { Unfold } from "@/components/Unfold";
 import oq from "@/content/open-questions.json";
 
 const TEASER = ["OQ-hosting-region", "OQ-decision-method", "OQ-launch-jurisdiction-language"];
+
+const PAIRS: { who: string; person: PictogramName; problem: PictogramName; says: string }[] = [
+  { who: "A nurse", person: "nurse", problem: "clinic", says: "knows why a clinic waiting list is so hard to see into." },
+  { who: "A cook", person: "cook", problem: "water", says: "knows that a drinking fountain has been dry for months." },
+  { who: "A clerk", person: "clerk", problem: "bus", says: "knows which bus route skips a whole housing estate." },
+  { who: "An electrician", person: "electrician", problem: "crossing", says: "knows how to fix a crossing signal that stays dark at night." },
+  { who: "A student", person: "student", problem: "school", says: "knows that a school has no step free way in." },
+];
+
+const FIVE: { name: PictogramName; label: string }[] = [
+  { name: "clinic", label: "a clinic" },
+  { name: "bus", label: "a bus route" },
+  { name: "crossing", label: "a crossing" },
+  { name: "school", label: "a school" },
+  { name: "water", label: "a water supply" },
+];
+
+const STEPS = [
+  { id: "s1", title: "Someone notices a problem", text: "A shared public problem is written down with evidence, and nothing that identifies anyone.", from: 0, to: 1 },
+  { id: "s2", title: "People who know help shape it", text: "Volunteers suggest improvements. The person who wrote it accepts or declines each one.", from: 1, to: 2 },
+  { id: "s3", title: "It gets fixed, step by step, with proof", text: "The work runs in stages. Each stage ends with evidence anyone can check.", from: 2, to: 5 },
+  { id: "s4", title: "The fix is kept for others", text: "The whole journey, including what failed, is saved so the next town can start from it.", from: 5, to: 6 },
+];
 
 export default function Home() {
   const teaser = TEASER.map((id) => oq.find((q) => q.id === id)).filter((q) => q !== undefined);
@@ -11,46 +37,117 @@ export default function Home() {
     <>
       <section className="hero" aria-labelledby="hero-h">
         <div className="wrap">
-          <h1 id="hero-h">
-            <span className="frustration">Complaints, petitions and endless threads rarely fix anything.</span>
-            <span className="answer">Let’s build what does.</span>
-          </h1>
+          <h1 id="hero-h">Whatever you know, a public problem needs it.</h1>
+          <Plate
+            title="Five people, five problems"
+            legend="Each figure is one person or one problem."
+            caption={<><Fictional /> None of this is real. Point at a person, or tab to one, to light its match.</>}
+          >
+            <ol className="pairs">
+              {PAIRS.map((p, i) => (
+                <li className="pair" key={p.person} tabIndex={0} style={{ "--i": i } as CSSProperties}>
+                  <Pictogram name={p.person} ink="cobalt" size={56} />
+                  <span className="pair-rule" aria-hidden="true" />
+                  <Pictogram name={p.problem} ink="ochre" size={56} />
+                  <p className="pair-cap"><strong>{p.who}</strong> {p.says}</p>
+                </li>
+              ))}
+            </ol>
+          </Plate>
           <p className="lede">
-            CAN is an open source platform where a public problem moves from
-            evidence, to a lawful solution, to a verified and tracked outcome.
-            Every step in the open. Every decision on record.
+            CAN is a place where people with every kind of know-how help fix
+            problems that affect a whole community.
           </p>
+          <p className="status-line"><strong>Being built. Nothing is live yet.</strong> CAN is not an emergency service. If someone is in danger, call your local emergency number.</p>
           <div className="cta-row">
-            <ButtonLink href="/contribute/">Help build it</ButtonLink>
-            <ul className="cta-links">
-              <li><RepoLink /></li>
-              <li><Link href="/open-questions/">Read the open questions</Link></li>
-            </ul>
+            <ButtonLink href="#where-you-fit">See where you fit</ButtonLink>
           </div>
-          <p className="status-note">
-            <strong>Where things stand</strong>
-            This is a concept with early scaffolding. Nothing here handles real
-            problems yet. CAN is not an emergency, legal, medical, government
-            or individual case service. If someone is in danger, contact your
-            local emergency number.
-          </p>
+        </div>
+      </section>
 
-          <div className="journey">
-            <p className="journey-title" id="journey-t">
-              The path every public problem will follow <Planned />
-            </p>
-            <PathRail labelledBy="journey-t" />
-            <p className="journey-foot">
-              This is the planned design, not a live product. Along the way a
-              problem can also be paused, stuck, redirected or closed, always
-              with the reason shown. See{" "}
-              <Link href="/how-it-works/">how it works</Link>.
+      <section className="section" id="where-you-fit" aria-labelledby="where-you-fit-h">
+        <div className="wrap">
+          <h2 id="where-you-fit-h">One person, a few problems, solved properly <Planned /></h2>
+          <div className="stack">
+            <Plate
+              title="One person, five problems"
+              legend="Each problem symbol is one problem. Counted, not scaled."
+              caption={<><Fictional /> A person shares what they know, and sees a handful of public problems they could move. Not a long list.</>}
+            >
+              <div className="one-five">
+                <Pictogram name="nurse" ink="cobalt" size={88} />
+                <ul className="five" aria-label="Five problems, as symbols">
+                  {FIVE.map((f) => (
+                    <li key={f.name}><Pictogram name={f.name} ink="ochre" size={56} title={f.label} /></li>
+                  ))}
+                </ul>
+              </div>
+            </Plate>
+            <p className="prose">
+              You tell CAN what you know and can give, in a short guided list.
+              Your answers stay on your own phone, and the matching happens
+              there too. Nothing guesses what will keep you scrolling, because
+              there is no feed.
             </p>
           </div>
         </div>
       </section>
 
-      <Section id="why" title="Most public channels end with a post. CAN is built to end with a result." wide>
+      <section className="section" id="journey" aria-labelledby="journey-t">
+        <div className="wrap">
+          <h2 id="journey-t">How a problem gets solved <Planned /></h2>
+          <p className="journey-title">The path every public problem will follow</p>
+          <ol className="plain-steps">
+            {STEPS.map((st, i) => (
+              <li key={st.id}>
+                <h3 id={`${st.id}-h`}>{st.title}</h3>
+                <p>{st.text}</p>
+                <Unfold summary={`What happens at step ${i + 1}, in detail`}>
+                  <PathRail labelledBy={`${st.id}-h`} from={st.from} to={st.to} />
+                </Unfold>
+              </li>
+            ))}
+          </ol>
+          <p className="journey-foot">
+            This is the planned design, not a live product. Along the way a
+            problem can also be paused, stuck, redirected or closed, always
+            with the reason shown. See{" "}
+            <Link href="/how-it-works/">how it works</Link>.
+          </p>
+        </div>
+      </section>
+
+      <section className="section" id="deeper" aria-labelledby="deeper-h">
+        <div className="wrap">
+          <h2 id="deeper-h">Go deeper</h2>
+          <div className="stack">
+            <ul className="cta-links deeper-links">
+              <li><Link href="/how-it-works/">How it works</Link></li>
+              <li><Link href="/principles/">Principles</Link></li>
+              <li><Link href="/contribute/">Help build it</Link></li>
+              <li><Link href="/open-questions/">Read the open questions</Link></li>
+              <li><RepoLink /></li>
+            </ul>
+            <div className="unfolds">
+              <Unfold id="about" summary="What CAN is, and what it is not">
+                <p>
+                  CAN is an open source platform where a public problem moves from
+                  evidence, to a lawful solution, to a verified and tracked outcome.
+                  Every step in the open. Every decision on record.
+                </p>
+                <p className="status-note">
+                  <strong>Where things stand</strong>
+                  This is a concept with early scaffolding. Nothing here handles real
+                  problems yet. CAN is not an emergency, legal, medical, government
+                  or individual case service. If someone is in danger, contact your
+                  local emergency number.
+                </p>
+              </Unfold>
+              <Unfold id="why" summary="Most public channels end with a post. CAN is built to end with a result.">
+                <p className="contrast-lead">
+                  <span className="frustration">Complaints, petitions and endless threads rarely fix anything.</span>{" "}
+                  <strong>Let’s build what does.</strong>
+                </p>
         <dl className="contrast">
           <div><dt>A complaint board</dt><dd>Ends when someone replies, or does not.</dd></div>
           <div><dt>A petition</dt><dd>Ends with a number that nobody has to act on.</dd></div>
@@ -62,9 +159,8 @@ export default function Home() {
           service, a recurring hazard or a gap in a process. A personal story
           can be evidence of one, but CAN never takes individual cases.
         </p>
-      </Section>
-
-      <Section id="how" title="How a problem moves from evidence to outcome" wide>
+              </Unfold>
+              <Unfold id="how" summary="How a problem moves from evidence to outcome">
         <ol className="steps">
           <li><div><h3>Prepare it</h3><p>The poster describes the public problem, the evidence from trusted sources, and what solved will mean. Nothing identifying anyone.</p></div></li>
           <li><div><h3>Volunteers review it</h3><p>Volunteers suggest improvements. The poster accepts or declines each one. Still private.</p></div></li>
@@ -78,9 +174,8 @@ export default function Home() {
           rules, after volunteer review. People can appeal every decision.
         </p>
         <p><ButtonLink href="/how-it-works/" variant="quiet">The full lifecycle</ButtonLink></p>
-      </Section>
-
-      <Section id="different" title="What makes it different" wide>
+              </Unfold>
+              <Unfold id="different" summary="What makes it different">
         <div className="cols">
           <ul className="rows">
             <li><strong>Solution-only discussion</strong><span className="d">Contributions must clarify, evidence or improve a lawful fix. Waits between posts are by design.</span></li>
@@ -95,9 +190,8 @@ export default function Home() {
             <li><strong>Community-improved AI <Planned /></strong><span className="d">People help label and correct moderation gaps through masked, randomized review.</span></li>
           </ul>
         </div>
-      </Section>
-
-      <Section id="principles" title="Principles we are holding ourselves to" wide>
+              </Unfold>
+              <Unfold id="principles" summary="Principles we are holding ourselves to">
         <ul className="rows">
           <li><strong>Open source, open process.</strong> <span className="d">Specification, decisions and open questions are public.</span></li>
           <li><strong>Public problems, never individual cases.</strong> <span className="d">No advice, therapy, legal service or personal case management.</span></li>
@@ -106,9 +200,8 @@ export default function Home() {
           <li><strong>Improvable by design, not perfect by assumption.</strong> <span className="d">The platform fixes itself with the same process it offers everyone.</span></li>
         </ul>
         <p><Link href="/principles/">Read the principles and what we will never do</Link></p>
-      </Section>
-
-      <Section id="example" title="A worked example" wide>
+              </Unfold>
+              <Unfold id="example" summary="A worked example">
         <div className="example">
           <Fictional />
           <h3>The dark crossing on the school route</h3>
@@ -125,9 +218,8 @@ export default function Home() {
             <li><Chip tone="closed">Archive</Chip><span>The whole journey, including the repair that failed once, becomes a path the next town can start from, adapted to its own rules.</span></li>
           </ul>
         </div>
-      </Section>
-
-      <Section id="contribute" title="One hour. One problem. One step." wide>
+              </Unfold>
+              <Unfold id="contribute" summary="One hour. One problem. One step.">
         <p className="prose">
           You will not fix a public problem in an hour, and we do not claim
           you can. You can move one responsible step forward and stop there.
@@ -143,9 +235,8 @@ export default function Home() {
           <ButtonLink href="/contribute/">See where help is needed</ButtonLink>
           <RepoLink />
         </p>
-      </Section>
-
-      <Section id="questions" title="Questions we have not answered yet" wide>
+              </Unfold>
+              <Unfold id="questions" summary="Questions we have not answered yet">
         <p className="prose">
           We would rather show what is undecided than pretend. Each open
           question has a current default, why it matters and who can help
@@ -161,7 +252,11 @@ export default function Home() {
           ))}
         </ul>
         <p><Link href="/open-questions/">See all open questions</Link></p>
-      </Section>
+              </Unfold>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

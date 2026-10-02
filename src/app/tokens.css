@@ -30,8 +30,8 @@
   --can-status-closed-bg: #E1E5E7;
   --can-status-redirected-fg: #3B4A8A;
   --can-status-redirected-bg: #E6E9F7;
-  --can-status-interim-fg: #5A4A1E;
-  --can-status-interim-bg: #F3EFD9;
+  --can-status-transitional-fg: #5A4A1E;
+  --can-status-transitional-bg: #F3EFD9;
   --can-space-0: 0px;
   --can-space-1: 4px;
   --can-space-2: 8px;
@@ -87,7 +87,7 @@
     --can-status-closed-bg: #273136;
     --can-status-redirected-fg: #C2CAF2;
     --can-status-redirected-bg: #232B52;
-    --can-status-interim-fg: #E6D8A0;
-    --can-status-interim-bg: #38300F;
+    --can-status-transitional-fg: #E6D8A0;
+    --can-status-transitional-bg: #38300F;
   }
 }
