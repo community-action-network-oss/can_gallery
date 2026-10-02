@@ -1,7 +1,7 @@
 {
   "source": "DECISIONS.md",
   "adrIndex": "docs/adr/README.md",
-  "total": 80,
+  "total": 81,
   "excluded": [
     "D-21",
     "D-24",
@@ -278,6 +278,13 @@
       "id": "D-80",
       "headline": "CAN for everyone: a gallery anyone can read, gradual unfolding, and the private capability profile (founder)",
       "adr": []
+    },
+    {
+      "id": "D-81",
+      "headline": "Night run 2026-10-02: defaults taken by unit agents (orchestrator log, for founder review)",
+      "adr": [
+        "0007"
+      ]
     }
   ],
   "adrs": [
