@@ -473,7 +473,7 @@
     "id": "OQ-mera-disclosure",
     "question": "If a related company hosts early servers or links to CAN problems from its own products, what must CAN disclose publicly (who hosts, who can access data, what the links show), and what must stay separate (brand, ownership, data, policy)?",
     "why": "Independence is a core promise. Earlier planning notes say CAN should not operate under another brand or be owned by it, and that the company may host early servers and offer neutral links. Hidden dependence would damage trust.",
-    "default": "Hosting is undecided and every service is portable (D-57). No link, brand use or shared data with any other product in slice 1. If a host is chosen, the choice and who can access the data are published before any real participant joins. Neutral \"take action\" links, if ever used, need a policy proposal.",
+    "default": "Hosting is undecided and every service is portable (D-57). If a host is chosen, the choice and who can access the data are published before any real participant joins. Neutral \"take action\" links, if ever used, need a policy proposal.",
     "roles": [
       "Governance and independence researchers",
       "data-protection officers",
@@ -526,6 +526,19 @@
       "mobile engineers"
     ],
     "file": "docs/open-questions/OQ-native-device-testing.md"
+  },
+  {
+    "id": "OQ-news-ledger",
+    "question": "Should the news pipeline (periodic feed fetching, translation, embeddings, topic matching) become an open, self-hostable service that CAN nodes run, with the work of keeping a shared news corpus split across nodes, so that the larger the network the less each node has to do?",
+    "why": "Today news comes from one partner (Mera News, D-79) behind NewsSourcePort. That is the cheapest start, but a self-hosted node without a partner key has no news watch, and one operator holds the corpus. A shared, node-run ledger would remove both limits. It also raises costs and legal questions that one partner currently carries.",
+    "default": "Mera News is the only real adapter. Its pipeline stays closed. CAN depends only on the port, runs fully without any adapter, and stores only publisher URLs and a few fields (spec 25, section 25.4). No CAN code assumes a particular pipeline.",
+    "roles": [
+      "Federation and peer-to-peer engineers",
+      "media lawyers (feed terms",
+      "snippet rights by jurisdiction)",
+      "people who run news archives or open-data portals"
+    ],
+    "file": "docs/open-questions/OQ-news-ledger.md"
   },
   {
     "id": "OQ-persona-realism-bias",
