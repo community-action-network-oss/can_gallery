@@ -30,7 +30,9 @@
     "check:decisions": "node scripts/check-decisions.mjs",
     "sync:changelog": "node scripts/sync-changelog.mjs",
     "check:changelog": "node scripts/check-changelog.mjs",
-    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:pitch && npm run check:seeds && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale"
+    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:pitch && npm run check:seeds && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale",
+    "a11y": "node scripts/a11y.mjs",
+    "perf": "node scripts/a11y.mjs --perf"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",
@@ -62,6 +64,8 @@
     "unified": "11.0.5"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
     "@react-native/assets-registry": "0.79.7",
     "@types/node": "^20",
     "@types/react": "^19",
