@@ -1,7 +1,8 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { REPO_URL, docUrl } from "@/config/site";
 import type { Tone } from "@/content/stages";
+import { Badge } from "./ui/badge";
+import { ButtonLink as GButtonLink } from "./ui/button/index.web";
 
 export function RepoLink({ className }: { className?: string }) {
   return (
@@ -21,7 +22,7 @@ export function DocRef({ path, children }: { path: string; children?: ReactNode 
 }
 
 export function Planned({ children = "Planned" }: { children?: ReactNode }) {
-  return <span className="tag tag-planned">{children}</span>;
+  return <Badge tone="planned" className="ml-1.5">{children}</Badge>;
 }
 
 export function Chip({ tone, children }: { tone: Tone; children: ReactNode }) {
@@ -29,14 +30,14 @@ export function Chip({ tone, children }: { tone: Tone; children: ReactNode }) {
 }
 
 export function Fictional({ children = "Fictional example" }: { children?: ReactNode }) {
-  return <span className="tag tag-fictional">{children}</span>;
+  return <Badge tone="fictional">{children}</Badge>;
 }
 
 export function ButtonLink({ href, children, variant = "primary" }: { href: string; children: ReactNode; variant?: "primary" | "quiet" }) {
   return (
-    <Link className={`btn btn-${variant}`} href={href}>
+    <GButtonLink href={href} variant={variant === "quiet" ? "quiet" : "solid"}>
       {children}
-    </Link>
+    </GButtonLink>
   );
 }
 

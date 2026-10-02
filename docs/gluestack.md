@@ -30,14 +30,20 @@ Gallery-owned (D-80), from the OWN-WORLD block of `.impeccable/surfaces/src-app-
 
 `output: 'export'` unchanged, no runtime fetch, no form, no cookie, no font. `check:out` is green.
 
+## Shell on gluestack (16-u10)
+
+The shell (header, nav, status strip, footer) is built from customised gluestack web variants: `Box`, `Text`, `Heading` (already DOM only), plus new `link/index.web.tsx`, `button/index.web.tsx` and `divider/index.web.tsx`, and a plain `badge/index.tsx`. Webpack and Turbopack pick `index.web.tsx` on the web, so the Pressable-based native sources stay in `index.tsx` for a future native target and are never bundled.
+
+Why this costs nothing: the web variants are plain elements styled by `tva` class strings, with no `react-native-web` and no `@jsxImportSource nativewind` pragma (removed from the box, text and heading web files too). They are server components, so `tva` runs at build time and ships no JavaScript. Importing a native source (`ui/button`, `ui/link`, `ui/divider` through `index.tsx`) would put about 97 KB gz back on the page; do not import those on gallery pages, import `.../index.web` explicitly (TypeScript resolves `index.tsx` otherwise).
+
+Other parts: `src/app/theme.css` (paper, ink, cobalt, ochre, green, 2px corners, pictogram inks, Plate, Unfold and menu styles, loaded after the synced `tokens.css`, status hues untouched), `Unfold` (details/summary, hash opens it, about 0.3 KB gz), `Pictogram` and `Plate` (server components), `DeeperMenu` (the one client piece, closes the 'Go deeper' menu after navigation). Hand-written header, nav, button and tag CSS was deleted from `globals.css`.
+
 ## First-load JS (gzip, all script chunks referenced by the page)
 
-| Route | Before | After |
+| Route | Before 16-u10 | After 16-u10 |
 | --- | --- | --- |
-| `/`, `/how-it-works/`, `/contribute/`, `/open-questions/`, `/roadmap/`, `/principles/` | 172.3 KB | 172.3 KB |
-| `/docs/` | 176.3 KB | 176.6 KB |
-| `/docs/manifesto/` | 175.6 KB | 175.6 KB |
+| `/`, `/how-it-works/`, `/contribute/`, `/open-questions/`, `/roadmap/`, `/principles/` | 172.3 KB | 172.4 KB |
+| `/docs/` | 176.6 KB | 176.9 KB |
+| `/docs/manifesto/` | 175.6 KB | 175.7 KB |
 
-No page imports a gluestack component yet. A probe page using Box, Heading, Text, Divider and Button measured 269 KB gz (about 97 KB for react-native-web and the component runtime). Both numbers are above the 130 KB budget; the baseline already was. Budget enforcement belongs to 06-u09 and 06-u16, and the cost of adopting these components must be weighed there.
-
-CSS grew from 24 KB to 44 KB raw (theme variables and the utilities the component sources use).
+The shell adds about 0.1 KB. The 130 KB budget is still exceeded by the baseline: the base chunks are the Next 16 and React 19 runtime (about 172 KB gz), with no react-native-web in them. Reducing that is for 06-u09 and 06-u16. CSS raw size: 44 KB before, 48.6 KB after.

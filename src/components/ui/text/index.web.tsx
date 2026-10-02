@@ -1,4 +1,3 @@
-/** @jsxImportSource nativewind */
 import React from 'react';
 import type { VariantProps } from '@gluestack-ui/utils/nativewind-utils';
 import { textStyle } from './styles';

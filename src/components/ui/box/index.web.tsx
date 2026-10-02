@@ -1,4 +1,3 @@
-/** @jsxImportSource nativewind */
 import React from 'react';
 import { boxStyle } from './styles';
 

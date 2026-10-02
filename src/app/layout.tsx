@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./tokens.css";
 import "./globals.css";
+import "./theme.css";
 import { Footer, Header } from "@/components/Shell";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
@@ -13,8 +14,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FAFAF7" },
-    { media: "(prefers-color-scheme: dark)", color: "#12181B" },
+    { media: "(prefers-color-scheme: light)", color: "#E9EEF2" },
+    { media: "(prefers-color-scheme: dark)", color: "#14181C" },
   ],
 };
 

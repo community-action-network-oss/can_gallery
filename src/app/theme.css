@@ -1,0 +1,83 @@
+/* Public Pictograms world (D-80, Direction contract OWN-WORLD): paper, ink, three pictogram inks.
+   Gallery-owned, not synced. Loaded after tokens.css: it re-points the shared tokens at the gallery paper
+   and leaves the status hue families (--can-status-*) untouched, so chips keep their meaning.
+   The same hex values drive the gluestack scales in globals.css. */
+:root {
+  --can-color-bg: #E9EEF2;
+  --can-color-surface: #F4F7F9;
+  --can-color-surface-muted: #DDE4EA;
+  --can-color-text: #1A1A1A;
+  --can-color-text-muted: #3F4A52;
+  --can-color-border: #BFC9D1;
+  --can-color-control-border: #5F6B74;
+  --can-color-primary: #1F4FA3;
+  --can-color-on-primary: #FFFFFF;
+  --can-color-focus: #1F4FA3;
+  --can-color-link: #1F4FA3;
+  --can-radius-sm: 2px;
+  --can-radius-md: 2px;
+  --can-radius-lg: 2px;
+  --can-radius-pill: 2px;
+  --pict-cobalt: #1F4FA3;
+  --pict-ochre: #C8902E;
+  --pict-green: #2F7D4F;
+  --pict-paper: #E9EEF2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --can-color-bg: #14181C;
+    --can-color-surface: #1B2126;
+    --can-color-surface-muted: #222A31;
+    --can-color-text: #E9EEF2;
+    --can-color-text-muted: #B2BDC5;
+    --can-color-border: #38434C;
+    --can-color-control-border: #8A97A1;
+    --can-color-primary: #7FA3E6;
+    --can-color-on-primary: #10151A;
+    --can-color-focus: #E0B25A;
+    --can-color-link: #9DB9EE;
+    --pict-cobalt: #7FA3E6;
+    --pict-ochre: #E0B25A;
+    --pict-green: #6FBF8D;
+    --pict-paper: #14181C;
+  }
+}
+
+h1, h2, h3 { font-weight: 800; }
+
+/* Pictograms and plates */
+.pict { display: block; flex: none; }
+.pict-cobalt { color: var(--pict-cobalt); }
+.pict-ochre { color: var(--pict-ochre); }
+.pict-green { color: var(--pict-green); }
+.pict .cut { fill: var(--pict-paper); }
+.plate { margin: 0; padding: var(--can-space-5); background: var(--can-color-surface); border: 2px solid var(--can-color-text); border-radius: var(--can-radius-sm); }
+.plate-title { font-weight: 800; font-size: 1.125rem; }
+.plate-legend { margin-top: var(--can-space-1); font-size: 0.875rem; color: var(--can-color-text-muted); }
+.plate-body { display: flex; flex-wrap: wrap; gap: var(--can-space-4); margin-block: var(--can-space-4); }
+.plate figcaption { font-size: 0.875rem; color: var(--can-color-text-muted); border-top: 1px solid var(--can-color-border); padding-top: var(--can-space-3); }
+
+/* Unfold: native details, visible Show more / Show less label */
+.unfold { border-top: 1px solid var(--can-color-border); }
+.unfold > summary { display: flex; align-items: baseline; justify-content: space-between; gap: var(--can-space-4); min-height: var(--can-size-min-target); padding-block: var(--can-space-3); cursor: pointer; list-style: none; }
+.unfold > summary::-webkit-details-marker { display: none; }
+.unfold-sentence { font-weight: 600; min-width: 0; }
+.unfold-label { flex: none; font-size: 0.875rem; font-weight: 700; color: var(--can-color-link); text-decoration: underline; text-underline-offset: 0.2em; }
+.unfold-less, .unfold[open] .unfold-more { display: none; }
+.unfold[open] .unfold-less { display: inline; }
+.unfold-body { padding-bottom: var(--can-space-4); }
+.unfold-body > * + * { margin-top: var(--can-space-3); }
+
+/* Shell: brand mark, nav, 'Go deeper' menu */
+.brand { display: inline-flex; align-items: center; gap: var(--can-space-3); color: var(--can-color-text); }
+.brand-mark { display: inline-grid; place-items: center; min-width: 2.5rem; height: 2.5rem; padding-inline: 0.5rem; border-radius: var(--can-radius-sm); background: var(--can-color-primary); color: var(--can-color-on-primary); letter-spacing: 0.04em; font-size: 0.95rem; font-weight: 800; }
+.nav { list-style: none; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--can-space-1); }
+.nav > li + li { margin: 0; }
+.deeper { position: relative; }
+.deeper > summary { display: inline-flex; align-items: center; min-height: var(--can-size-min-target); padding-inline: var(--can-space-2); cursor: pointer; list-style: none; font-size: 1rem; }
+.deeper > summary::-webkit-details-marker { display: none; }
+.deeper > summary::after { content: ""; margin-left: 0.4em; border: 0.3em solid transparent; border-top-color: currentColor; border-bottom: 0; }
+.deeper[open] > summary::after { border-top: 0; border-bottom: 0.3em solid currentColor; border-color: transparent transparent currentColor; }
+.deeper-list { list-style: none; padding: var(--can-space-2); margin: 0; position: absolute; right: 0; z-index: 5; min-width: 12rem; background: var(--can-color-surface); border: 2px solid var(--can-color-text); border-radius: var(--can-radius-sm); }
+.deeper-list li + li { margin: 0; }
+@media (max-width: 40rem) { .deeper-list { right: auto; left: 0; } }
