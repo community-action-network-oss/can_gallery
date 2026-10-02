@@ -1,16 +1,9 @@
-"use client";
-import { useEffect, useRef, type ReactNode } from "react";
-import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 
-/** 'Go deeper' group in the header: native details, closed again after navigation. */
+/** 'Go deeper' group in the header: native details. Links are plain anchors (full page load), so it is closed again on every navigation with no script. */
 export function DeeperMenu({ label, children }: { label: string; children: ReactNode }) {
-  const ref = useRef<HTMLDetailsElement>(null);
-  const path = usePathname();
-  useEffect(() => {
-    if (ref.current) ref.current.open = false;
-  }, [path]);
   return (
-    <details className="deeper" ref={ref}>
+    <details className="deeper">
       <summary>{label}</summary>
       {children}
     </details>

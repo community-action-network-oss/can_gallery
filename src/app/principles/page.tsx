@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
 import { Pictogram, Plate } from "@/components/Pictogram";
-import Link from "next/link";
+import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { Unfold } from "@/components/Unfold";
 import "./principles.css";

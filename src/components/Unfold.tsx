@@ -1,30 +1,16 @@
-"use client";
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 /**
  * The one disclosure primitive (D-80): gradual unfolding on native details/summary.
  * The summary sentence is always visible, the body is in the exported HTML, and it works without JS.
- * The only script opens the details when the URL hash targets it or something inside it.
+ * A server component: the hash-opens-it script is one inline snippet in the root layout (UNFOLD_HASH_SCRIPT),
+ * so no client chunk ships for it (06-u09).
  */
+export const UNFOLD_HASH_SCRIPT = `(function(){function o(){var h=decodeURIComponent(location.hash.slice(1)),t=h&&document.getElementById(h),d=t&&t.closest("details.unfold");if(d){d.open=true;t.scrollIntoView()}}o();addEventListener("hashchange",o)})()`;
+
 export function Unfold({ id, summary, children }: { id?: string; summary: ReactNode; children: ReactNode }) {
-  const ref = useRef<HTMLDetailsElement>(null);
-  useEffect(() => {
-    const open = () => {
-      const el = ref.current;
-      const hash = decodeURIComponent(window.location.hash.slice(1));
-      if (!el || !hash) return;
-      const target = document.getElementById(hash);
-      if (target && el.contains(target)) {
-        el.open = true;
-        target.scrollIntoView();
-      }
-    };
-    open();
-    window.addEventListener("hashchange", open);
-    return () => window.removeEventListener("hashchange", open);
-  }, []);
   return (
-    <details className="unfold" id={id} ref={ref}>
+    <details className="unfold" id={id}>
       <summary>
         <span className="unfold-sentence">{summary}</span>
         <span className="unfold-label unfold-more">Show more</span>

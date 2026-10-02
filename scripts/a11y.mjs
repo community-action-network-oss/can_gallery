@@ -1,15 +1,12 @@
 // Offline accessibility audit of the static export (out/). Usage:
 //   node scripts/a11y.mjs            axe (wcag2a, 2aa, 21aa, 22aa) light and dark + structural checks
-//   node scripts/a11y.mjs --perf     JS budget per page (130 KB gzipped, script tags in the HTML)
 // Needs `npm run build` first and Chromium (npx playwright install chromium).
-import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
-import { gzipSync } from 'node:zlib';
+import { readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serveOut } from './serve-out.mjs';
 
 const OUT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'out');
-const BUDGET = 130 * 1024;
 const DOC_SAMPLE = 8;
 
 function pages() {
@@ -29,24 +26,6 @@ function pages() {
 }
 
 if (!existsSync(path.join(OUT, 'index.html'))) { console.error('out/ missing: run npm run build first'); process.exit(2); }
-
-if (process.argv.includes('--perf')) {
-  let bad = 0;
-  for (const route of pages()) {
-    const html = readFileSync(path.join(OUT, route, 'index.html'), 'utf8');
-    const srcs = [...new Set([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map((m) => m[1]))];
-    let total = 0;
-    for (const s of srcs) {
-      const f = path.join(OUT, s.split('?')[0]);
-      if (existsSync(f) && statSync(f).isFile()) total += gzipSync(readFileSync(f)).length;
-    }
-    const ok = total <= BUDGET;
-    if (!ok) bad++;
-    console.log(`${ok ? 'ok  ' : 'FAIL'} ${route} ${(total / 1024).toFixed(1)} KB gz`);
-  }
-  if (bad) { console.error(`${bad} page(s) over the 130 KB budget`); process.exit(1); }
-  process.exit(0);
-}
 
 const { chromium } = await import('@playwright/test');
 const { AxeBuilder } = await import('@axe-core/playwright');

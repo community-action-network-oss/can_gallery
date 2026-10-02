@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { docUrl } from "@/config/site";
 import { PageHead, Section, Planned, DocRef } from "@/components/ui";

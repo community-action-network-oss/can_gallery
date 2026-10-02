@@ -1,6 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { repoUrl } from "@/config/site";
 import { Unfold } from "@/components/Unfold";
 import { Pictogram, Plate } from "@/components/Pictogram";

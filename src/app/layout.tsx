@@ -4,6 +4,7 @@ import "./globals.css";
 import "./theme.css";
 import { htmlAttrs } from "@/lib/locale";
 import { Footer, Header } from "@/components/Shell";
+import { UNFOLD_HASH_SCRIPT } from "@/components/Unfold";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main" tabIndex={-1}>{children}</main>
           <Footer />
         </GluestackUIProvider>
+        <script dangerouslySetInnerHTML={{ __html: UNFOLD_HASH_SCRIPT }} />
       </body>
     </html>
   );

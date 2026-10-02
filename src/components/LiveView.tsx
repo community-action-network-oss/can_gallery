@@ -1,6 +1,6 @@
 "use client";
 import { localePath } from "@/lib/paths";
-import Link from "next/link";
+import Link from "@/components/A";
 import { useSyncExternalStore } from "react";
 import { isPublicPath, sectionOf, titleOf } from "@/lib/whitelist.mjs";
 import { LiveDoc } from "./LiveDoc";

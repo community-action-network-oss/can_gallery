@@ -1,6 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { ButtonLink, Fictional, Planned, PageHead, Section } from "@/components/ui";
 import { Pictogram, Plate, type PictogramName } from "@/components/Pictogram";
 import { Unfold } from "@/components/Unfold";

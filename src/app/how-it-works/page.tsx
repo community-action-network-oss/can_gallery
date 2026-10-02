@@ -1,6 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { Chip, DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
 import { RoleList, StagePanel } from "@/components/Path";
 import { Pictogram, Plate } from "@/components/Pictogram";

@@ -1,7 +1,7 @@
 // Web variant (D-80): a link-shaped button in the gallery world: solid cobalt, square 2px corners, no shadow.
 // Native Button (Pressable) stays in ./index.tsx.
 import React from 'react';
-import NextLink from 'next/link';
+import NextLink from '../../A';
 import { tva } from '@gluestack-ui/utils/nativewind-utils';
 
 const buttonStyle = tva({

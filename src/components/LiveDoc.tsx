@@ -1,6 +1,6 @@
 "use client";
 import { localePath } from "@/lib/paths";
-import Link from "next/link";
+import Link from "@/components/A";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { docUrl } from "@/config/site";
 import { sectionTitle } from "@/content/docs-sections";

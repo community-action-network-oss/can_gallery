@@ -8,7 +8,7 @@
  *   Fictional example x2
  */
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
 import { Unfold } from "@/components/Unfold";

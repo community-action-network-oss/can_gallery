@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { localePath } from "@/lib/paths";
 import { Pictogram } from "@/components/Pictogram";
 import { PageHead, Section, Planned } from "@/components/ui";

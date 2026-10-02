@@ -1,21 +1,23 @@
 "use client";
 import { localePath } from "@/lib/paths";
-import Link from "next/link";
+import Link from "@/components/A";
 import { useEffect, useState } from "react";
 import { listTrees } from "@/lib/live.mjs";
 import { sectionOf, titleOf } from "@/lib/whitelist.mjs";
-import built from "../../scripts/docs-manifest.json";
 
-type Trees = { ok: boolean; paths: string[]; at: string };
+// The built path list (about 47 KB raw) is imported lazily so it stays out of the first-load JS of /docs/ (06-u09).
+type Trees = { ok: boolean; paths: string[]; at: string; fresh: string[] };
 let shared: Promise<Trees> | null = null;
 const trees = () =>
-  (shared ??= listTrees().then((r) => ({ ...r, at: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })));
+  (shared ??= Promise.all([listTrees(), import("../../scripts/docs-manifest.json")]).then(([r, m]) => {
+    const built = new Set<string>(m.default);
+    return { ...r, at: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), fresh: r.paths.filter((p) => !built.has(p)) };
+  }));
 const useTrees = () => {
   const [t, setT] = useState<Trees | null>(null);
   useEffect(() => { trees().then(setT); }, []);
   return t;
 };
-const builtSet = new Set<string>(built);
 
 /** Tells the reader whether the list was checked against GitHub just now. */
 export function IndexStatus() {
@@ -32,7 +34,7 @@ export function IndexStatus() {
 /** New files in one section, found live. Community policies have a friendly empty state. */
 export function LiveExtras({ section }: { section: string }) {
   const t = useTrees();
-  const fresh = (t?.paths ?? []).filter((p) => sectionOf(p) === section && !builtSet.has(p));
+  const fresh = (t?.fresh ?? []).filter((p) => sectionOf(p) === section);
   const isPolicy = section === "policy";
   if (!fresh.length) {
     return isPolicy ? <p className="muted">Community policies are being drafted. This section fills in live as they are published.</p> : null;

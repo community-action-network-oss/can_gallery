@@ -1,7 +1,7 @@
 // Web variant (D-80): a plain anchor through next/link, no react-native-web, no client JS of its own.
 // The native source in ./index.tsx stays for a future native target.
 import React from 'react';
-import NextLink from 'next/link';
+import NextLink from '../../A';
 import { tva } from '@gluestack-ui/utils/nativewind-utils';
 
 const linkStyle = tva({

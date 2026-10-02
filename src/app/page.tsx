@@ -1,5 +1,5 @@
 import { localePath } from "@/lib/paths";
-import Link from "next/link";
+import Link from "@/components/A";
 import type { CSSProperties } from "react";
 import { ButtonLink, Chip, Fictional, Planned, RepoLink } from "@/components/ui";
 import { PathRail } from "@/components/Path";

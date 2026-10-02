@@ -1,6 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { IndexStatus, LiveExtras } from "@/components/LiveExtras";
 import { PageHead } from "@/components/ui";
 import { Unfold } from "@/components/Unfold";

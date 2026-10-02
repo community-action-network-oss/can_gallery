@@ -1,6 +1,6 @@
 import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/A";
 import { DocRef, PageHead, Planned, Section } from "@/components/ui";
 import { Unfold } from "@/components/Unfold";
 import oq from "@/content/open-questions.json";
