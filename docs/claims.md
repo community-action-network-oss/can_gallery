@@ -99,3 +99,16 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-091 | principles | The AI executes rules the community wrote and never makes policy. | docs/adr/0008-ai-executed-community-policy.md | supported |
 | C-092 | principles | People make and answer for every decision. | docs/adr/0008-ai-executed-community-policy.md | removed |
 | C-093 | how-it-works | People always have the last word | docs/adr/0008-ai-executed-community-policy.md | removed |
+| C-094 | lawful-everywhere | Layers apply together, not first-match. | docs/design/ai/legal-stack.md | supported |
+| C-095 | lawful-everywhere | A lower layer may restrict further but never relax a higher one. | docs/design/ai/legal-stack.md | supported |
+| C-096 | lawful-everywhere | A topic forbidden by local law is not published in that place, and the refusal is logged with its legal basis. | docs/adr/0012-legal-layer-stack.md | supported |
+| C-097 | lawful-everywhere | A lawful problem whose only solution is illegal is published and marked stuck, legally blocked. | docs/adr/0012-legal-layer-stack.md | supported |
+| C-098 | lawful-everywhere | When layers disagree on how to read a rule, the decision is held with a note. | docs/open-questions/OQ-legal-layer-conflicts.md | supported |
+| C-099 | lawful-everywhere | Before a plan can go ahead, a recorded legal check is required, and if law blocks it the problem is marked stuck. | docs/spec/constitution/rules.md | supported |
+| C-100 | lawful-everywhere | The laws would be kept in the policy repository as versioned corpora, each with its official source. | docs/adr/0012-legal-layer-stack.md | supported |
+| C-101 | lawful-everywhere | Every refusal cites the layer, the article and the corpus version. | docs/design/ai/legal-stack.md | supported |
+| C-102 | lawful-everywhere | Two decision points handle this. They classify and route, and never give individual legal advice. | docs/design/ai/safety-and-privacy.md | supported |
+| C-103 | lawful-everywhere | Fiktiva City is an invented test jurisdiction, used to try the idea. | can_policy/packs/jurisdictions/fiktiva-city/sources.md | supported |
+| C-104 | lawful-everywhere | Amsterdam is the first planned jurisdiction overlay. | docs/design/ai/legal-stack.md | supported |
+| C-105 | lawful-everywhere | The legal corpus format is not built yet. | can_policy/decision-points/DP-LEGALITY/eval/README.md | supported |
+| C-106 | lawful-everywhere | No pack has been ratified. | can_policy/packs/base/pack.yaml | supported |

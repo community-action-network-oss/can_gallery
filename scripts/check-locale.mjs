@@ -13,7 +13,7 @@ for (const p of walk(join(root, "src"))) {
 }
 if (/<html[^>]*\blang=["'{]\s*["']/.test(readFileSync(join(root, "src/app/layout.tsx"), "utf8"))) errs.push("layout.tsx hard-codes lang, use htmlAttrs()");
 // every route must be in the locale-ready path map (routes exist as pages)
-const ROUTES = ["/", "/how-it-works/", "/where-you-fit/", "/contribute/", "/principles/", "/open-questions/", "/roadmap/", "/docs/", "/contribute/tasks/", "/contribute/roles/", "/how-decisions-are-made/", "/whats-new/", "/community-policy/"];
+const ROUTES = ["/", "/how-it-works/", "/where-you-fit/", "/contribute/", "/principles/", "/open-questions/", "/roadmap/", "/docs/", "/contribute/tasks/", "/contribute/roles/", "/how-decisions-are-made/", "/whats-new/", "/community-policy/", "/lawful-everywhere/"];
 for (const r of ROUTES) {
   const f = join(root, "src/app", r === "/" ? "" : r, "page.tsx");
   if (!existsSync(f)) errs.push(`route ${r} has no page.tsx`);

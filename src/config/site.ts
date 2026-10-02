@@ -32,6 +32,7 @@ export const DEEPER_NAV = [
   { href: "/open-questions/", label: "Open questions" },
   { href: "/how-decisions-are-made/", label: "How decisions are made" },
   { href: "/community-policy/", label: "Community policy" },
+  { href: "/lawful-everywhere/", label: "Lawful everywhere" },
   { href: "/whats-new/", label: "What is new" },
   { href: "/roadmap/", label: "Roadmap" },
   { href: "/principles/", label: "Principles" },
