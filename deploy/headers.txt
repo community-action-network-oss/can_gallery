@@ -1,0 +1,22 @@
+# Host-neutral response headers for every path of the gallery (06-u13).
+# One "Name: value" per line. Lines starting with # are notes. check:deploy requires every header below.
+#
+# Converting to a host format:
+#   Static site host with a headers file: put "/*" on its own line, then each header indented below it.
+#   Object storage plus CDN: add each header as a response-headers policy attached to the distribution.
+#   Reverse proxy or web server: one add_header / Header set directive per line.
+#   Repository pages host: custom headers are usually impossible. The CSP can then only be delivered as a
+#   meta tag (no frame-ancestors there), which is a reason to prefer a host that sets real headers.
+#
+# Why script-src and style-src allow 'unsafe-inline': the static export writes inline bootstrap scripts
+# whose content differs on every page, and inline style attributes. A single header cannot list per-page
+# hashes. If the host can run a build step, generate per-page sha256 hashes from out/ and replace
+# 'unsafe-inline' for scripts. Everything else stays locked to this site.
+# connect-src lists the only third-party fetches: the live document reader (D-67, D-68).
+
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://raw.githubusercontent.com https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Permissions-Policy:
+# Noindex until the founder decides (OQ-domain). Delete this line to allow search engines.
+X-Robots-Tag: noindex, nofollow
