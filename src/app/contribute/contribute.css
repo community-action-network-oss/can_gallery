@@ -3,3 +3,7 @@
 .who span { min-width: 0; }
 .builder-block { margin-block: var(--can-space-5); min-width: 0; }
 .steps h4 { margin-bottom: var(--can-space-1); }
+.pitch-group { margin-block: var(--can-space-5); min-width: 0; }
+.pitch-lead { font-weight: 600; }
+.pitch-links { display: flex; flex-wrap: wrap; gap: var(--can-space-1) var(--can-space-3); font-size: 0.9rem; min-width: 0; }
+.pitch-links a, .pitch-links code { overflow-wrap: anywhere; }

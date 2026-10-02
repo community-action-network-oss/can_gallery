@@ -5,12 +5,31 @@ import { repoUrl } from "@/config/site";
 import { Unfold } from "@/components/Unfold";
 import { Pictogram, Plate } from "@/components/Pictogram";
 import "./contribute.css";
+import { PITCH, PITCH_TWO, HARDENING_NOTE, type PitchItem, type Urgency } from "@/content/pitch";
 import { DocRef, PageHead, Fictional, Planned, RepoLink, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Contribute",
   description: "Every profession can help. Plain roles first, then the three repositories, how to start in about an hour, and how decisions and AI-assisted work are handled.",
 };
+
+const GROUPS: { urgency: Urgency; title: string }[] = [
+  { urgency: "most-urgent-now", title: "Most urgent today" },
+  { urgency: "needed-now", title: "Needed now to write the rules" },
+  { urgency: "welcome", title: "Also welcome" },
+];
+
+function PitchLinks({ links }: { links: PitchItem["links"] }) {
+  return (
+    <span className="pitch-links">
+      {links.map((l) => l.kind === "role"
+        ? <Link key={l.kind + l.id} href={localePath(`/contribute/roles/${l.id}/`)}>Role page: {l.id.replace("-", " and ")}</Link>
+        : l.kind === "oq"
+        ? <Link key={l.kind + l.id} href={localePath(`/open-questions/#${l.id}`)}>Open question {l.id.replace("OQ-", "")}</Link>
+        : <code key={l.kind + l.id}>Plan unit {l.id}</code>)}
+    </span>
+  );
+}
 
 export default function Page() {
   return (
@@ -21,6 +40,23 @@ export default function Page() {
       />
 
       <Section id="every-profession" title="Every profession can help" wide>
+        <p className="prose pitch-lead">{PITCH_TWO}</p>
+        {GROUPS.map((g) => (
+          <div key={g.urgency} className="pitch-group" id={g.urgency}>
+            <h3>{g.title}</h3>
+            {g.urgency === "most-urgent-now" && <p className="prose small">{HARDENING_NOTE}</p>}
+            <ul className="rows">
+              {PITCH.filter((p) => p.urgency === g.urgency).map((p) => (
+                <li key={p.profession}>
+                  <strong>{p.profession}</strong>
+                  <span className="d">{p.ask} {p.why}</span>
+                  <PitchLinks links={p.links} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <p className="prose">Each task is sized at about an hour. <Link href={localePath("/contribute/tasks/")}>See the one hour tasks</Link>, or read all <Link href={localePath("/contribute/roles/")}>role pages</Link>. Contributing earns thanks, never authority or pay, and nothing here is running yet. <Planned /></p>
         <p className="prose">The first job is building the platform honestly. Work is cut into small, owned units so you can contribute in about an hour, with or without a paid AI tool. Pick the role closest to what you know and start with one small piece.</p>
         <Plate
           title="Who can help first"

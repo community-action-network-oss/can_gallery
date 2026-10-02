@@ -5,6 +5,7 @@ import { ButtonLink, Chip, Fictional, Planned, RepoLink } from "@/components/ui"
 import { PathRail } from "@/components/Path";
 import { Pictogram, Plate, type PictogramName, type Ink } from "@/components/Pictogram";
 import { Unfold } from "@/components/Unfold";
+import { PITCH_TWO } from "@/content/pitch";
 import oq from "@/content/open-questions.json";
 
 const TEASER = ["OQ-hosting-region", "OQ-decision-method", "OQ-launch-jurisdiction-language"];
@@ -227,10 +228,10 @@ export default function Home() {
         </div>
               </Unfold>
               <Unfold id="contribute" summary="One hour. One problem. One step.">
+        <p className="prose">{PITCH_TWO}</p>
         <p className="prose">
           You will not fix a public problem in an hour, and we do not claim
           you can. You can move one responsible step forward and stop there.
-          Right now the problem to move is building CAN itself.
         </p>
         <ul className="rows">
           <li>Review one open question and add evidence or options.</li>
