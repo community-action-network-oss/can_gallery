@@ -30,6 +30,7 @@ export const MAIN_NAV = [
 export const DEEPER_NAV = [
   { href: "/docs/", label: "Read everything" },
   { href: "/open-questions/", label: "Open questions" },
+  { href: "/how-decisions-are-made/", label: "How decisions are made" },
   { href: "/roadmap/", label: "Roadmap" },
   { href: "/principles/", label: "Principles" },
 ] as const;

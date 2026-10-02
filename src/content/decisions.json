@@ -1,0 +1,387 @@
+{
+  "source": "DECISIONS.md",
+  "adrIndex": "docs/adr/README.md",
+  "total": 80,
+  "excluded": [
+    "D-21",
+    "D-24",
+    "D-25",
+    "D-26",
+    "D-27",
+    "D-28",
+    "D-29",
+    "D-30",
+    "D-31",
+    "D-32",
+    "D-33",
+    "D-34",
+    "D-35",
+    "D-36",
+    "D-37",
+    "D-38",
+    "D-39",
+    "D-40",
+    "D-41",
+    "D-42",
+    "D-43",
+    "D-44",
+    "D-45",
+    "D-46",
+    "D-62",
+    "D-63",
+    "D-64",
+    "D-69",
+    "D-71",
+    "D-74",
+    "D-75",
+    "D-77",
+    "D-78"
+  ],
+  "decisions": [
+    {
+      "id": "D-1",
+      "headline": "The superproject has three submodules: can_server (NestJS), can_app (Expo), can_promo_site (Next.js)",
+      "adr": []
+    },
+    {
+      "id": "D-2",
+      "headline": "Submodule URLs are relative (../can_server.git) and point at local bare repos created next to the superproject",
+      "adr": []
+    },
+    {
+      "id": "D-3",
+      "headline": "can_server owns the API contract: it generates openapi/openapi.json from code, and can_app builds its typed client from that file. There is no shared-packages repo",
+      "adr": []
+    },
+    {
+      "id": "D-4",
+      "headline": "Postgres 16 runs via docker compose (host port 5433), with Drizzle 0.45.x as the ORM",
+      "adr": []
+    },
+    {
+      "id": "D-5",
+      "headline": "Package manager is npm. engines.node is >=24. There is no .nvmrc",
+      "adr": []
+    },
+    {
+      "id": "D-6",
+      "headline": "NestJS 12 framework defaults: ESM, Vitest and oxlint, not the Jest + ESLint setup the brief assumed",
+      "adr": []
+    },
+    {
+      "id": "D-7",
+      "headline": "can_app runs on Expo SDK 57 with gluestack v5 on UniWind. If Expo web breaks, it falls back to civic wrappers over React Native core",
+      "adr": []
+    },
+    {
+      "id": "D-8",
+      "headline": "Verification happens on Expo web only. Native builds only have to bundle",
+      "adr": []
+    },
+    {
+      "id": "D-9",
+      "headline": "can_promo_site is a Next 16 static export with plain CSS, system fonts, no forms, no analytics, and no third-party fetches",
+      "adr": []
+    },
+    {
+      "id": "D-10",
+      "headline": "The promo site targets developers first. The hero goes frustration → promise → a call to action to the repo and its open questions",
+      "adr": []
+    },
+    {
+      "id": "D-11",
+      "headline": "The spec is split into docs/spec/* files of 25KB or less. The constitution goes into docs/spec/constitution/. build_spec.md is removed after the split; it stays in git history",
+      "adr": []
+    },
+    {
+      "id": "D-12",
+      "headline": "Slice 1 scope",
+      "adr": []
+    },
+    {
+      "id": "D-13",
+      "headline": "Slice 1 has no live AI. It runs deterministic checks plus human review. The AI gateway exists behind a flag that is off",
+      "adr": []
+    },
+    {
+      "id": "D-14",
+      "headline": "Sign-in is a 6-digit email code. In development, mail goes to Mailpit. Email addresses are encrypted at rest and never shown. Handles are generated, and web uses an httpOnly cookie",
+      "adr": []
+    },
+    {
+      "id": "D-15",
+      "headline": "Lifecycle changes",
+      "adr": []
+    },
+    {
+      "id": "D-16",
+      "headline": "The initiator acts as provisional steward, and a moderator confirms publish, solved, closed and redirected. An interim-moderator clause makes these decisions audited, labelled interim, and re-reviewed once panels exist",
+      "adr": []
+    },
+    {
+      "id": "D-17",
+      "headline": "Every moderation decision must carry rule_ids, a field or span reference, a revision hint, and appealable_until",
+      "adr": []
+    },
+    {
+      "id": "D-18",
+      "headline": "Rejected or withdrawn drafts are hard-deleted after 30 days. A salted fingerprint is kept for 90 days to catch reposts",
+      "adr": []
+    },
+    {
+      "id": "D-19",
+      "headline": "Constitution",
+      "adr": []
+    },
+    {
+      "id": "D-20",
+      "headline": "\"Hall of fame\" is renamed \"Resolution records\", and \"case\" becomes \"problem\" throughout",
+      "adr": []
+    },
+    {
+      "id": "D-22",
+      "headline": "Decentralization in slice 1 is limited to UUIDv7 IDs, origin_node_id, protocol_version, and append-only events with a nullable prev_hash. Signing, export and AT Protocol are deferred to the D-track",
+      "adr": []
+    },
+    {
+      "id": "D-23",
+      "headline": "Open questions are treated as community work and tracked in docs/open-questions/, one file per question with its current default",
+      "adr": []
+    },
+    {
+      "id": "D-47",
+      "headline": "Renamed can_promo_site to can_gallery",
+      "adr": []
+    },
+    {
+      "id": "D-48",
+      "headline": "Hosted on GitHub (public) under community-action-network-oss",
+      "adr": []
+    },
+    {
+      "id": "D-49",
+      "headline": "License: MIT for all four repos (code and docs)",
+      "adr": []
+    },
+    {
+      "id": "D-50",
+      "headline": "Design system: gluestack-ui for all surfaces (can_app and can_gallery)",
+      "adr": [
+        "0007"
+      ]
+    },
+    {
+      "id": "D-51",
+      "headline": "Core model: community-legislated, AI-executed moderation (founder)",
+      "adr": [
+        "0006"
+      ]
+    },
+    {
+      "id": "D-52",
+      "headline": "Policy lives in a new 5th repo, can_policy (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-53",
+      "headline": "Slice 1 builds the full AI pipeline (founder), but this wave changes plans and design only",
+      "adr": []
+    },
+    {
+      "id": "D-54",
+      "headline": "The repo is the single source of truth for CAN's design (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-55",
+      "headline": "The slice-1 proof is an AI persona simulation (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-56",
+      "headline": "Seed problems use the four real framings, with synthetic evidence (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-57",
+      "headline": "Hosting stays undecided, but every service must be portable (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-58",
+      "headline": "All content is structured (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-59",
+      "headline": "Retroactive re-resolution (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-60",
+      "headline": "The gallery asks everyone to contribute (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-61",
+      "headline": "Every moderation run applies a legal layer stack (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-65",
+      "headline": "OpenRouter is the model provider, free and cheap models first, chosen by eval (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-66",
+      "headline": "The gallery renders CAN's documents publicly (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-67",
+      "headline": "Gallery documents are fetched live in the browser (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-68",
+      "headline": "The gallery never shows a stale copy of a document (founder). Amends D-67",
+      "adr": []
+    },
+    {
+      "id": "D-70",
+      "headline": "Visitors' IPs reaching GitHub is an accepted platform dependency, not a goal (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-72",
+      "headline": "Lifecycle redesign: preparation, volunteer review, AI publication, then a per-problem stage plan (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-73",
+      "headline": "Each contribution is labelled impacted or guest, using a private location attestation (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-76",
+      "headline": "Archive and reuse is CAN's second main goal (founder)",
+      "adr": []
+    },
+    {
+      "id": "D-79",
+      "headline": "News watch: CAN problems follow the news, with Mera News as the first news pipeline partner behind a port (founder)",
+      "adr": [
+        "0014"
+      ]
+    },
+    {
+      "id": "D-80",
+      "headline": "CAN for everyone: a gallery anyone can read, gradual unfolding, and the private capability profile (founder)",
+      "adr": []
+    }
+  ],
+  "adrs": [
+    {
+      "n": "0001",
+      "title": "Superproject with three submodules and bare sibling remotes",
+      "status": "Accepted",
+      "path": "docs/adr/0001-submodule-layout.md"
+    },
+    {
+      "n": "0002",
+      "title": "The server owns the OpenAPI contract",
+      "status": "Accepted",
+      "path": "docs/adr/0002-server-owned-openapi.md"
+    },
+    {
+      "n": "0003",
+      "title": "Next.js static export for the gallery",
+      "status": "Accepted",
+      "path": "docs/adr/0003-nextjs-static-gallery-site.md"
+    },
+    {
+      "n": "0004",
+      "title": "Email 6-digit code sign-in",
+      "status": "Accepted",
+      "path": "docs/adr/0004-email-code-auth.md"
+    },
+    {
+      "n": "0005",
+      "title": "Verify on web first; native only has to bundle",
+      "status": "Accepted",
+      "path": "docs/adr/0005-web-first-verification.md"
+    },
+    {
+      "n": "0006",
+      "title": "No live AI in slice 1",
+      "status": "Superseded by 0008 (2026-10-01)",
+      "path": "docs/adr/0006-no-live-ai-in-slice-1.md"
+    },
+    {
+      "n": "0007",
+      "title": "gluestack-ui is the design system for all surfaces",
+      "status": "Accepted",
+      "path": "docs/adr/0007-gluestack-design-system.md"
+    },
+    {
+      "n": "0008",
+      "title": "AI-executed, community-legislated policy",
+      "status": "Accepted",
+      "path": "docs/adr/0008-ai-executed-community-policy.md"
+    },
+    {
+      "n": "0009",
+      "title": "can_policy is the fifth repository",
+      "status": "Accepted",
+      "path": "docs/adr/0009-can-policy-repo.md"
+    },
+    {
+      "n": "0010",
+      "title": "Structured content everywhere, no free-form posting",
+      "status": "Accepted",
+      "path": "docs/adr/0010-structured-content-everywhere.md"
+    },
+    {
+      "n": "0011",
+      "title": "Persona simulation is the slice-1 proof",
+      "status": "Accepted",
+      "path": "docs/adr/0011-persona-simulation-proof.md"
+    },
+    {
+      "n": "0012",
+      "title": "Cumulative legal layer stack",
+      "status": "Accepted",
+      "path": "docs/adr/0012-legal-layer-stack.md"
+    },
+    {
+      "n": "0013",
+      "title": "Retroactive re-resolution of past resolutions",
+      "status": "Accepted",
+      "path": "docs/adr/0013-retroactive-re-resolution.md"
+    },
+    {
+      "n": "0014",
+      "title": "OpenRouter with free-first, eval-chosen models",
+      "status": "Accepted (supersedes the Anthropic-first part of 0008)",
+      "path": "docs/adr/0014-openrouter-free-first-models.md"
+    },
+    {
+      "n": "0015",
+      "title": "Stage plans and volunteer review",
+      "status": "Accepted (supersedes the fixed-sequence parts of the lifecycle)",
+      "path": "docs/adr/0015-stage-plans-and-volunteer-review.md"
+    },
+    {
+      "n": "0016",
+      "title": "Private location attestation for impacted versus guest",
+      "status": "Accepted",
+      "path": "docs/adr/0016-private-location-attestation.md"
+    },
+    {
+      "n": "0017",
+      "title": "Archive and path reuse",
+      "status": "Accepted",
+      "path": "docs/adr/0017-archive-and-path-reuse.md"
+    }
+  ]
+}
