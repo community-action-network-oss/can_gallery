@@ -1,7 +1,7 @@
 {
   "source": "DECISIONS.md",
   "adrIndex": "docs/adr/README.md",
-  "total": 81,
+  "total": 82,
   "excluded": [
     "D-21",
     "D-24",
@@ -285,6 +285,11 @@
       "adr": [
         "0007"
       ]
+    },
+    {
+      "id": "D-82",
+      "headline": "Two cross-repo contracts settled before the 2026-10-03 night run (orchestrator default, for founder review)",
+      "adr": []
     }
   ],
   "adrs": [
