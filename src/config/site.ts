@@ -34,6 +34,7 @@ export const DEEPER_NAV = [
   { href: "/community-policy/", label: "Community policy" },
   { href: "/lawful-everywhere/", label: "Lawful everywhere" },
   { href: "/archive-and-reuse/", label: "The Archive and reuse" },
+  { href: "/private-location/", label: "The private location check" },
   { href: "/re-resolution/", label: "When rules improve" },
   { href: "/proof/", label: "How CAN proves its rules" },
   { href: "/whats-new/", label: "What is new" },

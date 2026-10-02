@@ -1,0 +1,5 @@
+.pl-diagram { display: block; width: 100%; max-width: 28rem; height: auto; }
+.pl-diagram rect { fill: var(--can-color-surface, transparent); stroke: var(--can-color-text); stroke-width: 2; }
+.pl-diagram text { fill: var(--can-color-text); font: 15px system-ui, sans-serif; }
+.pl-diagram path { stroke: var(--can-color-text); stroke-width: 2; fill: none; }
+.pl-diagram .head { fill: var(--can-color-text); stroke: none; }

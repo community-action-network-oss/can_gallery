@@ -13,11 +13,11 @@ for (const p of walk(join(root, "src"))) {
 }
 if (/<html[^>]*\blang=["'{]\s*["']/.test(readFileSync(join(root, "src/app/layout.tsx"), "utf8"))) errs.push("layout.tsx hard-codes lang, use htmlAttrs()");
 // every route must be in the locale-ready path map (routes exist as pages)
-const ROUTES = ["/", "/how-it-works/", "/where-you-fit/", "/contribute/", "/principles/", "/open-questions/", "/roadmap/", "/docs/", "/contribute/tasks/", "/contribute/roles/", "/how-decisions-are-made/", "/whats-new/", "/community-policy/", "/lawful-everywhere/", "/re-resolution/", "/proof/", "/archive-and-reuse/"];
+const ROUTES = ["/", "/how-it-works/", "/where-you-fit/", "/contribute/", "/principles/", "/open-questions/", "/roadmap/", "/docs/", "/contribute/tasks/", "/contribute/roles/", "/how-decisions-are-made/", "/whats-new/", "/community-policy/", "/lawful-everywhere/", "/re-resolution/", "/proof/", "/archive-and-reuse/", "/private-location/"];
 for (const r of ROUTES) {
   const f = join(root, "src/app", r === "/" ? "" : r, "page.tsx");
   if (!existsSync(f)) errs.push(`route ${r} has no page.tsx`);
 }
-// ponytail: planned routes (06-u24..u25: /private-location, /archive) are not listed until those pages exist.
+// ponytail: planned routes (06-u25: /archive) are not listed until those pages exist.
 if (errs.length) { console.error(errs.join("\n")); process.exit(1); }
 console.log("check:locale ok.");

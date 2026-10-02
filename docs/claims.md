@@ -137,3 +137,15 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-129 | archive-and-reuse | The default license is CC BY 4.0, and that is an open question you are invited to help answer | docs/open-questions/OQ-contribution-license.md | supported |
 | C-130 | archive-and-reuse | The Archive starts empty. | docs/spec/24-archive-reuse.md | supported |
 | C-131 | archive-and-reuse | High-stakes areas such as medicine, law and engineering need expert review. | docs/spec/24-archive-reuse.md | supported |
+| C-132 | private-location | Guest content is always labelled and is never hidden unless a reader chooses Impacted only. | docs/spec/constitution/rules-legal-sim.md | supported |
+| C-133 | private-location | The label belongs to one message, not to a person. | docs/spec/constitution/rules-legal-sim.md | supported |
+| C-134 | private-location | Your exact location is never sent or saved. | docs/design/location/attestation.md | supported |
+| C-135 | private-location | Only the result, the area version and the kind of check are stored. | docs/design/location/attestation.md | supported |
+| C-136 | private-location | On the web the check is self-asserted, so the label reads Reported impacted. | docs/open-questions/OQ-impacted-label-web.md | supported |
+| C-137 | private-location | A determined person can fake a location. | docs/design/location/attestation.md | supported |
+| C-138 | private-location | The label has no effect on whether a message is accepted or how it is judged. | docs/design/location/attestation.md | supported |
+| C-139 | private-location | Your message still goes through, labelled guest, with a neutral reason. | docs/spec/constitution/rules-legal-sim.md | supported |
+| C-140 | private-location | Nothing is held against your account. | docs/spec/constitution/rules-legal-sim.md | supported |
+| C-141 | private-location | A zero-knowledge proof would let the server learn even less. | docs/adr/0016-private-location-attestation.md | supported |
+| C-142 | private-location | It would be adopted only if it passes measured limits: about 3 seconds on a mid-range phone, a small proof and a clean external privacy review. | docs/design/location/attestation.md | supported |
+| C-143 | private-location | Coordinates. | docs/design/location/attestation.md | supported |
