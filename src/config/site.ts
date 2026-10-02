@@ -20,11 +20,10 @@ export const docUrl = (path: string): string => {
 export const SITE_NAME = "Community Action Network";
 export const SITE_SHORT = "CAN";
 
-// Where you fit points at the home anchor until the /where-you-fit/ route lands (16-u12).
 export const MAIN_NAV = [
   { href: "/", label: "What is CAN" },
   { href: "/how-it-works/", label: "How it works" },
-  { href: "/#where-you-fit", label: "Where you fit" },
+  { href: "/where-you-fit/", label: "Where you fit" },
   { href: "/contribute/", label: "Help build it" },
 ] as const;
 
