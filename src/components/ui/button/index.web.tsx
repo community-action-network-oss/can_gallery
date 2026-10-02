@@ -9,7 +9,7 @@ const buttonStyle = tva({
   variants: {
     variant: {
       solid: 'bg-primary-500 border-primary-500 text-typography-0 hover:bg-typography-950 hover:border-typography-950 hover:text-background-0',
-      quiet: 'bg-transparent border-primary-500 text-primary-600 hover:bg-background-50',
+      quiet: 'bg-transparent border-primary-500 text-primary-600 dark:text-primary-500 hover:bg-background-50',
     },
   },
   defaultVariants: { variant: 'solid' },

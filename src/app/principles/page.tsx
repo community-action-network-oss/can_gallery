@@ -62,7 +62,7 @@ export default function Page() {
         <ul className="rows">
           <li><strong>Treat an individual as a case.</strong> <span className="d">No personal advice, therapy, legal service or case management.</span></li>
           <li><strong>Publish a personal crisis as a public problem.</strong> <span className="d">If someone may be in danger, the platform stops and shows safety routes instead.</span></li>
-          <li><strong>Let AI decide alone.</strong> <span className="d">The AI executes rules the community wrote and never makes policy. Every decision is explained, appeals are independent, and people handle only emergencies and legal process. <Link href={localePath("/community-policy/")}>How it works</Link></span></li>
+          <li><strong>Let AI decide alone.</strong> <span className="d">The AI executes rules the community wrote and never makes policy. Every decision is explained, appeals are independent, and people handle only emergencies and legal process. <Link href={localePath("/community-policy/")} aria-label="How it works, community policy">How it works</Link></span></li>
           <li><strong>Sell influence.</strong> <span className="d">Money buys no ranking, recommendation, moderation authority or governance weight. The platform is never a lead-generation marketplace.</span></li>
           <li><strong>Name or pursue private individuals.</strong> <span className="d">The work is about shared conditions, not about people.</span></li>
           <li><strong>Handle money.</strong> <span className="d">CAN is non-monetary by design.</span></li>

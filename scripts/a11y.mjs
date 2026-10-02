@@ -81,22 +81,24 @@ try {
           return { ok: a?.tagName === 'A' && id?.startsWith('#') && !!document.querySelector(id), href: id };
         });
         if (!skip.ok) fail(route, scheme, `first Tab is not a working skip link (${skip.href})`);
-        // visible focus on every tabbable element (capped)
-        const bare = await page.evaluate(async () => {
-          const out = [];
-          const els = [...document.querySelectorAll('a[href],button,summary,input,select,textarea,[tabindex]:not([tabindex="-1"])')].slice(0, 80);
-          for (const el of els) {
-            if (!el.offsetParent && getComputedStyle(el).position !== 'fixed') continue;
-            const before = getComputedStyle(el);
-            const b = [before.outlineStyle, before.outlineWidth, before.boxShadow].join('|');
-            el.focus({ focusVisible: true });
+        // visible focus: walk the real Tab order (capped) so :focus-visible matches as for a keyboard user
+        const noTr = await page.addStyleTag({ content: '*,*::before,*::after{transition:none!important}' });
+        const bare = await page.evaluate(() => { document.activeElement?.blur?.(); return []; });
+        const seen = new Set();
+        for (let i = 0; i < 150; i++) {
+          await page.keyboard.press('Tab');
+          const r = await page.evaluate(() => {
+            const el = document.activeElement;
+            if (!el || el === document.body) return { end: true };
             const cs = getComputedStyle(el);
-            const hasRing = (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) || cs.boxShadow !== 'none';
-            if (!hasRing || [cs.outlineStyle, cs.outlineWidth, cs.boxShadow].join('|') === b && cs.outlineStyle === 'none') out.push(el.outerHTML.slice(0, 80));
-            el.blur();
-          }
-          return out;
-        });
+            const ring = (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) || cs.boxShadow !== 'none';
+            return { key: el.outerHTML.slice(0, 80), ring, fv: el.matches(':focus-visible') };
+          });
+          if (r.end || seen.has(r.key)) break;
+          seen.add(r.key);
+          if (!r.ring || !r.fv) bare.push(r.key);
+        }
+        await noTr.evaluate((n) => n.remove());
         for (const b of bare) fail(route, scheme, `no visible focus style: ${b}`);
         // reduced motion
         await page.emulateMedia({ reducedMotion: 'reduce' });

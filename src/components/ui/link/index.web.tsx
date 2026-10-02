@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { tva } from '@gluestack-ui/utils/nativewind-utils';
 
 const linkStyle = tva({
-  base: 'underline underline-offset-4 decoration-1 text-primary-600 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
+  base: 'underline underline-offset-4 decoration-1 text-primary-600 dark:text-primary-500 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500',
   variants: {
     // quiet: navigation links, underline only on hover
     quiet: { true: 'inline-flex items-center min-h-11 px-2 text-typography-950 decoration-transparent hover:decoration-current hover:text-primary-600' },

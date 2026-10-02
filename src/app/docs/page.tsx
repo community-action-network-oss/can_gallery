@@ -20,7 +20,7 @@ function List({ items }: { items: DocEntry[] }) {
   return (
     <ul className="doc-list">
       {items.map((e) => (
-        <li key={e.slug}><Link href={localePath(`/docs/${e.slug}/`)}>{e.title}</Link></li>
+        <li key={e.slug}><Link href={localePath(`/docs/${e.slug}/`)} aria-label={`${e.title} (${e.path})`}>{e.title}</Link></li>
       ))}
     </ul>
   );
@@ -53,7 +53,7 @@ export default function Page() {
         <IndexStatus />
         <nav aria-label="Sections" className="doc-jump">
           <ul>
-            {SECTIONS.map((s) => (<li key={s.id}><a href={`#${s.id}-list`}>{s.title}</a></li>))}
+            {SECTIONS.map((s) => (<li key={s.id}><a href={`#${s.id}-list`} aria-label={`${s.title}, jump to this section`}>{s.title}</a></li>))}
           </ul>
         </nav>
       </div>

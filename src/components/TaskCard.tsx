@@ -25,7 +25,7 @@ export function TaskCard({ t }: { t: Task }) {
           <ul>{t.acceptance.map((a) => <li key={a}>{a}</li>)}</ul>
           <h4>Context to read first</h4>
           <ul>
-            <li><a href={docUrl(t.path)}>The unit file</a></li>
+            <li><a href={docUrl(t.path)} aria-label={`The unit file for ${t.id}`}>The unit file</a></li>
             {t.spec.map((s) => <li key={s}><a href={docUrl(s)}>{s}</a></li>)}
           </ul>
           {t.needs.length > 0 && <p>Needs: {t.needs.join(", ")}.</p>}
