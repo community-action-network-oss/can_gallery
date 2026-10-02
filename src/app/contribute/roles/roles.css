@@ -1,0 +1,11 @@
+.legend { margin: 0; padding: 0; border-top: 2px solid var(--can-color-text); }
+.legend > div { display: grid; gap: var(--can-space-1); padding-block: var(--can-space-3); border-bottom: 1px solid var(--can-color-border); min-width: 0; }
+.legend dt { font-weight: 800; }
+.legend dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.legend dd ul { margin: 0; padding-inline-start: 1.1rem; }
+.legend dd p { margin: 0; }
+.role-fixed { border-inline-start: 2px solid var(--can-color-text); padding-inline-start: var(--can-space-3); }
+@media (min-width: 48rem) {
+  .legend > div { grid-template-columns: 16rem 1fr; gap: var(--can-space-4); }
+}
+.role-row { display: grid; grid-template-columns: 2.75rem 1fr; gap: var(--can-space-3); align-items: center; }

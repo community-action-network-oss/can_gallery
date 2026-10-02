@@ -1,0 +1,146 @@
+import type { Role } from "./types";
+
+const COMMON_REVIEW = "Every change is reviewed by a person before it merges. Nothing merges itself.";
+const COMMON_DECISIONS = "Contribution earns factual thanks. It never earns governance weight, ranking influence or data access.";
+
+export const ROLES: Role[] = [
+  {
+    slug: "engineers",
+    name: "Engineers and maintainers",
+    summary: "Build and review one small, owned piece of the server, the app or this site.",
+    stage: "founding",
+    urgency: "most-urgent-now",
+    pictogram: "electrician",
+    doNow: [
+      "Make the code that already exists safer and sturdier first: tests, edge cases, clearer errors, smaller functions. This comes before new features.",
+      "Take one plan unit sized for about an hour: one endpoint, one screen, one test or one check.",
+      "Review a pull request in an area you know well.",
+      "Improve setup: shorter steps, fewer surprises, clearer errors.",
+    ],
+    prerequisites: [
+      "Node 24 or newer, Docker and Python 3 for the full setup. The site alone needs only Node.",
+      "No special tools, and the skills folders under .claude are not required.",
+      "You can work by hand or with an assistant of your choice.",
+    ],
+    time: ["About one hour for one unit.", "A few hours across a week for a larger piece.", "A single review, whenever you have time."],
+    privacyAndConflict: [
+      "Use made up data only. Never paste real emails, names or evidence into code, tests or fixtures.",
+      "Say so in the pull request if you work for a company that could gain from a choice you touch.",
+    ],
+    prohibited: [
+      "Changing the status of a plan unit yourself. Maintainers confirm status.",
+      "Reopening a settled decision in a pull request. Use an open question instead.",
+      "Merging your own change, or sending bulk or unsolicited automated pull requests.",
+    ],
+    tasks: { areas: ["can-server", "can-app", "can-gallery", "can-root"] },
+    review: [COMMON_REVIEW, "A maintainer owns each area and confirms status. High risk areas such as sign in, privacy and moderation need designated reviewers.", "If something looks unsafe, stop and use the private route in SECURITY.md."],
+    decisions: [COMMON_DECISIONS, "Settled choices are in the decisions log. To challenge one, add evidence to the matching open question."],
+    links: [
+      { label: "How to contribute", doc: "CONTRIBUTING.md" },
+      { label: "The contribution ladder", doc: "docs/spec/21-open-source-governance.md" },
+      { label: "AI contribution policy", doc: "docs/spec/22-ai-contribution-policy.md" },
+      { label: "Good first units", doc: "docs/contributing/good-first-units.md" },
+      { label: "All one hour tasks", internal: "/contribute/tasks/" },
+    ],
+  },
+  {
+    slug: "designers",
+    name: "Designers",
+    summary: "Improve one flow, one screen or one set of design tokens, and say why in plain words.",
+    stage: "founding",
+    urgency: "most-urgent-now",
+    pictogram: "clerk",
+    doNow: [
+      "Review one wireframe or flow against the written design and say where a person could get lost.",
+      "Improve wording in the copy deck so it is shorter and kinder.",
+      "Propose a change to the design tokens, with the contrast numbers.",
+      "Check a screen at small sizes and with large text.",
+    ],
+    prerequisites: ["A browser and a text editor are enough. A design tool is welcome but not required.", "Read the design folder first. It holds the flows, components and tokens."],
+    time: ["About one hour for one flow review.", "A few hours for a small set of screens."],
+    privacyAndConflict: [
+      "Draw with fictional people and places only, and label them as fictional examples.",
+      "Do not use screenshots of real services that show real people's details.",
+    ],
+    prohibited: [
+      "Work that copies another product's brand, or uses a real organisation's name or look.",
+      "Dark patterns: countdowns, guilt, or anything that pushes people to post more.",
+      "Any design that ranks people or problems by popularity.",
+    ],
+    tasks: { note: "No bounded design task is open in the task list right now." },
+    review: [COMMON_REVIEW, "A maintainer for the app or this site checks the change against the design documents and the accessibility baseline."],
+    decisions: [COMMON_DECISIONS, "Design choices that need a decision become an open question. Your evidence goes there."],
+    links: [
+      { label: "Design documents", doc: "docs/design/README.md" },
+      { label: "User experience specification", doc: "docs/spec/17-ux.md" },
+      { label: "Open questions", internal: "/open-questions/" },
+      { label: "All one hour tasks", internal: "/contribute/tasks/" },
+    ],
+  },
+  {
+    slug: "accessibility",
+    name: "Accessibility reviewers",
+    summary: "Try one flow with a keyboard, a screen reader or large text, and write down what gets in the way.",
+    stage: "founding",
+    urgency: "most-urgent-now",
+    pictogram: "nurse",
+    doNow: [
+      "Walk one page of this site with only a keyboard and report where focus is lost.",
+      "Test a page with a screen reader on fictional screens and describe what was announced.",
+      "Check text size, contrast and reduced motion against the written baseline.",
+      "Review a plain language explanation for a reader who is new to the idea.",
+    ],
+    prerequisites: ["Any browser. A screen reader you already use is the most useful tool.", "Lived experience of using assistive technology is valued, and is not required."],
+    time: ["About one hour for one page or flow.", "An afternoon for a full pass with a written report."],
+    privacyAndConflict: [
+      "Test fictional or public screens only. Never record or share your own personal details.",
+      "You choose how much of your own situation to share. Nobody asks for a health or disability disclosure.",
+    ],
+    prohibited: [
+      "Testing against real services or real people's accounts.",
+      "Posting screenshots that show anyone's personal information.",
+    ],
+    tasks: { ids: ["07-u09", "06-u08", "12-u05"] },
+    review: [COMMON_REVIEW, "A maintainer checks each finding and links the fix to the baseline.", "A barrier that blocks a core step is raised as a bug and fixed before new features."],
+    decisions: [COMMON_DECISIONS, "The accessibility baseline is part of the specification. Changing it goes through an open question."],
+    links: [
+      { label: "Security, accessibility and testing baseline", doc: "docs/spec/16-security-a11y-ops-testing.md" },
+      { label: "User experience specification", doc: "docs/spec/17-ux.md" },
+      { label: "All one hour tasks", internal: "/contribute/tasks/" },
+    ],
+  },
+  {
+    slug: "security-privacy",
+    name: "Security and privacy specialists",
+    summary: "Look for the ways a boundary could leak or be abused, using made up data only.",
+    stage: "founding",
+    urgency: "most-urgent-now",
+    pictogram: "manager",
+    doNow: [
+      "Threat-model one boundary: sign in, drafts, email handling or moderation notes.",
+      "Write adversarial test cases that try to smuggle in a name, an address or a prompt injection.",
+      "Review how a unit handles secrets, logs and error messages.",
+      "Report a weakness privately through the route in SECURITY.md.",
+    ],
+    prerequisites: ["Familiarity with your own field is enough to start.", "Read SECURITY.md before you test anything."],
+    time: ["About one hour for one adversarial fixture set.", "A few hours for one boundary review."],
+    privacyAndConflict: [
+      "Use fictional or synthetic data only. Never real personal data, credentials or someone else's evidence.",
+      "Declare any employer or client interest in a tool, vendor or approach you recommend.",
+    ],
+    prohibited: [
+      "Testing any system you do not own or have permission to test.",
+      "Publishing a vulnerability before the maintainers have had a chance to respond.",
+      "Sending private material to a hosted service that has not been approved.",
+    ],
+    tasks: { ids: ["07-u01", "07-u04", "11-u04", "11-u05", "11-u06", "14-u12"] },
+    review: [COMMON_REVIEW, "Security sensitive changes need a designated reviewer and extra evidence.", "Private reports are acknowledged by a maintainer and handled before any public write up."],
+    decisions: [COMMON_DECISIONS, "Your findings shape what is fixed first. They do not give you control over what ships."],
+    links: [
+      { label: "Private disclosure policy", doc: "SECURITY.md" },
+      { label: "Security, accessibility and testing baseline", doc: "docs/spec/16-security-a11y-ops-testing.md" },
+      { label: "AI contribution policy", doc: "docs/spec/22-ai-contribution-policy.md" },
+      { label: "All one hour tasks", internal: "/contribute/tasks/" },
+    ],
+  },
+];
