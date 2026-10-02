@@ -25,11 +25,12 @@
     "check:locale": "node scripts/check-locale.mjs",
     "check:catalog": "node scripts/check-catalog.mjs",
     "check:roles": "node scripts/check-roles.mjs",
+    "check:seeds": "node scripts/check-seeds.mjs",
     "check:pitch": "node scripts/check-pitch.mjs",
     "check:decisions": "node scripts/check-decisions.mjs",
     "sync:changelog": "node scripts/sync-changelog.mjs",
     "check:changelog": "node scripts/check-changelog.mjs",
-    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:pitch && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale"
+    "verify": "npm run sync:check && npm run check:catalog && npm run check:roles && npm run check:pitch && npm run check:seeds && npm run check:decisions && npm run check:changelog && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",

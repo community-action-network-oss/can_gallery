@@ -1,0 +1,6 @@
+.proof-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--can-space-2); }
+.proof-list > li { border: 2px solid var(--can-color-text); padding: var(--can-space-2) var(--can-space-3); min-width: 0; overflow-wrap: anywhere; }
+.proof-cards { display: grid; gap: var(--can-space-3); }
+.proof-card { border: 2px solid var(--can-color-text); padding: var(--can-space-3); min-width: 0; overflow-wrap: anywhere; }
+.proof-card p { margin: var(--can-space-1) 0; }
+.proof-label { font-weight: 700; }

@@ -122,3 +122,8 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-114 | re-resolution | A reopen returns the problem to active, and only the affected stages return to work. | docs/spec/01a-lifecycle.md | supported |
 | C-115 | re-resolution | A new Archive record is added when the problem ends again. | docs/design/flows/re-resolution.md | supported |
 | C-116 | re-resolution | The working default has four checks. They are an open question, and you are invited to help answer it. | docs/open-questions/OQ-reresolution-feasibility.md | supported |
+| C-117 | proof | There are no results yet. When real runs happen, the reports will be published here. | docs/adr/0011-persona-simulation-proof.md | supported |
+| C-118 | proof | Automated checks use a fake model, so they test the machinery and never the quality of a real model. Runs with real models are approved by the founder first. | docs/design/ai/simulation.md | supported |
+| C-119 | proof | Early scaffolding exists for running these simulations, but it refuses to run until the server has a simulation mode, and that is not built. | docs/design/ai/simulation.md | supported |
+| C-120 | proof | These are defaults to be ratified by the community, not settled rules. | docs/design/ai/simulation.md | supported |
+| C-121 | proof | Every finished seed run would leave a labelled simulation record in the Archive that new problems can learn from. | docs/design/ai/simulation.md | supported |
