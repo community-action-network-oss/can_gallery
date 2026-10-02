@@ -1,4 +1,5 @@
 "use client";
+import { localePath } from "@/lib/paths";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { docUrl } from "@/config/site";
@@ -49,9 +50,9 @@ export function LiveDoc({ path, fallbackTitle, section }: { path: string; fallba
   return (
     <article className="wrap doc">
       <nav aria-label="Breadcrumb" className="crumbs">
-        <Link href="/docs/">Read everything</Link>
+        <Link href={localePath("/docs/")}>Read everything</Link>
         <span aria-hidden="true"> / </span>
-        <Link href={`/docs/#${section}`}>{sectionTitle(section)}</Link>
+        <Link href={localePath(`/docs/#${section}`)}>{sectionTitle(section)}</Link>
       </nav>
       <h1 className="doc-title">{title}</h1>
       <p className="doc-meta">

@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink, Fictional, Planned, PageHead, Section } from "@/components/ui";
@@ -113,13 +114,13 @@ export default function Page() {
             <li>You can see, change, export or delete everything, any time. If you lose your phone and made no backup, the profile is gone, on purpose.</li>
             <li>Taking part in a problem is public, like any contribution. Browsing and matching are not.</li>
           </ul>
-          <p>The design is written down in <Link href="/docs/spec/26-capability-profile/">the capability profile document</Link>.</p>
+          <p>The design is written down in <Link href={localePath("/docs/spec/26-capability-profile/")}>the capability profile document</Link>.</p>
         </Unfold>
       </Section>
 
       <Section id="few" title="A few problems, done properly">
         <p><Planned /> The aim is one person and a handful of problems they can really move, not an endless list. Right now the problem to move is building CAN itself.</p>
-        <p className="cta-row"><ButtonLink href="/contribute/">Help build it</ButtonLink></p>
+        <p className="cta-row"><ButtonLink href={localePath("/contribute/")}>Help build it</ButtonLink></p>
       </Section>
     </>
   );

@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { repoUrl } from "@/config/site";
@@ -61,7 +62,7 @@ export default function Page() {
           <li><div><h4>Clone everything</h4><p>The root repository holds the specification, plans and decisions. The three code repositories are submodules.</p><pre><code>git clone --recurse-submodules https://github.com/community-action-network-oss/community_action_network_oss.git</code></pre><p className="small"><RepoLink />. The code repositories: <a href={repoUrl("can_server")}>can_server</a>, <a href={repoUrl("can_app")}>can_app</a> and <a href={repoUrl("can_gallery")}>can_gallery</a>.</p></div></li>
           <li><div><h4>Read <DocRef path="CONTRIBUTING.md" /></h4><p>Setup, commit conventions and how to pick work. You need Node 24 or newer, Docker and Python 3.</p></div></li>
           <li><div><h4>Pick a unit from <DocRef path="plans/" /></h4><p>Each unit is sized at about one hour, links to the spec it implements and names how it is checked. Open a pull request that references the unit id.</p></div></li>
-          <li><div><h4>Or answer an open question</h4><p>Add evidence, options and trade-offs to a file in <DocRef path="docs/open-questions/" />. No code needed. <Link href="/open-questions/">Browse them here</Link>.</p></div></li>
+          <li><div><h4>Or answer an open question</h4><p>Add evidence, options and trade-offs to a file in <DocRef path="docs/open-questions/" />. No code needed. <Link href={localePath("/open-questions/")}>Browse them here</Link>.</p></div></li>
         </ol>
       </div>
 

@@ -1,4 +1,5 @@
 "use client";
+import { localePath } from "@/lib/paths";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { listTrees } from "@/lib/live.mjs";
@@ -40,7 +41,7 @@ export function LiveExtras({ section }: { section: string }) {
     <ul className="doc-list doc-list-new" aria-label="Added since this site was built">
       {fresh.map((p) => (
         <li key={p}>
-          <Link href={`/docs/view/?path=${encodeURIComponent(p)}`}>{titleOf(p)}</Link>
+          <Link href={localePath(`/docs/view/?path=${encodeURIComponent(p)}`)}>{titleOf(p)}</Link>
           <span className="tag tag-new">New</span>
         </li>
       ))}

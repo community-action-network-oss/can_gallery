@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ButtonLink, Chip, Fictional, Planned, RepoLink } from "@/components/ui";
@@ -112,7 +113,7 @@ export default function Home() {
             This is the planned design, not a live product. Along the way a
             problem can also be paused, stuck, redirected or closed, always
             with the reason shown. See{" "}
-            <Link href="/how-it-works/">how it works</Link>.
+            <Link href={localePath("/how-it-works/")}>how it works</Link>.
           </p>
         </div>
       </section>
@@ -122,10 +123,10 @@ export default function Home() {
           <h2 id="deeper-h">Go deeper</h2>
           <div className="stack">
             <ul className="cta-links deeper-links">
-              <li><Link href="/how-it-works/">How it works</Link></li>
-              <li><Link href="/principles/">Principles</Link></li>
-              <li><Link href="/contribute/">Help build it</Link></li>
-              <li><Link href="/open-questions/">Read the open questions</Link></li>
+              <li><Link href={localePath("/how-it-works/")}>How it works</Link></li>
+              <li><Link href={localePath("/principles/")}>Principles</Link></li>
+              <li><Link href={localePath("/contribute/")}>Help build it</Link></li>
+              <li><Link href={localePath("/open-questions/")}>Read the open questions</Link></li>
               <li><RepoLink /></li>
             </ul>
             <div className="unfolds">
@@ -173,7 +174,7 @@ export default function Home() {
           Publishing is planned to use an AI check against community written
           rules, after volunteer review. People can appeal every decision.
         </p>
-        <p><ButtonLink href="/how-it-works/" variant="quiet">The full lifecycle</ButtonLink></p>
+        <p><ButtonLink href={localePath("/how-it-works/")} variant="quiet">The full lifecycle</ButtonLink></p>
               </Unfold>
               <Unfold id="different" summary="What makes it different">
         <div className="cols">
@@ -199,7 +200,7 @@ export default function Home() {
           <li><strong>People answer for decisions.</strong> <span className="d">AI may assist later. It never decides alone.</span></li>
           <li><strong>Improvable by design, not perfect by assumption.</strong> <span className="d">The platform fixes itself with the same process it offers everyone.</span></li>
         </ul>
-        <p><Link href="/principles/">Read the principles and what we will never do</Link></p>
+        <p><Link href={localePath("/principles/")}>Read the principles and what we will never do</Link></p>
               </Unfold>
               <Unfold id="example" summary="A worked example">
         <div className="example">
@@ -232,7 +233,7 @@ export default function Home() {
           <li>Improve one test, one doc, or one unclear sentence.</li>
         </ul>
         <p className="cta-row">
-          <ButtonLink href="/contribute/">See where help is needed</ButtonLink>
+          <ButtonLink href={localePath("/contribute/")}>See where help is needed</ButtonLink>
           <RepoLink />
         </p>
               </Unfold>
@@ -251,7 +252,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <p><Link href="/open-questions/">See all open questions</Link></p>
+        <p><Link href={localePath("/open-questions/")}>See all open questions</Link></p>
               </Unfold>
             </div>
           </div>

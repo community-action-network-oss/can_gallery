@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Chip, DocRef, Fictional, PageHead, Planned, Section } from "@/components/ui";
@@ -127,7 +128,7 @@ export default function Page() {
         </ul>
         <p className="small muted">
           Exact numbers (deletion windows, waiting times, ages) are defaults,
-          and several are <Link href="/open-questions/">open questions</Link>.
+          and several are <Link href={localePath("/open-questions/")}>open questions</Link>.
         </p>
         </Unfold>
       </Section>

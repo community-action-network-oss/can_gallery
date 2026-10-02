@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./tokens.css";
 import "./globals.css";
 import "./theme.css";
+import { htmlAttrs } from "@/lib/locale";
 import { Footer, Header } from "@/components/Shell";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
@@ -21,7 +22,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html {...htmlAttrs()}>
       <body>
         <GluestackUIProvider>
           <a className="skip-link" href="#main">Skip to content</a>

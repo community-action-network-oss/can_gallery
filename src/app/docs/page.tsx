@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IndexStatus, LiveExtras } from "@/components/LiveExtras";
@@ -19,7 +20,7 @@ function List({ items }: { items: DocEntry[] }) {
   return (
     <ul className="doc-list">
       {items.map((e) => (
-        <li key={e.slug}><Link href={`/docs/${e.slug}/`}>{e.title}</Link></li>
+        <li key={e.slug}><Link href={localePath(`/docs/${e.slug}/`)}>{e.title}</Link></li>
       ))}
     </ul>
   );

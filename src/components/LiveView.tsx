@@ -1,4 +1,5 @@
 "use client";
+import { localePath } from "@/lib/paths";
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
 import { isPublicPath, sectionOf, titleOf } from "@/lib/whitelist.mjs";
@@ -13,7 +14,7 @@ export function LiveView() {
     return (
       <div className="wrap doc">
         <h1 className="doc-title">Not a public document</h1>
-        <p className="prose">This page only shows CAN&apos;s public documents. Go back to <Link href="/docs/">Read everything</Link> to choose one.</p>
+        <p className="prose">This page only shows CAN&apos;s public documents. Go back to <Link href={localePath("/docs/")}>Read everything</Link> to choose one.</p>
       </div>
     );
   }

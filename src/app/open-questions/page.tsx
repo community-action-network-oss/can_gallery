@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DocRef, PageHead, Planned, Section } from "@/components/ui";
@@ -48,7 +49,7 @@ function Question({ q }: { q: Q }) {
           <div><dt>Who can help</dt><dd>{q.roles.join(", ")}</dd></div>
         )}
         <div><dt>File in the repository</dt><dd><DocRef path={q.file} /></dd></div>
-        <div><dt>Read it here</dt><dd><Link href={`/docs/open-questions/${q.id}/`}>Read the full question</Link></dd></div>
+        <div><dt>Read it here</dt><dd><Link href={localePath(`/docs/open-questions/${q.id}/`)}>Read the full question</Link></dd></div>
       </dl>
     </li>
   );

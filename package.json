@@ -19,7 +19,8 @@
     "check:out": "node scripts/check-out.mjs",
     "check:claims": "node scripts/check-claims.mjs",
     "check:copy": "node scripts/check-copy.mjs",
-    "verify": "npm run sync:check && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy"
+    "check:locale": "node scripts/check-locale.mjs",
+    "verify": "npm run sync:check && npm run test && npm run lint && npm run typecheck && npm run build && npm run check:out && npm run check:claims && npm run check:copy && npm run check:locale"
   },
   "dependencies": {
     "@expo/html-elements": "0.10.1",

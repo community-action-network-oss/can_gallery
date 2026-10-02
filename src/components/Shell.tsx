@@ -1,3 +1,4 @@
+import { localePath } from "@/lib/paths";
 import { DEEPER_NAV, MAIN_NAV, SITE_NAME, SITE_SHORT, docUrl } from "@/config/site";
 import { PRIVACY_URL, THIRD_PARTY } from "@/config/docs-origin.mjs";
 import { Box } from "./ui/box";
@@ -16,7 +17,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Box className={`${WRAP} flex-row flex-wrap items-center justify-between gap-x-6 gap-y-2 py-3`}>
-        <Link href="/" quiet className="brand font-bold no-underline px-0 gap-3" aria-label={`${SITE_NAME}, home`}>
+        <Link href={localePath("/")} quiet className="brand font-bold no-underline px-0 gap-3" aria-label={`${SITE_NAME}, home`}>
           <span className="brand-mark" aria-hidden="true">{SITE_SHORT}</span>
           <span>{SITE_NAME}</span>
         </Link>
@@ -24,7 +25,7 @@ export function Header() {
           <ul className="nav">
             {MAIN_NAV.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} quiet>{n.label}</Link>
+                <Link href={localePath(n.href)} quiet>{n.label}</Link>
               </li>
             ))}
             <li>
@@ -32,7 +33,7 @@ export function Header() {
                 <ul className="deeper-list">
                   {DEEPER_NAV.map((n) => (
                     <li key={n.href}>
-                      <Link href={n.href} quiet>{n.label}</Link>
+                      <Link href={localePath(n.href)} quiet>{n.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -70,7 +71,7 @@ export function Footer() {
           <ul className="footer-links">
             {[...MAIN_NAV.slice(1), ...DEEPER_NAV].map((n) => (
               <li key={n.href}>
-                <Link href={n.href} quiet>{n.label}</Link>
+                <Link href={localePath(n.href)} quiet>{n.label}</Link>
               </li>
             ))}
           </ul>
