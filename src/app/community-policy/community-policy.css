@@ -1,0 +1,9 @@
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--can-space-2); }
+.flow > li { border: 2px solid var(--can-color-text); padding: var(--can-space-2) var(--can-space-3); min-width: 0; overflow-wrap: anywhere; }
+.flow strong { display: block; }
+.flow > li + li::before { content: "then"; display: block; font-size: 0.8em; color: var(--can-color-text-muted); margin-block-start: calc(var(--can-space-2) * -1); }
+@media (min-width: 48rem) {
+  .flow { grid-template-columns: repeat(5, 1fr); }
+  .flow > li + li::before { content: none; }
+}
+.dp { columns: 2 14rem; padding-inline-start: 1.25rem; }

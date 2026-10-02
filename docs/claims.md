@@ -76,3 +76,21 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-068 | roadmap | The first build only leaves room for it: portable identifiers, a | docs/spec/12-decentralization-ready.md | supported |
 | C-069 | docs | Each page is fetched live, so you always see the current text. | docs/spec/18-phases-gates.md | removed |
 | C-070 | docs | Each page is fetched live, so you see the current text. | docs/spec/18-phases-gates.md | softened |
+| C-071 | contribute | CAN is a side project built so far mostly with AI coding assistants, to reach a working first version quickly | README.md | softened |
+| C-072 | contribute | some of the code is not at its best yet. | CONTRIBUTING.md | softened |
+| C-073 | contribute | making what exists solid: tests, structure, security, speed and readability, before new features. | CONTRIBUTING.md | softened |
+| C-074 | how-decisions-are-made | "A maintainer reviews it." | docs/spec/21-open-source-governance.md | supported |
+| C-075 | how-decisions-are-made | "An engineering decision, or a short proposal." | docs/spec/21-open-source-governance.md | supported |
+| C-076 | how-decisions-are-made | "A public request for comments first." | docs/spec/21-open-source-governance.md | supported |
+| C-077 | how-decisions-are-made | "A versioned proposal that others can read and test." | docs/spec/21-open-source-governance.md | supported |
+| C-078 | how-decisions-are-made | "The constitutional amendment process." | docs/spec/21-open-source-governance.md | supported |
+| C-079 | how-decisions-are-made | "Private, coordinated disclosure and a fix before details are public." | docs/spec/21-open-source-governance.md | supported |
+| C-080 | how-decisions-are-made | "A time limited trial with success and rollback criteria written down first." | docs/spec/21-open-source-governance.md | supported |
+| C-081 | how-decisions-are-made | "An approved, versioned policy pack with the review evidence attached." | docs/spec/21-open-source-governance.md | supported |
+| C-082 | how-decisions-are-made | That role is meant to be temporary, with limits and an end date still to be agreed. | docs/spec/21-open-source-governance.md | supported |
+| C-083 | how-decisions-are-made | AI review is advisory. It never replaces a required human approval, and nothing merges itself. | docs/spec/22-ai-contribution-policy.md | supported |
+| C-084 | community-policy | At least one completed volunteer review is always required first. | docs/design/ai/archive-reuse.md | supported |
+| C-085 | community-policy | If a check cannot finish, the problem is held back, never published. | docs/design/ai/README.md | supported |
+| C-086 | community-policy | Nothing is removed silently. | docs/design/ai/README.md | supported |
+| C-087 | community-policy | Someone in crisis is shown fixed, static help text. The AI never acts as a counsellor. | docs/design/ai/safety-and-privacy.md | supported |
+| C-088 | community-policy | No pack has been ratified. | can_policy/packs/base/pack.yaml | supported |
