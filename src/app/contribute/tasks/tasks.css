@@ -1,0 +1,5 @@
+.task-areas { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--can-space-3); }
+.task-grid { display: grid; gap: var(--can-space-4); }
+.task { min-width: 0; border: 1px solid currentColor; border-radius: 0.5rem; padding: var(--can-space-3); overflow-wrap: anywhere; }
+.task h3 { margin-top: 0; }
+.task-meta { font-size: 0.875em; }

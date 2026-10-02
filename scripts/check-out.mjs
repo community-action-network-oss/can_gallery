@@ -70,7 +70,7 @@ else {
     for (const f of everything) if (readFileSync(f, "utf8").includes(needle)) problems.push(`${f.slice(out.length + 1)}: contains document text from ${src}`);
   }
 }
-for (const must of ["index.html", "how-it-works/index.html", "contribute/index.html", "open-questions/index.html", "roadmap/index.html", "principles/index.html", "where-you-fit/index.html", "docs/index.html", "docs/view/index.html"]) {
+for (const must of ["index.html", "how-it-works/index.html", "contribute/index.html", "contribute/tasks/index.html", "open-questions/index.html", "roadmap/index.html", "principles/index.html", "where-you-fit/index.html", "docs/index.html", "docs/view/index.html"]) {
   if (!files.some((f) => f.endsWith("/" + must))) problems.push(`missing route ${must}`);
 }
 if (problems.length) { console.error(problems.join("\n")); process.exit(1); }
