@@ -56,7 +56,7 @@ const manifestFile = new URL("../.generated/manifest.json", import.meta.url).pat
 const manifest = existsSync(manifestFile) ? JSON.parse(readFileSync(manifestFile, "utf8")) : null;
 if (!manifest) problems.push("missing .generated/manifest.json");
 else {
-  const docPages = files.map((f) => f.slice(out.length + 1)).filter((r) => r.startsWith("docs/") && r !== "docs/index.html" && r !== "docs/view/index.html");
+  const docPages = files.map((f) => f.slice(out.length + 1)).filter((r) => r.startsWith("docs/") && r !== "docs/index.html" && r !== "docs/view/index.html" && !r.startsWith("docs/section/"));
   if (docPages.length !== manifest.length) problems.push(`docs pages ${docPages.length} do not match manifest ${manifest.length}`);
   for (const e of manifest) if (!docPages.includes(`docs/${e.slug}/index.html`)) problems.push(`missing docs page for ${e.path}`);
   const everything = [...files, ...js];
@@ -70,7 +70,7 @@ else {
     for (const f of everything) if (readFileSync(f, "utf8").includes(needle)) problems.push(`${f.slice(out.length + 1)}: contains document text from ${src}`);
   }
 }
-for (const must of ["index.html", "how-it-works/index.html", "contribute/index.html", "contribute/tasks/index.html", "contribute/roles/index.html", "contribute/roles/engineers/index.html", "contribute/roles/legal-policy/index.html", "contribute/roles/translators/index.html", "contribute/roles/researchers/index.html", "contribute/roles/documentation/index.html", "open-questions/index.html", "roadmap/index.html", "principles/index.html", "where-you-fit/index.html", "how-decisions-are-made/index.html", "community-policy/index.html", "lawful-everywhere/index.html", "re-resolution/index.html", "archive-and-reuse/index.html", "private-location/index.html", "proof/index.html", "whats-new/index.html", "docs/index.html", "docs/view/index.html"]) {
+for (const must of ["index.html", "how-it-works/index.html", "contribute/index.html", "contribute/tasks/index.html", "contribute/roles/index.html", "contribute/roles/engineers/index.html", "contribute/roles/legal-policy/index.html", "contribute/roles/translators/index.html", "contribute/roles/researchers/index.html", "contribute/roles/documentation/index.html", "open-questions/index.html", "roadmap/index.html", "principles/index.html", "where-you-fit/index.html", "how-decisions-are-made/index.html", "community-policy/index.html", "lawful-everywhere/index.html", "re-resolution/index.html", "archive-and-reuse/index.html", "private-location/index.html", "proof/index.html", "whats-new/index.html", "docs/index.html", "docs/view/index.html", "docs/section/policy/index.html", "docs/section/open-questions/index.html"]) {
   if (!files.some((f) => f.endsWith("/" + must))) problems.push(`missing route ${must}`);
 }
 if (problems.length) { console.error(problems.join("\n")); process.exit(1); }

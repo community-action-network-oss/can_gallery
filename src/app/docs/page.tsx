@@ -2,27 +2,13 @@ import { localePath } from "@/lib/paths";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Link from "@/components/A";
-import { IndexStatus, LiveExtras } from "@/components/LiveExtras";
+import { IndexStatus } from "@/components/LiveExtras";
 import { PageHead } from "@/components/ui";
-import { Unfold } from "@/components/Unfold";
 import { SECTIONS } from "@/content/docs-sections";
 import { PRIVACY_NOTE, PRIVACY_URL, THIRD_PARTY } from "@/config/docs-origin.mjs";
-import { manifest, type DocEntry } from "@/lib/manifest";
+import { manifest } from "@/lib/manifest";
 
 export const metadata: Metadata = pageMetadata("/docs/", "Read everything", "Every public CAN document in one place, read live from GitHub: manifesto, rules, decisions, open questions, specification, design and architecture.");
-
-const GROUPS: Record<string, string> = { ai: "AI moderation", flows: "Flows", components: "Components", ux: "UX and screens", overview: "Overview" };
-const group = (e: DocEntry) => (e.section === "design" ? (e.path.split("/").length > 3 ? e.path.split("/")[2] : "overview") : "");
-
-function List({ items }: { items: DocEntry[] }) {
-  return (
-    <ul className="doc-list">
-      {items.map((e) => (
-        <li key={e.slug}><Link href={localePath(`/docs/${e.slug}/`)} aria-label={`${e.title} (${e.path})`}>{e.title}</Link></li>
-      ))}
-    </ul>
-  );
-}
 
 export default function Page() {
   const all = manifest();
@@ -46,40 +32,26 @@ export default function Page() {
           </p>
         )}
         <noscript>
-          <p className="doc-note prose">Documents load live from GitHub, which needs JavaScript. The lists below still work as links, and each page links to the file on GitHub.</p>
+          <p className="doc-note prose">Documents load live from GitHub, which needs JavaScript. The groups below still work as links, and each page links to the file on GitHub.</p>
         </noscript>
         <IndexStatus />
-        <nav aria-label="Sections" className="doc-jump">
-          <ul>
-            {SECTIONS.map((s) => (<li key={s.id}><a href={`#${s.id}-list`} aria-label={`${s.title}, jump to this section`}>{s.title}</a></li>))}
-          </ul>
-        </nav>
       </div>
-      {SECTIONS.map((s) => {
-        const items = all.filter((e) => e.section === s.id);
-        const keys = [...new Set(items.map(group))];
-        return (
-          <section key={s.id} id={s.id} className="section" aria-labelledby={`${s.id}-h`}>
-            <div className="wrap">
-              <h2 id={`${s.id}-h`}>{s.title}</h2>
-              <p className="prose muted">{s.blurb}</p>
-              <Unfold id={`${s.id}-list`} summary={`${items.length} ${items.length === 1 ? "document" : "documents"} in this group`}>
-                <div className="doc-sectionlist">
-                  {s.id === "design"
-                    ? keys.map((k) => (
-                        <div key={k}>
-                          <h3>{GROUPS[k] ?? k}</h3>
-                          <List items={items.filter((e) => group(e) === k)} />
-                        </div>
-                      ))
-                    : <List items={items} />}
-                  <LiveExtras section={s.id} />
-                </div>
-              </Unfold>
-            </div>
-          </section>
-        );
-      })}
+      <section className="section" aria-labelledby="groups-h">
+        <div className="wrap">
+          <h2 id="groups-h">Document groups</h2>
+          <ul className="doc-list">
+            {SECTIONS.map((x) => {
+              const n = all.filter((e) => e.section === x.id).length;
+              return (
+                <li key={x.id}>
+                  <Link href={localePath(`/docs/section/${x.id}/`)} aria-label={`${x.title}, ${n} ${n === 1 ? "document" : "documents"}`}>{x.title}</Link>
+                  <span className="muted"> ({n}) {x.blurb}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
     </>
   );
 }
