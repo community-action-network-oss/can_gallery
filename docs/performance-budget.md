@@ -35,12 +35,12 @@ Remaining excess over the old 130 KB is the irreducible framework runtime. Reach
 
 ## HTML: known exceptions (open founder review item)
 
-`check:budget` enforces 30 KB gzipped HTML on every page except three, listed in `HTML_EXCEPTIONS` in `scripts/budget.mjs` with a ceiling that may only go down:
+`check:budget` enforces 30 KB gzipped HTML on every page except two, listed in `HTML_EXCEPTIONS` in `scripts/budget.mjs` with a ceiling that may only go down:
 
 | Page | HTML gzipped | Why |
 | --- | --- | --- |
 | `/contribute/tasks/` | about 212 KB | 328 generated task cards. Next embeds each page a second time as inline data for hydration, so the list counts twice. |
-| `/docs/` | about 48 KB | The index of every public document. |
+| `/docs/` | about 6.8 KB, no longer an exception | Now a short index of eight groups. Each group lists its documents on `/docs/section/<id>/`, the largest (open questions, policy) about 14.6 KB gzipped. Was 33.5 KB as one list of 360 documents. |
 | `/open-questions/` | about 48 KB | Every open question with its detail. |
 
 The budget number is not relaxed. Fixing these means splitting each list over several pages or loading it after the page, which changes what the pages are. The check fails if one of them drops under 30 KB so the entry is removed.
