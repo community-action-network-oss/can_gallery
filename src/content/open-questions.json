@@ -665,6 +665,18 @@
     "file": "docs/open-questions/OQ-replay-diff-sample-size.md"
   },
   {
+    "id": "OQ-reply-limit",
+    "question": "D-85 limits a person to 4 replies per problem per rolling 24 hours, as a community policy value. Should the principle (a cap on replies so each one counts) be written into the constitution, with the number staying a policy value?",
+    "why": "A policy value can be changed by a policy proposal. A constitution rule is harder to remove and would protect the \"fewer, better replies\" purpose from being weakened by a later pack. It would also bind every jurisdiction.",
+    "default": "4 replies per account per problem per rolling 24 hours, in can_policy limits.yaml as caps.replies_per_account_per_problem_per_day (provisional). The server falls back to 4 per day. It combines with the cooldowns in OQ-cooldown-lengths: both apply, the stricter wins. The constitution is not changed.",
+    "roles": [
+      "Community managers",
+      "constitution authors",
+      "accessibility advocates (people who need more than 4 replies to explain a complex problem)"
+    ],
+    "file": "docs/open-questions/OQ-reply-limit.md"
+  },
+  {
     "id": "OQ-reremoderation-grace",
     "question": "When re-moderation under a new policy version flips a published item, how long does the item stay visible with its \"re-reviewed under policy vX\" notice before the flip takes effect, and how do appeals interact with that period?",
     "why": "Immediate removal feels like silent censorship; a long wait leaves content that the community has decided should not be public (REMOD-NOTICE-1). Safety and privacy flips may need no grace at all.",

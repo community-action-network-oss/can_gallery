@@ -1,7 +1,7 @@
 {
   "source": "DECISIONS.md",
   "adrIndex": "docs/adr/README.md",
-  "total": 83,
+  "total": 85,
   "excluded": [
     "D-21",
     "D-24",
@@ -294,6 +294,16 @@
     {
       "id": "D-83",
       "headline": "One pack hash form: pack-relative paths (orchestrator default, for founder review)",
+      "adr": []
+    },
+    {
+      "id": "D-84",
+      "headline": "Stage auto_start defaults to true: the spec wins over the 10-u66 unit text (orchestrator default, for founder review)",
+      "adr": []
+    },
+    {
+      "id": "D-85",
+      "headline": "Four replies per person per problem per day, so every reply counts (founder, 2026-10-03)",
       "adr": []
     }
   ],

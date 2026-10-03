@@ -29,7 +29,9 @@ let paths;
 if (local) {
   // can_policy is listed only when checked out beside the docs; otherwise it is found live.
   paths = ["manifesto.md", "DECISIONS.md", ...["docs/open-questions", "docs/spec", "docs/design", "docs/adr", "can_policy"].flatMap(walk)]
-    .filter((p) => isPublicPath(p) && existsSync(join(sup, p)));
+    .filter((p) => isPublicPath(p) && existsSync(join(sup, p)))
+    // The index lists documents for people: no machine data (yaml, json), PENDING stubs or fixtures. Live fetch still reaches them via /docs/view/.
+    .filter((p) => !p.startsWith("can_policy/") || (p.endsWith(".md") && !/(^|\/)PENDING\.md$|(^|\/)fixtures?\//.test(p)));
   const next = JSON.stringify(paths, null, 2) + "\n";
   const prev = existsSync(manifestFile) ? readFileSync(manifestFile, "utf8") : null;
   if (prev !== next) {

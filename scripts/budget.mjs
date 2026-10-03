@@ -41,4 +41,4 @@ export function gzSize(files) {
 
 /** Pages whose HTML is over BUDGET.html because Next embeds the whole page a second time as inline RSC data and the page is one long generated list.
  * Ratchet only: the ceiling may go down, never up. Listed in docs/performance-budget.md as an open founder review item. */
-export const HTML_EXCEPTIONS = { '/contribute/tasks/': 225 * KB, '/docs/': 52 * KB, '/open-questions/': 52 * KB };
+export const HTML_EXCEPTIONS = { '/contribute/tasks/': 225 * KB, '/docs/': 31.5 * KB, '/open-questions/': 52 * KB };
