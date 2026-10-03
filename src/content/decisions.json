@@ -1,7 +1,7 @@
 {
   "source": "DECISIONS.md",
   "adrIndex": "docs/adr/README.md",
-  "total": 85,
+  "total": 86,
   "excluded": [
     "D-21",
     "D-24",
@@ -304,6 +304,11 @@
     {
       "id": "D-85",
       "headline": "Four replies per person per problem per day, so every reply counts (founder, 2026-10-03)",
+      "adr": []
+    },
+    {
+      "id": "D-86",
+      "headline": "Night run 2026-10-03: defaults taken by unit agents and the orchestrator (for founder review)",
       "adr": []
     }
   ],
