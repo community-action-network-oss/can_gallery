@@ -118,6 +118,7 @@ export default function Page() {
 
       <Section id="few" title="A few problems, done properly">
         <p><Planned /> The aim is one person and a handful of problems they can really move, not an endless list. Right now the problem to move is building CAN itself.</p>
+        <p><Planned /> You can reply to a problem 4 times a day, so make each reply count.</p>
         <p className="cta-row"><ButtonLink href={localePath("/contribute/")}>Help build it</ButtonLink></p>
       </Section>
     </>

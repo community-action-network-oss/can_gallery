@@ -118,6 +118,19 @@ export default function Page() {
         </Unfold>
       </Section>
 
+      <Section id="replies" title="Replies: make each one count">
+        <p><Planned /> You can reply to a problem 4 times a day. That is on purpose: make each reply count.</p>
+        <Unfold id="replies-detail" summary="What counts, and why">
+        <ul>
+          <li>Any reply you send on one problem counts, whatever kind it is, including replies on its stages.</li>
+          <li>Drafts and edits do not count, and neither do appeals or answers to a volunteer.</li>
+          <li>The 4 are counted over a rolling 24 hours, separately for each problem.</li>
+          <li>The aim is fewer, better replies instead of a stream.</li>
+        </ul>
+        <p className="small muted">The number is a community policy value, so it can change. Source: <DocRef path="docs/spec/05-lifecycle-participation.md" />.</p>
+        </Unfold>
+      </Section>
+
       <Section id="privacy" title="Privacy stance">
         <p>Your email stays private, a problem never names anyone, and this site collects nothing about you.</p>
         <Unfold id="privacy-detail" summary="What we protect, and the numbers still open">

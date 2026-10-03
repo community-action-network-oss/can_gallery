@@ -149,3 +149,7 @@ Status: supported (source says it), softened (reworded in the Phase 0A audit to 
 | C-141 | private-location | A zero-knowledge proof would let the server learn even less. | docs/adr/0016-private-location-attestation.md | supported |
 | C-142 | private-location | It would be adopted only if it passes measured limits: about 3 seconds on a mid-range phone, a small proof and a clean external privacy review. | docs/design/location/attestation.md | supported |
 | C-143 | private-location | Coordinates. | docs/design/location/attestation.md | supported |
+| C-144 | how-it-works | You can reply to a problem 4 times a day. That is on purpose: make each reply count. | docs/spec/05-lifecycle-participation.md | supported |
+| C-145 | how-it-works | The 4 are counted over a rolling 24 hours, separately for each problem. | docs/spec/05-lifecycle-participation.md | supported |
+| C-146 | how-it-works | Drafts and edits do not count, and neither do appeals or answers to a volunteer. | docs/spec/05-lifecycle-participation.md | supported |
+| C-147 | where-you-fit | You can reply to a problem 4 times a day, so make each reply count. | docs/spec/05-lifecycle-participation.md | supported |
